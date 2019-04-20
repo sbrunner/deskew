@@ -13,6 +13,7 @@ from deskew import determine_skew
     ('5', pytest.approx(3.410, abs=0.7)),
     ('6', pytest.approx(-2.810, abs=0.21)),
     ('7', pytest.approx(3.395, abs=0.7)),
+    ('8', pytest.approx(15.084, abs=0.05)),
 ])
 def test_deskew(image, expected_angle):
     root_folder = 'results/{}'.format(image)
