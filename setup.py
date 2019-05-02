@@ -10,9 +10,12 @@ setup(
     long_description="""Skew detection and correction in images containing text
 
 Homepage: https://github.com/sbrunner/deskew""",
+    license='MIT',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+        'Development Status :: 5 - Production/Stable',
     ],
     author='Stéphane Brunner',
     author_email='stephane.brunner@gmail.com',
