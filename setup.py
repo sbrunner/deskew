@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='deskew',
-    version='0.9.0',
+    version='0.10.0',
     description='Skew detection and correction in images containing text',
     long_description="""Skew detection and correction in images containing text
 
