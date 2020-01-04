@@ -23,7 +23,7 @@ jobs:
           when: always
       - run:
           name: mypy
-          command: mypy -- deskew
+          command: mypy --cache-dir /tmp -- deskew
           when: always
       - run:
           name: codespell
@@ -68,7 +68,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]
             then
               pip install --user bump-anything
-              bump minor
+              bump patch
               git add setup.py
               git commit --allow-empty -m "[skip ci] Bump Version"
               git push push ${CIRCLE_BRANCH}
