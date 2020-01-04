@@ -23,7 +23,7 @@ jobs:
           when: always
       - run:
           name: mypy
-          command: mypy -- deskew
+          command: mypy --cache-dir /tmp -- deskew
           when: always
       - run:
           name: codespell
