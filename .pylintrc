@@ -1,6 +1,6 @@
 
 [MESSAGES CONTROL]
-disable=C0111
+disable=missing-docstring,too-many-branches
 
 [FORMAT]
 max-line-length=110
