@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Tuple, Optional
 
 import numpy as np
 from skimage.feature import canny
@@ -88,7 +88,7 @@ def determine_skew_dev(  # pylint: disable=too-many-locals
         ans_arr = _get_max_freq_elem(angles_peaks_degree)
         angle = np.mean(ans_arr)
     else:
-        return None
+        return None, angles, average_deviation, (out, angles, distances)
 
     if 0 <= angle <= 90:
         rot_angle = angle - 90
