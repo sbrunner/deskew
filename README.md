@@ -23,6 +23,7 @@ deskew --output output.png input.png
 
 scikit-image:
 ```python
+import numpy as np
 from skimage import io
 from skimage.transform import rotate
 from skimage.color import rgb2gray
@@ -37,9 +38,10 @@ io.imsave('output.png', rotated.astype(np.uint8))
 
 OpenCV:
 ```python
-from typing import Tuple
+from typing import Tuple, Union
 import numpy as np
 import cv2
+import math
 from deskew import determine_skew
 
 def rotate(
