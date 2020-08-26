@@ -1,5 +1,5 @@
 # Deskew
-
+//Note: Skew is measured in degrees. Deskewing is a process whereby skew is removed by rotating an image by the same amount as its skew but in the opposite direction. This results in a horizontally and vertically aligned image where the text runs across the page rather than at an angle.
 ## Skew detection and correction in images containing text
 
 <img src="doc/input.jpeg" width=400px />
