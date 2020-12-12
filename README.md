@@ -25,8 +25,9 @@ scikit-image:
 ```python
 import numpy as np
 from skimage import io
-from skimage.transform import rotate
 from skimage.color import rgb2gray
+from skimage.transform import rotate
+
 from deskew import determine_skew
 
 image = io.imread('input.png')
@@ -38,11 +39,14 @@ io.imsave('output.png', rotated.astype(np.uint8))
 
 OpenCV:
 ```python
-from typing import Tuple, Union
-import numpy as np
-import cv2
 import math
+from typing import Tuple, Union
+
+import cv2
+import numpy as np
+
 from deskew import determine_skew
+
 
 def rotate(
         image: np.ndarray, angle: float, background: Union[int, Tuple[int, int, int]]

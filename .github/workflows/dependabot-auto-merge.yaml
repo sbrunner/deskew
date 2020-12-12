@@ -1,0 +1,21 @@
+---
+name: Auto merge Dependabot updates
+
+on:
+  check_suite:
+    types:
+      - completed
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  auto-merge:
+    name: Auto merge
+    runs-on: ubuntu-20.04
+    timeout-minutes: 5
+    steps:
+      - name: Auto merge
+        uses: ridedott/dependabot-auto-merge-action@master
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

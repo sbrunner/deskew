@@ -1,0 +1,9 @@
+checks:
+  versions: False
+  black:
+    ignore_patterns_re:
+      - README\.md
+  required_workflows:
+    backport.yaml: False
+    clean.yaml: False
+    audit.yaml: False

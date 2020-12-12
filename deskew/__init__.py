@@ -23,8 +23,10 @@ def _get_max_freq_elem(peaks: List[int]) -> List[float]:
 
     return max_arr
 
+
 def _compare_sum(value: float) -> bool:
     return 44 <= value <= 46
+
 
 def _calculate_deviation(angle: float) -> float:
 
@@ -33,8 +35,9 @@ def _calculate_deviation(angle: float) -> float:
 
     return deviation
 
+
 def determine_skew_dev(  # pylint: disable=too-many-locals
-        image: np.ndarray, sigma: float = 3.0, num_peaks: int = 20
+    image: np.ndarray, sigma: float = 3.0, num_peaks: int = 20
 ) -> Tuple[Optional[float], Any, Any, Tuple[Any, Any, Any]]:
     img = image
     edges = canny(img, sigma=sigma)
