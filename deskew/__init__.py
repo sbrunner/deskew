@@ -13,7 +13,7 @@ def _get_max_freq_elem(peaks: List[int]) -> List[float]:
         else:
             freqs[peak] = 1
 
-    sorted_keys = sorted(freqs, key=freqs.get, reverse=True)
+    sorted_keys = sorted(freqs.keys(), key=freqs.get, reverse=True)  # type: ignore
     max_freq = freqs[sorted_keys[0]]
 
     max_arr = []
