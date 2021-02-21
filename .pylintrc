@@ -1,6 +1,6 @@
 
 [MESSAGES CONTROL]
-disable=missing-docstring,too-many-branches
+disable=locally-disabled,too-many-locals,too-many-branches,missing-module-docstring,missing-function-docstring,bad-continuation
 
 [FORMAT]
 max-line-length=110

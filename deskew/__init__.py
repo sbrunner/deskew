@@ -36,7 +36,7 @@ def _calculate_deviation(angle: float) -> float:
     return deviation
 
 
-def determine_skew_dev(  # pylint: disable=too-many-locals
+def determine_skew_dev(
     image: np.ndarray, sigma: float = 3.0, num_peaks: int = 20
 ) -> Tuple[Optional[float], Any, Any, Tuple[Any, Any, Any]]:
     img = image

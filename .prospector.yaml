@@ -1,0 +1,11 @@
+---
+strictness: veryhigh
+
+bandit:
+  run: true
+
+mypy:
+  run: true
+
+mccabe:
+  run: false
