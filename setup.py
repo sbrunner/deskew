@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from setuptools import find_packages, setup
+import site
+import sys
+
+from setuptools import find_packages, setup  # type: ignore
+
+site.ENABLE_USER_SITE = "--user" in sys.argv[1:]
 
 setup(
     name="deskew",
