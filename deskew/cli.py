@@ -23,7 +23,7 @@ def main() -> None:
     grayscale = rgb2gray(image)
     angle = determine_skew(grayscale, sigma=options.sigma, num_peaks=options.num_peaks)
     if options.output is None:
-        print("Estimated angle: {}".format(angle))
+        print(f"Estimated angle: {angle}")
     else:
         if options.background:
             try:

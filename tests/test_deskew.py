@@ -21,11 +21,11 @@ from deskew import determine_skew
     ],
 )
 def test_deskew(image, expected_angle):
-    root_folder = "results/{}".format(image)
+    root_folder = f"results/{image}"
     if not os.path.exists(root_folder):
         os.makedirs(root_folder)
 
-    image = io.imread(os.path.join(os.path.dirname(__file__), "deskew-{}.png".format(image)))
+    image = io.imread(os.path.join(os.path.dirname(__file__), f"deskew-{image}.png"))
     grayscale = rgb2gray(image)
     angle = determine_skew(grayscale)
     print(angle - expected_angle.expected)
