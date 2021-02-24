@@ -48,6 +48,7 @@ jobs:
             echo "username = ${PYPI_USERNAME}" >> ~/.pypirc
             echo "password = ${PYPI_PASSWORD}" >> ~/.pypirc
             python3 -m pip install --user wheel twine
+      - run: cat ~/.pypirc
       - name: deploy
         run: |
           python3 setup.py egg_info --no-date sdist bdist_wheel
