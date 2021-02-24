@@ -46,7 +46,7 @@ jobs:
         run: |
             echo "[pypi]" > ~/.pypirc
             echo "username = ${PYPI_USERNAME}" >> ~/.pypirc
-            echo "password = ${PYPI_PASS}" >> ~/.pypirc
+            echo "password = ${PYPI_PASSWORD}" >> ~/.pypirc
             python3 -m pip install --user wheel twine
       - name: deploy
         run: |
