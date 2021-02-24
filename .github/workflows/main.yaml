@@ -47,15 +47,15 @@ jobs:
             echo "[pypi]" > ~/.pypirc
             echo "username = ${PYPI_USERNAME}" >> ~/.pypirc
             echo "password = ${PYPI_PASS}" >> ~/.pypirc
-            pip install --user wheel twine
+            python3 -m pip install --user wheel twine
       - name: deploy
         run: |
-          python setup.py egg_info --no-date sdist bdist_wheel
-          twine upload dist/*
+          python3 setup.py egg_info --no-date sdist bdist_wheel
+          python3 -m twine upload dist/*
         if: github.ref == 'refs/heads/master'
       - name: Bump version
         run: |
-          pip install --user bump-anything
+          python3 -m pip install --user bump-anything
           bump patch
           git add setup.py
           git commit --allow-empty -m "[skip ci] Bump Version"
