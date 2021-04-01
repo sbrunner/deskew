@@ -96,7 +96,6 @@
                 "sha256:be4430b33b25e127fc4ea239cc386389de420be4d63e71d5359c20b562951ce1",
                 "sha256:c45e7bf89ea33a2adaef34774df4e692c7436a18a48bcb0e47a53e698a39fa39"
             ],
-            "index": "pypi",
             "version": "==3.4.1"
         },
         "networkx": {
@@ -278,10 +277,11 @@
         },
         "tifffile": {
             "hashes": [
-                "sha256:1b72c92ecd2273e52686c0f8792d1d1c4da4109b241dd1723dfe56ef4d1ad612",
-                "sha256:f6092aba910ed52b6087877c9a2f604ba67623a8703fa8079929b62992dcc69c"
+                "sha256:3a966053e09a89317e6c9bdf99db4bf5c4d3d611ca8ac455024d7824ea5772b3",
+                "sha256:e0182c4f819688cad03788006512295875565127b7a7eeab0993304e2aa33c76"
             ],
-            "version": "==2021.3.17"
+            "index": "pypi",
+            "version": "==2021.3.31"
         }
     },
     "develop": {
