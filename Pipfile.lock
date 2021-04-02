@@ -25,11 +25,11 @@
         },
         "decorator": {
             "hashes": [
-                "sha256:107200b813feec199120fb042ac03a0b89b18c827a74c0dbb931d1abb856f047",
-                "sha256:2e8a0aad7c01d76a584c7b2e45a50f5c6761ca2bbc670f7012257a909f751bbe"
+                "sha256:566f7d4563486f27d3c9fd201fd6f6f95eaf7cf4ad6f6ebbcffe82563b7bf06c",
+                "sha256:e3f6d0eb6f1bf4580f872cb4313cb9a2067183e92bb1fbc4e5309285342d3420"
             ],
             "index": "pypi",
-            "version": "==5.0.2"
+            "version": "==5.0.3"
         },
         "imageio": {
             "hashes": [
