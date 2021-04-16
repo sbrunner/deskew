@@ -3,9 +3,9 @@ name: Code scanning
 
 on:
   push:
-  pull_request:
-  schedule:
-    - cron: '0 19 * * 0'
+
+env:
+  HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
 
 jobs:
   codeql:
@@ -14,13 +14,14 @@ jobs:
     timeout-minutes: 25
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        if: env.HAS_SECRETS == 'HAS_SECRETS'
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        if: env.HAS_SECRETS == 'HAS_SECRETS'
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
+        if: env.HAS_SECRETS == 'HAS_SECRETS'

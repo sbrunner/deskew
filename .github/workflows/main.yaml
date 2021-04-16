@@ -5,7 +5,7 @@ on:
   push:
 
 env:
-  IN_CI: '1'
+  HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
 
 jobs:
   build:
@@ -29,10 +29,10 @@ jobs:
       - run: python3 -m pip install --quiet --user -e .
       - run: prospector .
       - run: >
-            coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes
-            --profile --profile-svg --junitxml=results/test-reports/junit.xml tests &&
-            coverage report &&
-            coverage html --directory=results/coverage
+          coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes
+          --profile --profile-svg --junitxml=results/test-reports/junit.xml tests &&
+          coverage report &&
+          coverage html --directory=results/coverage
 
       - uses: actions/upload-artifact@v1
         with:
@@ -44,12 +44,14 @@ jobs:
           git config credential.helper 'cache --timeout=120'
           git config user.email "<ci@ci.com>"
           git config user.name "CI"
+        if: env.HAS_SECRETS == 'HAS_SECRETS'
       - name: Init pypi
         run: |
-            echo "[pypi]" > ~/.pypirc
-            echo "username = ${{ secrets.PYPI_USERNAME }}" >> ~/.pypirc
-            echo "password = ${{ secrets.PYPI_PASSWORD }}" >> ~/.pypirc
-            python3 -m pip install --user wheel twine
+          echo "[pypi]" > ~/.pypirc
+          echo "username = ${{ secrets.PYPI_USERNAME }}" >> ~/.pypirc
+          echo "password = ${{ secrets.PYPI_PASSWORD }}" >> ~/.pypirc
+          python3 -m pip install --user wheel twine
+        if: env.HAS_SECRETS == 'HAS_SECRETS'
       - name: Bump version
         run: |
           python3 -m pip install --user bump-anything
@@ -57,9 +59,13 @@ jobs:
           git add setup.py
           git commit --allow-empty -m "[skip ci] Bump Version"
           git push
-        if: github.ref == 'refs/heads/master'
+        if: |
+          github.ref == 'refs/heads/master'
+          && env.HAS_SECRETS == 'HAS_SECRETS'
       - name: deploy
         run: |
           python3 setup.py egg_info --no-date sdist bdist_wheel
           python3 -m twine upload dist/*
-        if: github.ref == 'refs/heads/master'
+        if: |
+          github.ref == 'refs/heads/master'
+          && env.HAS_SECRETS == 'HAS_SECRETS'
