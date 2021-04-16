@@ -2,12 +2,11 @@
 name: Auto merge Dependabot updates
 
 on:
-  check_suite:
+  workflow_run:
+    workflows:
+      - Continuous integration
     types:
       - completed
-  pull_request:
-    types:
-      - opened
 
 jobs:
   auto-merge:
