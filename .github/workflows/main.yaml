@@ -29,10 +29,9 @@ jobs:
         run: c2cciutils-checks
 
       - run: pipenv sync --system --dev
-      - run: python3 -m pip install --quiet --user -e .
-      - run: prospector .
+      - run: pipenv run prospector .
       - run: >
-          coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes
+          pipenv run coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes
           --profile --profile-svg --junitxml=results/test-reports/junit.xml tests &&
           coverage report &&
           coverage html --directory=results/coverage
