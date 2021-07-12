@@ -1,5 +1,7 @@
 # Deskew
+
 //Note: Skew is measured in degrees. Deskewing is a process whereby skew is removed by rotating an image by the same amount as its skew but in the opposite direction. This results in a horizontally and vertically aligned image where the text runs across the page rather than at an angle.
+
 ## Skew detection and correction in images containing text
 
 <img src="doc/input.jpeg" width=400px />
@@ -10,11 +12,13 @@
 ## Cli usage
 
 Get the skew angle:
+
 ```
 deskew input.png
 ```
 
 Deskew an image:
+
 ```
 deskew --output output.png input.png
 ```
@@ -22,6 +26,7 @@ deskew --output output.png input.png
 # Lib usage
 
 scikit-image:
+
 ```python
 import numpy as np
 from skimage import io
@@ -38,6 +43,7 @@ io.imsave('output.png', rotated.astype(np.uint8))
 ```
 
 OpenCV:
+
 ```python
 import math
 from typing import Tuple, Union
@@ -68,6 +74,5 @@ angle = determine_skew(grayscale)
 rotated = rotate(image, angle, (0, 0, 0))
 cv2.imwrite('output.png', rotated)
 ```
-
 
 Inspired by Alyn: https://github.com/kakul/Alyn
