@@ -8,7 +8,7 @@ numpy = "==1.21.2"
 scikit-image = "==0.18.3"
 
 [dev-packages]
-pytest = "==6.2.4"
+pytest = "==6.2.5"
 pytest-profiling = "==1.7.0"
 coverage = "==5.5"
 prospector = {extras = ["with_bandit", "with_mypy"], version = "==1.5.0.1"}
