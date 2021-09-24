@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 from skimage.feature import canny
@@ -38,7 +38,7 @@ def _calculate_deviation(angle: float) -> float:
 
 def determine_skew_dev(
     image: np.ndarray, sigma: float = 3.0, num_peaks: int = 20
-) -> Tuple[Optional[float], Any, Any, Tuple[Any, Any, Any]]:
+) -> Tuple[Optional[float], List[List[float]], float, Tuple[float, List[List[float]], List[float]]]:
     img = image
     edges = canny(img, sigma=sigma)
     out, angles, distances = hough_line(edges)
@@ -46,7 +46,7 @@ def determine_skew_dev(
     _, angles_peaks, _ = hough_line_peaks(out, angles, distances, num_peaks=num_peaks)
 
     absolute_deviations = [_calculate_deviation(k) for k in angles_peaks]
-    average_deviation = np.mean(np.rad2deg(absolute_deviations))
+    average_deviation: float = np.mean(np.rad2deg(absolute_deviations))
     angles_peaks_degree = [np.rad2deg(x) for x in angles_peaks]
 
     bin_0_45 = []
