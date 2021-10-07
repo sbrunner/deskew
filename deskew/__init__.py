@@ -38,8 +38,12 @@ def _calculate_deviation(angle: float) -> np.float64:
 
 if TYPE_CHECKING:
     ImageType = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
+    ImageTypeUint64 = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
+    ImageTypeFloat64 = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
 else:
     ImageType = np.ndarray
+    ImageTypeUint64 = np.ndarray
+    ImageTypeFloat64 = np.ndarray
 
 
 def determine_skew_dev(
@@ -48,11 +52,7 @@ def determine_skew_dev(
     Optional[np.float64],
     List[List[np.float64]],
     np.float64,
-    Tuple[
-        np.ndarray[np.uint64, Any],  # pylint: disable=unsubscriptable-object
-        List[List[np.float64]],
-        np.ndarray[np.float64, Any],  # pylint: disable=unsubscriptable-object
-    ],
+    Tuple[ImageTypeUint64, List[List[np.float64]], ImageTypeFloat64],
 ]:
     img = image
     edges = canny(img, sigma=sigma)
