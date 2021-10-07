@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
 
 import numpy as np
 from skimage.feature import canny
@@ -28,17 +28,32 @@ def _compare_sum(value: float) -> bool:
     return 44 <= value <= 46
 
 
-def _calculate_deviation(angle: float) -> float:
+def _calculate_deviation(angle: float) -> np.float64:
 
     angle_in_degrees = np.abs(angle)
-    deviation = np.abs(np.pi / 4 - angle_in_degrees)
+    deviation: np.float64 = np.abs(np.pi / 4 - angle_in_degrees)
 
     return deviation
 
 
+if TYPE_CHECKING:
+    ImageType = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
+    ImageTypeUint64 = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
+    ImageTypeFloat64 = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
+else:
+    ImageType = np.ndarray
+    ImageTypeUint64 = np.ndarray
+    ImageTypeFloat64 = np.ndarray
+
+
 def determine_skew_dev(
-    image: np.ndarray, sigma: float = 3.0, num_peaks: int = 20
-) -> Tuple[Optional[float], Any, Any, Tuple[Any, Any, Any]]:
+    image: ImageType, sigma: float = 3.0, num_peaks: int = 20
+) -> Tuple[
+    Optional[np.float64],
+    List[List[np.float64]],
+    np.float64,
+    Tuple[ImageTypeUint64, List[List[np.float64]], ImageTypeFloat64],
+]:
     img = image
     edges = canny(img, sigma=sigma)
     out, angles, distances = hough_line(edges)
@@ -46,7 +61,7 @@ def determine_skew_dev(
     _, angles_peaks, _ = hough_line_peaks(out, angles, distances, num_peaks=num_peaks)
 
     absolute_deviations = [_calculate_deviation(k) for k in angles_peaks]
-    average_deviation = np.mean(np.rad2deg(absolute_deviations))
+    average_deviation: np.float64 = np.mean(np.rad2deg(absolute_deviations))
     angles_peaks_degree = [np.rad2deg(x) for x in angles_peaks]
 
     bin_0_45 = []
@@ -103,7 +118,7 @@ def determine_skew_dev(
     return rot_angle, angles, average_deviation, (out, angles, distances)
 
 
-def determine_skew(image: np.ndarray, sigma: float = 3.0, num_peaks: int = 20) -> Optional[float]:
+def determine_skew(image: ImageType, sigma: float = 3.0, num_peaks: int = 20) -> Optional[np.float64]:
     """
     Calculates skew angle
 

@@ -29,7 +29,7 @@ jobs:
         run: c2cciutils-checks
 
       - run: pipenv sync --system --dev
-      - run: pipenv run prospector .
+      - run: pipenv run prospector
       - run: >
           pipenv run coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes
           --profile --profile-svg --junitxml=results/test-reports/junit.xml tests &&
