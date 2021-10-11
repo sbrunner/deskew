@@ -1,5 +1,14 @@
 ---
 strictness: veryhigh
+max-line-length: 110
+doc-warnings: True
+
+pep257:
+  disable:
+    - D100 # Missing docstring in public module
+    - D102 # Missing docstring in public method
+    - D104 # Missing docstring in public package
+    - D212 # Multi-line docstring summary should start at the first line
 
 bandit:
   run: true
