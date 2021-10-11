@@ -54,6 +54,7 @@ def determine_skew_dev(
     np.float64,
     Tuple[ImageTypeUint64, List[List[np.float64]], ImageTypeFloat64],
 ]:
+    """Calculate skew angle."""
     img = image
     edges = canny(img, sigma=sigma)
     out, angles, distances = hough_line(edges)
@@ -120,7 +121,7 @@ def determine_skew_dev(
 
 def determine_skew(image: ImageType, sigma: float = 3.0, num_peaks: int = 20) -> Optional[np.float64]:
     """
-    Calculates skew angle
+    Calculate skew angle.
 
     Return None if no skew will be found
     """

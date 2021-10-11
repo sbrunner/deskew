@@ -10,6 +10,7 @@ from deskew import determine_skew
 
 
 def main() -> None:
+    """Run the command."""
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-o", "--output", default=None, help="Output file name")
