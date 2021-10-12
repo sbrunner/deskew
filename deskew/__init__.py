@@ -37,9 +37,9 @@ def _calculate_deviation(angle: float) -> np.float64:
 
 
 if TYPE_CHECKING:
-    ImageType = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
-    ImageTypeUint64 = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
-    ImageTypeFloat64 = np.ndarray[np.uint8, Any]  # pylint: disable=unsubscriptable-object
+    ImageType = np.ndarray[np.uint8, Any]
+    ImageTypeUint64 = np.ndarray[np.uint8, Any]
+    ImageTypeFloat64 = np.ndarray[np.uint8, Any]
 else:
     ImageType = np.ndarray
     ImageTypeUint64 = np.ndarray
