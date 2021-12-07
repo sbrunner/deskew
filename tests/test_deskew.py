@@ -2,7 +2,6 @@ import os
 
 import pytest
 from skimage import io
-from skimage.color import rgb2gray
 
 from deskew import determine_skew
 
@@ -26,8 +25,7 @@ def test_deskew(image, expected_angle):
         os.makedirs(root_folder)
 
     image = io.imread(os.path.join(os.path.dirname(__file__), f"deskew-{image}.png"))
-    grayscale = rgb2gray(image)
-    angle = determine_skew(grayscale)
+    angle = determine_skew(image)
     print(angle - expected_angle.expected)
     assert angle == expected_angle
 
@@ -51,7 +49,6 @@ def test_deskew_higher_pressision(image, expected_angle):
         os.makedirs(root_folder)
 
     image = io.imread(os.path.join(os.path.dirname(__file__), f"deskew-{image}.png"))
-    grayscale = rgb2gray(image)
-    angle = determine_skew(grayscale, num_angles=1800)
+    angle = determine_skew(image, num_angles=1800)
     print(angle - expected_angle.expected)
     assert angle == expected_angle
