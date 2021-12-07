@@ -61,7 +61,9 @@ def determine_skew_dev(
     edges = canny(img, sigma=sigma)
     out, angles, distances = hough_line(edges, np.linspace(-np.pi / 2, np.pi / 2, num_angles, endpoint=False))
 
-    _, angles_peaks, _ = hough_line_peaks(out, angles, distances, num_peaks=num_peaks)
+    _, angles_peaks, _ = hough_line_peaks(
+        out, angles, distances, num_peaks=num_peaks, threshold=0.05 * np.max(out)
+    )
 
     absolute_deviations = [_calculate_deviation(k) for k in angles_peaks]
     average_deviation: np.float64 = np.mean(np.rad2deg(absolute_deviations))
