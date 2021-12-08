@@ -60,6 +60,7 @@ def determine_skew_dev(
     img = rgb2gray(imagergb) if len(imagergb.shape) == 3 else imagergb
     edges = canny(img, sigma=sigma)
     out, angles, distances = hough_line(edges, np.linspace(-np.pi / 2, np.pi / 2, num_angles, endpoint=False))
+    hough_line_out = (out, angles, distances)
 
     _, angles_peaks, _ = hough_line_peaks(
         out, angles, distances, num_peaks=num_peaks, threshold=0.05 * np.max(out)
@@ -111,7 +112,7 @@ def determine_skew_dev(
         ans_arr = _get_max_freq_elem(angles_peaks_degree)
         angle = np.mean(ans_arr)
     else:
-        return None, angles, average_deviation, (out, angles, distances)
+        return None, angles, average_deviation, hough_line_out
 
     if 0 <= angle <= 90:
         rot_angle = angle - 90
@@ -120,7 +121,7 @@ def determine_skew_dev(
     elif -90 <= angle < -45:
         rot_angle = 90 + angle
 
-    return rot_angle, angles, average_deviation, (out, angles, distances)
+    return rot_angle, angles, average_deviation, hough_line_out
 
 
 def determine_skew(
