@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
 
 import numpy as np
+from skimage.color import rgb2gray, rgba2rgb
 from skimage.feature import canny
 from skimage.transform import hough_line, hough_line_peaks
 
@@ -55,11 +56,14 @@ def determine_skew_dev(
     Tuple[ImageTypeUint64, List[List[np.float64]], ImageTypeFloat64],
 ]:
     """Calculate skew angle."""
-    img = image
+    imagergb = rgba2rgb(image) if len(image.shape) == 3 and image.shape[2] == 4 else image
+    img = rgb2gray(imagergb) if len(imagergb.shape) == 3 else imagergb
     edges = canny(img, sigma=sigma)
     out, angles, distances = hough_line(edges, np.linspace(-np.pi / 2, np.pi / 2, num_angles, endpoint=False))
 
-    _, angles_peaks, _ = hough_line_peaks(out, angles, distances, num_peaks=num_peaks)
+    _, angles_peaks, _ = hough_line_peaks(
+        out, angles, distances, num_peaks=num_peaks, threshold=0.05 * np.max(out)
+    )
 
     absolute_deviations = [_calculate_deviation(k) for k in angles_peaks]
     average_deviation: np.float64 = np.mean(np.rad2deg(absolute_deviations))
