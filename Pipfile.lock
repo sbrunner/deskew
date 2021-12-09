@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c9c86ba57287ab978c67776f702c08d73a1eb980d4a3897f77e83e49cbdebbe3"
+            "sha256": "731d651316cd267c2851f4dd3832ae172efdd10a60e5bc7656f2a1e6f61f0d29"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,11 +18,11 @@
     "default": {
         "imageio": {
             "hashes": [
-                "sha256:2b45f8275bf3f513f80512da540d60268417021d217cac7c384783be0acb42fe",
-                "sha256:d3672d6a676f284c13a89d632b07b441f234caf0748e59271a18464a84172040"
+                "sha256:126f10aa970f54b657bcc52f6481a2e55137fcc0f978bb6e0451bd1e22c54f17",
+                "sha256:bb87b272e1e9b05d242e11f8d88d030aefa68ca95daf3accc986d0b782ae3cd5"
             ],
             "markers": "python_version >= '3.5'",
-            "version": "==2.13.1"
+            "version": "==2.13.3"
         },
         "networkx": {
             "hashes": [
@@ -254,11 +254,11 @@
     "develop": {
         "astroid": {
             "hashes": [
-                "sha256:5f6f75e45f15290e73b56f9dfde95b4bf96382284cde406ef4203e928335a495",
-                "sha256:cd8326b424c971e7d87678609cf6275d22028afd37d6ac59c16d47f1245882f6"
+                "sha256:5939cf55de24b92bda00345d4d0659d01b3c7dafb5055165c330bc7c568ba273",
+                "sha256:776ca0b748b4ad69c00bfe0fff38fa2d21c338e12c84aa9715ee0d473c422778"
             ],
             "markers": "python_version ~= '3.6'",
-            "version": "==2.8.6"
+            "version": "==2.9.0"
         },
         "attrs": {
             "hashes": [
@@ -502,11 +502,11 @@
                 "with_mypy"
             ],
             "hashes": [
-                "sha256:4908034ad9b705942a481b301d9b77664af07b722c53de38c97c8647561f266c",
-                "sha256:8e7fd739d6e907b2875b44291d2c7c7481eca8d187576963dc785e6c053b48d4"
+                "sha256:812b01eb5bbad85f16d0b0efceb41385d35b3d4a928fa86f4085bf44f6077df4",
+                "sha256:c8d8d00e6806f7ece9829026ef8b7d3cbd901d473913f9bc5a389df4e8f435c6"
             ],
             "index": "pypi",
-            "version": "==1.5.3"
+            "version": "==1.5.3.1"
         },
         "py": {
             "hashes": [
@@ -542,11 +542,11 @@
         },
         "pylint": {
             "hashes": [
-                "sha256:0f358e221c45cbd4dad2a1e4b883e75d28acdcccd29d40c76eb72b307269b126",
-                "sha256:2c9843fff1a88ca0ad98a256806c82c5a8f86086e7ccbdb93297d86c3f90c436"
+                "sha256:9d945a73640e1fec07ee34b42f5669b770c759acd536ec7b16d7e4b87a9c9ff9",
+                "sha256:daabda3f7ed9d1c60f52d563b1b854632fd90035bcf01443e234d3dc794e3b74"
             ],
-            "markers": "python_version ~= '3.6'",
-            "version": "==2.11.1"
+            "markers": "python_full_version >= '3.6.2'",
+            "version": "==2.12.2"
         },
         "pylint-celery": {
             "hashes": [
