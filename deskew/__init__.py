@@ -114,12 +114,7 @@ def determine_skew_dev(
     else:
         return None, angles, average_deviation, hough_line_out
 
-    if 0 <= angle <= 90:
-        rot_angle = angle - 90
-    elif -45 <= angle < 0:
-        rot_angle = angle - 90
-    elif -90 <= angle < -45:
-        rot_angle = 90 + angle
+    rot_angle = (angle + 45) % 90 - 45
 
     return rot_angle, angles, average_deviation, hough_line_out
 
