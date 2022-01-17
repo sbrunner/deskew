@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-numpy = "==1.22.0"
+numpy = "==1.22.1"
 scikit-image = "==0.19.1"
 
 [dev-packages]
