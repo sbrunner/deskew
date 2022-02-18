@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 numpy = "==1.22.2"
-scikit-image = "==0.19.1"
+scikit-image = "==0.19.2"
 
 [dev-packages]
 pytest = "==7.0.1"
