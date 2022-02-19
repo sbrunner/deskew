@@ -48,7 +48,11 @@ else:
 
 
 def determine_skew_dev(
-    image: ImageType, sigma: float = 3.0, num_peaks: int = 20, num_angles: int = 180
+    image: ImageType,
+    sigma: float = 3.0,
+    num_peaks: int = 20,
+    num_angles: int = 180,
+    angle_pm_90: bool = False,
 ) -> Tuple[
     Optional[np.float64],
     List[List[np.float64]],
@@ -114,18 +118,27 @@ def determine_skew_dev(
     else:
         return None, angles, average_deviation, hough_line_out
 
-    rot_angle = (angle + 45) % 90 - 45
+    if not angle_pm_90:
+        rot_angle = (angle + 45) % 90 - 45
+    else:
+        rot_angle = (angle + 90) % 180 - 90
 
     return rot_angle, angles, average_deviation, hough_line_out
 
 
 def determine_skew(
-    image: ImageType, sigma: float = 3.0, num_peaks: int = 20, num_angles: int = 180
+    image: ImageType,
+    sigma: float = 3.0,
+    num_peaks: int = 20,
+    num_angles: int = 180,
+    angle_pm_90: bool = False,
 ) -> Optional[np.float64]:
     """
     Calculate skew angle.
 
     Return None if no skew will be found
     """
-    angle, _, _, _ = determine_skew_dev(image, sigma=sigma, num_peaks=num_peaks, num_angles=num_angles)
+    angle, _, _, _ = determine_skew_dev(
+        image, sigma=sigma, num_peaks=num_peaks, num_angles=num_angles, angle_pm_90=angle_pm_90
+    )
     return angle

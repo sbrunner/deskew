@@ -1,6 +1,10 @@
 # Deskew
 
-//Note: Skew is measured in degrees. Deskewing is a process whereby skew is removed by rotating an image by the same amount as its skew but in the opposite direction. This results in a horizontally and vertically aligned image where the text runs across the page rather than at an angle.
+Note: Skew is measured in degrees. Deskewing is a process whereby skew is removed by rotating an image by the same amount as its skew but in the opposite direction. This results in a horizontally and vertically aligned image where the text runs across the page rather than at an angle.
+
+The return angle is between -45 and 45 degrees to don't arbitrary change the image orientation.
+
+By using the library you can set the argument `angle_pm_90` to `True` to have an angle between -90 and 90 degrees.
 
 ## Skew detection and correction in images containing text
 
