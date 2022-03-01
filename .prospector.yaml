@@ -3,7 +3,7 @@ strictness: veryhigh
 max-line-length: 110
 doc-warnings: True
 
-pep257:
+pydocstyle:
   disable:
     - D100 # Missing docstring in public module
     - D102 # Missing docstring in public method
