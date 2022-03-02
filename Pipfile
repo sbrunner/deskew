@@ -12,7 +12,7 @@ pytest = "==7.0.1"
 pytest-profiling = "==1.7.0"
 coverage = "==6.3.2"
 prospector = {extras = ["with_bandit", "with_mypy"], version = "==1.7.5"}
-flake8 = "==3.9.2"
+flake8 = "==4.0.1"
 
 [requires]
 python_version = "3.8"
