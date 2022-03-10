@@ -11,7 +11,7 @@ scikit-image = "==0.19.2"
 pytest = "==7.0.1"
 pytest-profiling = "==1.7.0"
 coverage = "==6.3.2"
-prospector = {extras = ["with_bandit", "with_mypy"], version = "==1.7.6"}
+prospector = {extras = ["with_bandit", "with_mypy"], version = "==1.7.7"}
 flake8 = "==4.0.1"
 
 [requires]
