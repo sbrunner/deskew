@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         if: env.HAS_SECRETS == 'HAS_SECRETS'
 
       - name: Initialize CodeQL
