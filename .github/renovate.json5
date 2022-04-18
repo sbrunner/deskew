@@ -1,0 +1,23 @@
+{
+  separateMajorMinor: true,
+  extends: ['config:base', 'schedule:earlyMondays'],
+  lockFileMaintenance: { enabled: true },
+  packageRules: [
+    /** Automerge the patch, the minor and the dev dependency and lockFileMaintenance */
+    {
+      matchDepTypes: ['devDependencies', 'lockFileMaintenance'],
+      automerge: true,
+    },
+    /** Group the patch and the minor */
+    {
+      matchUpdateTypes: ['patch'],
+      groupName: 'all patch versions',
+      automerge: true,
+    },
+    {
+      matchUpdateTypes: ['minor'],
+      groupName: 'all minor versions',
+      automerge: true,
+    },
+  ],
+}
