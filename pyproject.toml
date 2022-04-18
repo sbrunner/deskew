@@ -10,7 +10,7 @@ authors = []
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
-numpy = "==1.22.2"
+numpy = "==1.22.3"
 scikit-image = "==0.19.2"
 
 [tool.poetry.dev-dependencies]
