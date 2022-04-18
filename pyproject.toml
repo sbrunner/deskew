@@ -18,7 +18,7 @@ pytest = "==7.1.1"
 pytest-profiling = "==1.7.0"
 coverage = "==6.3.2"
 prospector = {extras = ["with_bandit", "with_mypy"], version = "==1.7.4"}
-flake8 = "==3.9.2"
+flake8 = "==4.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
