@@ -36,7 +36,7 @@ jobs:
           poetry run coverage report &&
           poetry run coverage html --directory=results/coverage
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
           name: Test results
           path: results/test-reports
