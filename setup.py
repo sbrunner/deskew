@@ -9,7 +9,7 @@ site.ENABLE_USER_SITE = "--user" in sys.argv[1:]
 
 setup(
     name="deskew",
-    version="1.0.3",
+    version="1.0.4",
     description="Skew detection and correction in images containing text",
     long_description="""Skew detection and correction in images containing text
 
