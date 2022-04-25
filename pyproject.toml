@@ -14,7 +14,7 @@ numpy = "==1.22.3"
 scikit-image = "==0.19.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "==7.1.1"
+pytest = "==7.1.2"
 pytest-profiling = "==1.7.0"
 coverage = "==6.3.2"
 prospector = {extras = ["with_bandit", "with_mypy"], version = "==1.7.7"}
