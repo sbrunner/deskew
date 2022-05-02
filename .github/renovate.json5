@@ -1,11 +1,11 @@
 {
   separateMajorMinor: true,
   extends: ['config:base', 'schedule:earlyMondays'],
-  lockFileMaintenance: { enabled: true },
+  lockFileMaintenance: { enabled: true, automerge: true },
   packageRules: [
-    /** Automerge the patch, the minor and the dev dependency and lockFileMaintenance */
+    /** Automerge the patch, the minor and the dev dependency */
     {
-      matchDepTypes: ['devDependencies', 'lockFileMaintenance'],
+      matchDepTypes: ['devDependencies'],
       automerge: true,
     },
     /** Group the patch and the minor */
