@@ -1,7 +1,12 @@
----
 strictness: veryhigh
 max-line-length: 110
 doc-warnings: True
+
+pycodestyle:
+  disable:
+    - E501 # line too long
+    - E203 # whitespace before ':'
+    - E722 # do not use bare 'except'
 
 pydocstyle:
   disable:
@@ -14,6 +19,9 @@ bandit:
   run: true
 
 mypy:
+  run: true
+
+pyroma:
   run: true
 
 mccabe:

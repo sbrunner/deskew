@@ -27,9 +27,13 @@ jobs:
 
       - name: Checks
         run: c2cciutils-checks
+      - name: GitHub event
+        run: echo ${GITHUB_EVENT} | python3 -m json.tool
+        env:
+          GITHUB_EVENT: ${{ toJson(github) }}
 
       - run: poetry install
-      - run: poetry run prospector
+      - run: poetry run prospector --output=pylint -X
       - run: >
           poetry run coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes
           --profile --profile-svg --junitxml=results/test-reports/junit.xml tests &&
@@ -56,18 +60,15 @@ jobs:
         if: env.HAS_SECRETS == 'HAS_SECRETS'
       - name: Bump version
         run: |
-          python3 -m pip install --user bump-anything
-          bump patch
-          git add setup.py
+          poetry version patch
+          git add pyproject.toml
           git commit --allow-empty -m "[skip ci] Bump Version"
           git push
         if: |
           github.ref == 'refs/heads/master'
           && env.HAS_SECRETS == 'HAS_SECRETS'
       - name: deploy
-        run: |
-          python3 setup.py egg_info --no-date sdist bdist_wheel
-          python3 -m twine upload dist/*
+        run: c2cciutils-publish --type=version_tag --version=unused
         if: |
           github.ref == 'refs/heads/master'
           && env.HAS_SECRETS == 'HAS_SECRETS'
