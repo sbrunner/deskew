@@ -54,18 +54,8 @@ prospector = { extras = [
 flake8 = "4.0.1"
 
 [build-system]
-requires = [
-  "poetry-core>=1.0.0",
-  "poetry-plugin-tweak-dependencies-version",
-  "poetry-dynamic-versioning"
-]
+requires = ["poetry-core>=1.0.0", "poetry-plugin-tweak-dependencies-version"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry-plugin-tweak-dependencies-version]
 default = "present"
-
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-style = "semver"
-pattern = "^((?P<epoch>\\d+)!)?(?P<base>\\d+(\\.\\d+)*)"
