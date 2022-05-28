@@ -1,25 +1,71 @@
 [tool.black]
 line-length = 110
-target-version = ['py38']
+target-version = ["py38"]
+
+[tool.mypy]
+python_version = 3.8
+ignore_missing_imports = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+strict = true
+
+[tool.pytest.ini_options]
+pytest_plugins = ["pytest_profiling"]
 
 [tool.poetry]
-name = 'shifter-pandas'
-version = '0.0.0'
-description = 'Not used'
-authors = []
+name = "deskew"
+version = "1.0.19"
+description = "Skew detection and correction in images containing text"
+readme = "README.md"
+authors = ["Stéphane Brunner <stephane.brunner@gmail.com>"]
+homepage = "https://hub.docker.com/r/sbrunner/deskew/"
+repository = "https://github.com/sbrunner/deskew"
+license = "MIT"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Typing :: Typed"
+]
+packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
+
+[tool.poetry.scripts]
+my-deskew = "deskew.cli:main"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
-numpy = "==1.22.4"
-scikit-image = "==0.19.2"
+numpy = "1.22.4"
+scikit-image = "0.19.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "==7.1.2"
-pytest-profiling = "==1.7.0"
-coverage = "==6.4"
-prospector = {extras = ["with_bandit", "with_mypy"], version = "==1.7.7"}
-flake8 = "==4.0.1"
+pytest = "7.1.2"
+pytest-profiling = "1.7.0"
+coverage = "6.4"
+prospector = { extras = [
+  "with_bandit",
+  "with_mypy",
+  "with_pyroma"
+], version = "1.7.7" }
+flake8 = "4.0.1"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = [
+  "poetry-core>=1.0.0",
+  "poetry-plugin-tweak-dependencies-version",
+  "poetry-dynamic-versioning"
+]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry-plugin-tweak-dependencies-version]
+default = "present"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+pattern = "^((?P<epoch>\\d+)!)?(?P<base>\\d+(\\.\\d+)*)"

@@ -1,2 +1,2 @@
-c2cciutils==1.1.12
+c2cciutils==1.2.dev20220527115520
 poetry==1.1.13
