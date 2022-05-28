@@ -15,7 +15,7 @@ pytest_plugins = ["pytest_profiling"]
 
 [tool.poetry]
 name = "deskew"
-version = "1.0.20"
+version = "1.0.21"
 description = "Skew detection and correction in images containing text"
 readme = "README.md"
 authors = ["Stéphane Brunner <stephane.brunner@gmail.com>"]
