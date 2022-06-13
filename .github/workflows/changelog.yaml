@@ -1,0 +1,46 @@
+name: Changelog Generator
+
+on:
+  push:
+    branches:
+      - master
+      - changelog
+    tags:
+      - '*'
+
+jobs:
+  changelog:
+    name: Chanegelog Generator
+    runs-on: ubuntu-20.04
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
+      - run: python3 -m pip install --user --requirement=ci/requirements.txt
+
+      - name: Bump version
+        run: poetry version minor
+      - name: Get version
+        id: version
+        run: echo "::set-output name=version::$(poetry version --short)"
+
+      - name: Generate changelog
+        id: changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          configureSections: '{ "enhancements": { "prefix": "### :sparkles: Enhancements", "labels": [ "enhancement" ] }, "bugs": { "prefix": "### :bug: Bug Fixes", "labels": [ "bug" ] }, "refactor": { "prefix": "### :hammer: Refactor", "labels": [ "refactor" ] }, "books": { "prefix": "### :books: Documentation", "labels": [ "documentation" ] }, "style": { "prefix": "### :gem: Style", "labels": [ "style" ] }, "performance": { "prefix": "### :rocket: Performance", "labels": [ "performance" ] }, "test": { "prefix": "### :heart: Test", "labels": [ "test" ] }, "build": { "prefix": "### :package: Build", "labels": [ "build" ] }, "chore": { "prefix": "### :wrench: Chore", "labels": [ "dependencies" ] } }'
+          cacheFile: github-changelog-generator-action.cache
+          unreleasedLabel: ${{ steps.version.outputs.version }}
+
+      - run: git add CHANGELOG.md pyproject.toml
+      - run: git config --global user.email "ci@example.com"
+      - run: git config --global user.name "CI"
+      - run: git commit -m "Update the changelog"
+      - run: git checkout -b changelog-update
+      - run: git push origin changelog-update -f
+      - run: gh pr create --base=master --fill --label=build | true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
