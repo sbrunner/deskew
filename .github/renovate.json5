@@ -1,6 +1,9 @@
 {
+  extends: ['config:base'],
+  timezone: 'Europe/Zurich',
+  schedule: 'before 1am on Monday',
   separateMajorMinor: true,
-  extends: ['config:base', 'schedule:earlyMondays'],
+  separateMinorPatch: true,
   lockFileMaintenance: { enabled: true, automerge: true },
   packageRules: [
     /** Automerge the patch, the minor and the dev dependency */
