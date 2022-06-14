@@ -2,6 +2,7 @@
   extends: ['config:base'],
   timezone: 'Europe/Zurich',
   schedule: 'before 1am on Monday',
+  labels: ['dependencies'],
   separateMajorMinor: true,
   separateMinorPatch: true,
   lockFileMaintenance: { enabled: true, automerge: true },

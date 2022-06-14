@@ -1,0 +1,24 @@
+enhancements:
+  prefix: '#### :sparkles: Enhancements'
+  labels:
+    - enhancement
+bugs:
+  prefix: '#### :bug: Bug Fixes'
+  labels:
+    - bug
+refactor:
+  prefix: '#### :hammer: Refactor'
+  labels:
+    - refactor
+books:
+  prefix: '#### :books: Documentation'
+  labels:
+    - documentation
+build:
+  prefix: '#### :package: Build, CI, Tests, Code style'
+  labels:
+    - build
+chore:
+  prefix: '#### :wrench: Dependencies update'
+  labels:
+    - dependencies

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - changelog
     tags:
       - '*'
 
@@ -20,22 +19,19 @@ jobs:
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
       - run: python3 -m pip install --user --requirement=ci/requirements.txt
 
-      - name: Bump version
-        run: poetry version minor
-      - name: Get version
-        id: version
-        run: echo "::set-output name=version::$(poetry version --short)"
+      - name: Get config
+        id: config
+        run: echo ::set-output name=config::$(python -c 'print(__import__("json").dumps(__import__("yaml").load(open(".github/changelog-config.yaml"))))')
 
       - name: Generate changelog
         id: changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          configureSections: '{ "enhancements": { "prefix": "### :sparkles: Enhancements", "labels": [ "enhancement" ] }, "bugs": { "prefix": "### :bug: Bug Fixes", "labels": [ "bug" ] }, "refactor": { "prefix": "### :hammer: Refactor", "labels": [ "refactor" ] }, "books": { "prefix": "### :books: Documentation", "labels": [ "documentation" ] }, "style": { "prefix": "### :gem: Style", "labels": [ "style" ] }, "performance": { "prefix": "### :rocket: Performance", "labels": [ "performance" ] }, "test": { "prefix": "### :heart: Test", "labels": [ "test" ] }, "build": { "prefix": "### :package: Build", "labels": [ "build" ] }, "chore": { "prefix": "### :wrench: Chore", "labels": [ "dependencies" ] } }'
+          configureSections: ${{ steps.config.outputs.config }}
           cacheFile: github-changelog-generator-action.cache
-          unreleasedLabel: ${{ steps.version.outputs.version }}
 
-      - run: git add CHANGELOG.md pyproject.toml
+      - run: git add CHANGELOG.md
       - run: git config --global user.email "ci@example.com"
       - run: git config --global user.name "CI"
       - run: git commit -m "Update the changelog"
