@@ -15,7 +15,7 @@ pytest_plugins = ["pytest_profiling"]
 
 [tool.poetry]
 name = "deskew"
-version = "1.0.24"
+version = "0.1.0"
 description = "Skew detection and correction in images containing text"
 readme = "README.md"
 authors = ["Stéphane Brunner <stephane.brunner@gmail.com>"]
@@ -54,8 +54,14 @@ prospector = { extras = [
 flake8 = "4.0.1"
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-plugin-tweak-dependencies-version"]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+pattern = "^((?P<epoch>\\d+)!)?(?P<base>\\d+(\\.\\d+)*)"
 
 [tool.poetry-plugin-tweak-dependencies-version]
 default = "present"
