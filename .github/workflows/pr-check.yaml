@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: yashhy/pr-label-check-and-comment-action@master
         with:
           required_labels: enhancement, bug, refactor, documentation, build, dependencies
