@@ -15,10 +15,10 @@ books:
   labels:
     - documentation
 build:
-  prefix: '#### :package: Build, CI, Tests, Code style'
+  prefix: '#### :wrench: Build, CI, Tests, Code style'
   labels:
     - build
 chore:
-  prefix: '#### :wrench: Dependencies update'
+  prefix: '#### :package: Dependencies update'
   labels:
     - dependencies
