@@ -41,7 +41,7 @@ my-deskew = "deskew.cli:main"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
-numpy = "1.20.3"
+numpy = "1.21.0"
 scikit-image = "0.19.2"
 
 [tool.poetry.dev-dependencies]
