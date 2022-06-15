@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/sbrunner/deskew/tree/HEAD)
+## [1.0.25](https://github.com/sbrunner/deskew/tree/1.0.25) (2022-06-15)
 
-[Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.24...HEAD)
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.24...1.0.25)
 
 #### :books: Documentation
 
@@ -10,11 +10,15 @@
 
 #### :wrench: Build, CI, Tests, Code style
 
+- Test with different Python versions \(3.7, 3.8, 3.9\) [\#211](https://github.com/sbrunner/deskew/pull/211) ([sbrunner](https://github.com/sbrunner))
 - Update release creation [\#209](https://github.com/sbrunner/deskew/pull/209) ([sbrunner](https://github.com/sbrunner))
+- Update the changelog [\#207](https://github.com/sbrunner/deskew/pull/207) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Update the changelog [\#206](https://github.com/sbrunner/deskew/pull/206) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 #### :package: Dependencies update
 
+- Update actions/checkout action to v3 [\#214](https://github.com/sbrunner/deskew/pull/214) ([renovate[bot]](https://github.com/apps/renovate))
+- Update dependency numpy to v1.21.0 \[SECURITY\] [\#213](https://github.com/sbrunner/deskew/pull/213) ([renovate[bot]](https://github.com/apps/renovate))
 - Lock file maintenance [\#204](https://github.com/sbrunner/deskew/pull/204) ([renovate[bot]](https://github.com/apps/renovate))
 
 **Closed issues:**
