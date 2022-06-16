@@ -15,7 +15,7 @@ pytest_plugins = ["pytest_profiling"]
 
 [tool.poetry]
 name = "deskew"
-version = "0.1.0"
+version = "0.0.0"
 description = "Skew detection and correction in images containing text"
 readme = "README.md"
 authors = ["Stéphane Brunner <stephane.brunner@gmail.com>"]
@@ -37,7 +37,7 @@ classifiers = [
 packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
 
 [tool.poetry.scripts]
-my-deskew = "deskew.cli:main"
+deskew = "deskew.cli:main"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
