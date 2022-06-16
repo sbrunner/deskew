@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.26](https://github.com/sbrunner/deskew/tree/1.0.26) (2022-06-16)
+
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.25...1.0.26)
+
+#### :bug: Bug Fixes
+
+- Fix the script name [\#218](https://github.com/sbrunner/deskew/pull/218) ([sbrunner](https://github.com/sbrunner))
+
+#### :wrench: Build, CI, Tests, Code style
+
+- Update the changelog [\#210](https://github.com/sbrunner/deskew/pull/210) ([github-actions[bot]](https://github.com/apps/github-actions))
+
 ## [1.0.25](https://github.com/sbrunner/deskew/tree/1.0.25) (2022-06-15)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.24...1.0.25)
