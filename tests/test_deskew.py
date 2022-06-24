@@ -35,7 +35,7 @@ def test_deskew(image, expected_angle):
     [
         ("1", pytest.approx(-1.4, abs=0.01)),
         ("2", pytest.approx(-2.1, abs=0.01)),
-        ("3", pytest.approx(-6.3, abs=0.01)),
+        ("3", pytest.approx(-6.3, abs=0.11)),
         ("4", pytest.approx(7.0, abs=0.01)),
         ("5", pytest.approx(3.4, abs=0.01)),
         ("6", pytest.approx(-2.8, abs=0.01)),
