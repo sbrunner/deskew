@@ -1,7 +1,7 @@
 {
   extends: ['config:base'],
   timezone: 'Europe/Zurich',
-  schedule: 'before 1am on Monday',
+  schedule: 'before 1am on Sunday',
   labels: ['dependencies'],
   separateMajorMinor: true,
   separateMinorPatch: true,
@@ -22,6 +22,10 @@
       matchUpdateTypes: ['minor'],
       groupName: 'all minor versions',
       automerge: true,
+    },
+    {
+      matchPackageNames: ['scikit-image'],
+      groupName: 'scikit-image',
     },
   ],
 }
