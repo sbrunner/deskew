@@ -14,11 +14,11 @@ books:
   prefix: '#### :books: Documentation'
   labels:
     - documentation
-build:
+chore:
   prefix: '#### :wrench: Build, CI, Tests, Code style'
   labels:
-    - build
-chore:
+    - chore
+dependencies:
   prefix: '#### :package: Dependencies update'
   labels:
     - dependencies
