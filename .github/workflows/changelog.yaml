@@ -31,6 +31,7 @@ jobs:
           configureSections: ${{ steps.config.outputs.config }}
           cacheFile: github-changelog-generator-action.cache
 
+      - run: c2cciutils-checks --fix --check=prettier
       - run: git add CHANGELOG.md
       - run: git config --global user.email "ci@example.com"
       - run: git config --global user.name "CI"
