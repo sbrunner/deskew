@@ -40,7 +40,7 @@ packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
 deskew = "deskew.cli:main"
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0"
+python = ">=3.8,<4.0"
 numpy = "1.21.0"
 scikit-image = "0.19.3"
 
