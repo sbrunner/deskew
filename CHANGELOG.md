@@ -1,16 +1,26 @@
 # Changelog
 
-## [Unreleased](https://github.com/sbrunner/deskew/tree/HEAD)
+## [1.1.0](https://github.com/sbrunner/deskew/tree/1.1.0) (2022-07-11)
 
-[Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.26...HEAD)
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.26...1.1.0)
+
+#### :sparkles: Enhancements
+
+- Drop Python 3.7 support [\#228](https://github.com/sbrunner/deskew/pull/228) ([sbrunner](https://github.com/sbrunner))
 
 #### :wrench: Build, CI, Tests, Code style
 
 - Better usage of chore [\#225](https://github.com/sbrunner/deskew/pull/225) ([sbrunner](https://github.com/sbrunner))
+- Update the changelog [\#219](https://github.com/sbrunner/deskew/pull/219) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Update the changelog [\#216](https://github.com/sbrunner/deskew/pull/216) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 #### :package: Dependencies update
 
+- Lock file maintenance [\#232](https://github.com/sbrunner/deskew/pull/232) ([renovate[bot]](https://github.com/apps/renovate))
+- Update dependency numpy to v1.23.1 [\#231](https://github.com/sbrunner/deskew/pull/231) ([renovate[bot]](https://github.com/apps/renovate))
+- Update dependency poetry to v1.1.14 [\#230](https://github.com/sbrunner/deskew/pull/230) ([renovate[bot]](https://github.com/apps/renovate))
+- Lock file maintenance [\#226](https://github.com/sbrunner/deskew/pull/226) ([renovate[bot]](https://github.com/apps/renovate))
+- Update dependency numpy to v1.22.0 \[SECURITY\] [\#223](https://github.com/sbrunner/deskew/pull/223) ([renovate[bot]](https://github.com/apps/renovate))
 - Lock file maintenance [\#222](https://github.com/sbrunner/deskew/pull/222) ([renovate[bot]](https://github.com/apps/renovate))
 - Update all patch versions \(patch\) [\#215](https://github.com/sbrunner/deskew/pull/215) ([renovate[bot]](https://github.com/apps/renovate))
 
