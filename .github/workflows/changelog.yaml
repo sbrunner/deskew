@@ -9,7 +9,7 @@ on:
 
 jobs:
   changelog:
-    name: Chanegelog Generator
+    name: Changelog Generator
     runs-on: ubuntu-20.04
     timeout-minutes: 5
 
