@@ -476,7 +476,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "pylint"
-version = "2.14.4"
+version = "2.14.5"
 description = "python code static checker"
 category = "dev"
 optional = false
@@ -733,11 +733,11 @@ python-versions = "*"
 
 [[package]]
 name = "stevedore"
-version = "3.5.0"
+version = "4.0.0"
 description = "Manage dynamic plugins for Python applications"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 
 [package.dependencies]
 pbr = ">=2.0.0,<2.1.0 || >2.1.0"
@@ -1145,8 +1145,8 @@ pygments = [
     {file = "Pygments-2.12.0.tar.gz", hash = "sha256:5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"},
 ]
 pylint = [
-    {file = "pylint-2.14.4-py3-none-any.whl", hash = "sha256:89b61867db16eefb7b3c5b84afc94081edaf11544189e2b238154677529ad69f"},
-    {file = "pylint-2.14.4.tar.gz", hash = "sha256:47705453aa9dce520e123a7d51843d5f0032cbfa06870f89f00927aa1f735a4a"},
+    {file = "pylint-2.14.5-py3-none-any.whl", hash = "sha256:fabe30000de7d07636d2e82c9a518ad5ad7908590fe135ace169b44839c15f90"},
+    {file = "pylint-2.14.5.tar.gz", hash = "sha256:487ce2192eee48211269a0e976421f334cf94de1806ca9d0a99449adcdf0285e"},
 ]
 pylint-celery = [
     {file = "pylint-celery-0.3.tar.gz", hash = "sha256:41e32094e7408d15c044178ea828dd524beedbdbe6f83f712c5e35bde1de4beb"},
@@ -1320,8 +1320,8 @@ snowballstemmer = [
     {file = "snowballstemmer-2.2.0.tar.gz", hash = "sha256:09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"},
 ]
 stevedore = [
-    {file = "stevedore-3.5.0-py3-none-any.whl", hash = "sha256:a547de73308fd7e90075bb4d301405bebf705292fa90a90fc3bcf9133f58616c"},
-    {file = "stevedore-3.5.0.tar.gz", hash = "sha256:f40253887d8712eaa2bb0ea3830374416736dc8ec0e22f5a65092c1174c44335"},
+    {file = "stevedore-4.0.0-py3-none-any.whl", hash = "sha256:87e4d27fe96d0d7e4fc24f0cbe3463baae4ec51e81d95fbe60d2474636e0c7d8"},
+    {file = "stevedore-4.0.0.tar.gz", hash = "sha256:f82cc99a1ff552310d19c379827c2c64dd9f85a38bcd5559db2470161867b786"},
 ]
 tifffile = [
     {file = "tifffile-2022.5.4-py3-none-any.whl", hash = "sha256:52b4c02040d00c1811e26c0f6abd41e77e2d57559b3657ff3e873955f74f5c57"},
