@@ -47,7 +47,7 @@ scikit-image = "0.19.3"
 [tool.poetry.dev-dependencies]
 pytest = "7.1.2"
 pytest-profiling = "1.7.0"
-coverage = "6.4.1"
+coverage = "6.4.2"
 prospector = { extras = [
   "with_bandit",
   "with_mypy",
