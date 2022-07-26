@@ -38,9 +38,11 @@ def _calculate_deviation(angle: float) -> np.float64:
 
 
 if TYPE_CHECKING:
-    ImageType = np.ndarray[np.uint8, Any]
-    ImageTypeUint64 = np.ndarray[np.uint8, Any]
-    ImageTypeFloat64 = np.ndarray[np.uint8, Any]
+    from typing import TypeAlias
+
+    ImageType: TypeAlias = np.ndarray[np.uint8, Any]
+    ImageTypeUint64: TypeAlias = np.ndarray[np.uint8, Any]
+    ImageTypeFloat64: TypeAlias = np.ndarray[np.float64, Any]
 else:
     ImageType = np.ndarray
     ImageTypeUint64 = np.ndarray
