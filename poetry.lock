@@ -201,7 +201,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "imageio"
-version = "2.20.0"
+version = "2.21.0"
 description = "Library for reading and writing a wide range of image, video, scientific, and volumetric data formats."
 category = "main"
 optional = false
@@ -744,7 +744,7 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "tifffile"
-version = "2022.7.28"
+version = "2022.8.3"
 description = "Read and write TIFF files"
 category = "main"
 optional = false
@@ -926,8 +926,8 @@ idna = [
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
 ]
 imageio = [
-    {file = "imageio-2.20.0-py3-none-any.whl", hash = "sha256:069c59c24e6730ec99322490ac06cbed741d52b8699df52c3b4da4841423e15f"},
-    {file = "imageio-2.20.0.tar.gz", hash = "sha256:27746c891cb62d6aeda20d362a8aba75994493cd4d7043ba8c96892fbaecdba0"},
+    {file = "imageio-2.21.0-py3-none-any.whl", hash = "sha256:8a4d1f222c8c7d4cd37889defdf46a8cc9fb8a50e2a5450207ac7b00e6b6a7f7"},
+    {file = "imageio-2.21.0.tar.gz", hash = "sha256:a5d19c3c787d5b4920356d85999a24fcff32be8941950dc2409ec1513993952d"},
 ]
 iniconfig = [
     {file = "iniconfig-1.1.1-py2.py3-none-any.whl", hash = "sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"},
@@ -1325,8 +1325,8 @@ stevedore = [
     {file = "stevedore-4.0.0.tar.gz", hash = "sha256:f82cc99a1ff552310d19c379827c2c64dd9f85a38bcd5559db2470161867b786"},
 ]
 tifffile = [
-    {file = "tifffile-2022.7.28-py3-none-any.whl", hash = "sha256:a3bc9d5dcf2a89b9340ec3a623912da30b53b94877c1ba1f5bdc39d9e401fefb"},
-    {file = "tifffile-2022.7.28.tar.gz", hash = "sha256:61e3638e35156751dbc3cdbd0e4cf1166b90597d5d1972d03945a96570f1ad81"},
+    {file = "tifffile-2022.8.3-py3-none-any.whl", hash = "sha256:9ac1b07b2b920e1f3512f686adf514ef6b040a4a5e667beac771ae6a401eb913"},
+    {file = "tifffile-2022.8.3.tar.gz", hash = "sha256:27bf927b0432fa064bed2426f8bf1778250288a1fc3badb7f4e36ece2e9a6240"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
