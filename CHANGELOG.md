@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.2.0](https://github.com/sbrunner/deskew/tree/1.2.0) (2022-08-13)
+
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.1.0...1.2.0)
+
+#### :sparkles: Enhancements
+
+- Be able to provide min and max angle [\#242](https://github.com/sbrunner/deskew/pull/242) ([sbrunner](https://github.com/sbrunner))
+
+#### :wrench: Build, CI, Tests, Code style
+
+- Add spell on the pull request title [\#241](https://github.com/sbrunner/deskew/pull/241) ([sbrunner](https://github.com/sbrunner))
+- Fix mypy types [\#238](https://github.com/sbrunner/deskew/pull/238) ([sbrunner](https://github.com/sbrunner))
+- Remove hourly limit [\#236](https://github.com/sbrunner/deskew/pull/236) ([sbrunner](https://github.com/sbrunner))
+- Update the changelog [\#227](https://github.com/sbrunner/deskew/pull/227) ([github-actions[bot]](https://github.com/apps/github-actions))
+
+#### :package: Dependencies update
+
+- Lock file maintenance [\#240](https://github.com/sbrunner/deskew/pull/240) ([renovate[bot]](https://github.com/apps/renovate))
+- Lock file maintenance [\#239](https://github.com/sbrunner/deskew/pull/239) ([renovate[bot]](https://github.com/apps/renovate))
+- Lock file maintenance [\#237](https://github.com/sbrunner/deskew/pull/237) ([renovate[bot]](https://github.com/apps/renovate))
+- Update dependency coverage to v6.4.2 [\#235](https://github.com/sbrunner/deskew/pull/235) ([renovate[bot]](https://github.com/apps/renovate))
+- Lock file maintenance [\#234](https://github.com/sbrunner/deskew/pull/234) ([renovate[bot]](https://github.com/apps/renovate))
+- Update actions/setup-python action to v4 [\#221](https://github.com/sbrunner/deskew/pull/221) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [1.1.0](https://github.com/sbrunner/deskew/tree/1.1.0) (2022-07-11)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.26...1.1.0)
