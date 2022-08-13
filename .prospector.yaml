@@ -2,6 +2,10 @@ strictness: veryhigh
 max-line-length: 110
 doc-warnings: True
 
+pylint:
+  disable:
+    - too-many-arguments
+
 pycodestyle:
   disable:
     - E501 # line too long

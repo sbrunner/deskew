@@ -1,3 +1,4 @@
+import warnings
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
 
 import numpy as np
@@ -53,7 +54,9 @@ def determine_skew_dev(
     image: ImageType,
     sigma: float = 3.0,
     num_peaks: int = 20,
-    num_angles: int = 180,
+    min_angle: float = -np.pi / 2,
+    max_angle: float = np.pi / 2,
+    min_deviation: float = np.pi / 180,
     angle_pm_90: bool = False,
 ) -> Tuple[
     Optional[np.float64],
@@ -62,10 +65,11 @@ def determine_skew_dev(
     Tuple[ImageTypeUint64, List[List[np.float64]], ImageTypeFloat64],
 ]:
     """Calculate skew angle."""
+    num_angles = round((max_angle - min_angle) / min_deviation)
     imagergb = rgba2rgb(image) if len(image.shape) == 3 and image.shape[2] == 4 else image
     img = rgb2gray(imagergb) if len(imagergb.shape) == 3 else imagergb
     edges = canny(img, sigma=sigma)
-    out, angles, distances = hough_line(edges, np.linspace(-np.pi / 2, np.pi / 2, num_angles, endpoint=False))
+    out, angles, distances = hough_line(edges, np.linspace(min_angle, max_angle, num_angles, endpoint=False))
     hough_line_out = (out, angles, distances)
 
     _, angles_peaks, _ = hough_line_peaks(
@@ -132,15 +136,28 @@ def determine_skew(
     image: ImageType,
     sigma: float = 3.0,
     num_peaks: int = 20,
-    num_angles: int = 180,
+    num_angles: Optional[int] = None,
     angle_pm_90: bool = False,
+    min_angle: float = -90,
+    max_angle: float = 90,
+    min_deviation: float = 1.0,
 ) -> Optional[np.float64]:
     """
     Calculate skew angle.
 
     Return None if no skew will be found
     """
+    if num_angles is not None:
+        min_deviation = (max_angle - min_angle) / num_angles
+        warnings.warn("num_angles is deprecated, please use min_deviation", DeprecationWarning)
+
     angle, _, _, _ = determine_skew_dev(
-        image, sigma=sigma, num_peaks=num_peaks, num_angles=num_angles, angle_pm_90=angle_pm_90
+        image,
+        sigma=sigma,
+        num_peaks=num_peaks,
+        min_angle=np.deg2rad(min_angle),
+        max_angle=np.deg2rad(max_angle),
+        min_deviation=np.deg2rad(min_deviation),
+        angle_pm_90=angle_pm_90,
     )
     return angle
