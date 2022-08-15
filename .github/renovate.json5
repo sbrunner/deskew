@@ -6,6 +6,7 @@
   separateMajorMinor: true,
   separateMinorPatch: true,
   prHourlyLimit: 0,
+  prConcurrentLimit: 0,
   labels: ['dependencies'],
   lockFileMaintenance: { enabled: true, automerge: true },
   packageRules: [
