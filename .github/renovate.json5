@@ -7,7 +7,6 @@
   separateMinorPatch: true,
   prHourlyLimit: 0,
   prConcurrentLimit: 0,
-  labels: ['dependencies'],
   lockFileMaintenance: { enabled: true, automerge: true },
   packageRules: [
     /** Automerge the patch, the minor and the dev dependency */
