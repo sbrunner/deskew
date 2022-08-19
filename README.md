@@ -79,4 +79,17 @@ rotated = rotate(image, angle, (0, 0, 0))
 cv2.imwrite('output.png', rotated)
 ```
 
+# Debug images
+
+If you get wrong skew angle you can generate debug images, that can help you to tune the skewing detection.
+
+If you install deskew with `pip install deskew[debug_images]` you can get some debug images used for
+the skew detection with the function `determine_skew_debug_images`.
+
+To start the investigation you should first increase the `num_peaks` (default `20`) and use
+the `determine_skew_debug_images` function.
+
+Then you can try to tune the following arguments `num_peaks`, `angle_pm_90`, `min_angle`, `max_angle`,
+`min_deviation` and eventually `sigma`.
+
 Inspired by Alyn: https://github.com/kakul/Alyn

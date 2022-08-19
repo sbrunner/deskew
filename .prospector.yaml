@@ -5,6 +5,7 @@ doc-warnings: True
 pylint:
   disable:
     - too-many-arguments
+    - too-many-statements
 
 pycodestyle:
   disable:
@@ -18,6 +19,7 @@ pydocstyle:
     - D102 # Missing docstring in public method
     - D104 # Missing docstring in public package
     - D212 # Multi-line docstring summary should start at the first line
+    - D202 # No blank lines allowed after function docstring
 
 bandit:
   run: true

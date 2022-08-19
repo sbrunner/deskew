@@ -41,7 +41,7 @@ jobs:
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
       - run: python3 -m pip install --user $(grep poetry ci/requirements.txt)
-      - run: poetry install
+      - run: poetry install --extras=debug_images
       - name: Versions
         run: |
           poetry --version
@@ -58,7 +58,8 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Test results
-          path: results/test-reports
+          path: results
+        if: always()
 
   build:
     name: Continuous integration
@@ -86,8 +87,8 @@ jobs:
       - name: Checks
         run: c2cciutils-checks
 
-      - run: poetry install
-      - run: poetry run prospector --output=pylint -X
+      - run: poetry install --extras=debug_images
+      - run: poetry run prospector --output=pylint --die-on-tool-error
 
       - name: Init Git
         run: |
