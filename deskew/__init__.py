@@ -26,18 +26,6 @@ def _get_max_freq_elem(peaks: List[int]) -> List[float]:
     return max_arr
 
 
-def _compare_sum(value: float) -> bool:
-    return 44 <= value <= 46
-
-
-def _calculate_deviation(angle: float) -> np.float64:
-
-    angle_in_degrees = np.abs(angle)
-    deviation: np.float64 = np.abs(np.pi / 4 - angle_in_degrees)
-
-    return deviation
-
-
 if TYPE_CHECKING:
     from typing import TypeAlias
 
@@ -61,7 +49,6 @@ def determine_skew_dev(
 ) -> Tuple[
     Optional[np.float64],
     List[List[np.float64]],
-    np.float64,
     Tuple[ImageTypeUint64, List[List[np.float64]], ImageTypeFloat64],
 ]:
     """Calculate skew angle."""
@@ -76,60 +63,20 @@ def determine_skew_dev(
         out, angles, distances, num_peaks=num_peaks, threshold=0.05 * np.max(out)
     )
 
-    absolute_deviations = [_calculate_deviation(k) for k in angles_peaks]
-    average_deviation: np.float64 = np.mean(np.rad2deg(absolute_deviations))
     angles_peaks_degree = [np.rad2deg(x) for x in angles_peaks]
 
-    bin_0_45 = []
-    bin_45_90 = []
-    bin_0_45n = []
-    bin_45_90n = []
-
-    for angle in angles_peaks_degree:
-
-        deviation_sum = int(90 - angle + average_deviation)
-        if _compare_sum(deviation_sum):
-            bin_45_90.append(angle)
-            continue
-
-        deviation_sum = int(angle + average_deviation)
-        if _compare_sum(deviation_sum):
-            bin_0_45.append(angle)
-            continue
-
-        deviation_sum = int(-angle + average_deviation)
-        if _compare_sum(deviation_sum):
-            bin_0_45n.append(angle)
-            continue
-
-        deviation_sum = int(90 + angle + average_deviation)
-        if _compare_sum(deviation_sum):
-            bin_45_90n.append(angle)
-
-    angles = [bin_0_45, bin_45_90, bin_0_45n, bin_45_90n]
-    nb_angles_max = 0
-    max_angle_index = -1
-    for angle_index, angle in enumerate(angles):
-        nb_angles = len(angle)
-        if nb_angles > nb_angles_max:
-            nb_angles_max = nb_angles
-            max_angle_index = angle_index
-
-    if nb_angles_max:
-        ans_arr = _get_max_freq_elem(angles[max_angle_index])
-        angle = np.mean(ans_arr)
-    elif angles_peaks_degree:
+    if angles_peaks_degree:
         ans_arr = _get_max_freq_elem(angles_peaks_degree)
         angle = np.mean(ans_arr)
     else:
-        return None, angles, average_deviation, hough_line_out
+        return None, angles, hough_line_out
 
     if not angle_pm_90:
         rot_angle = (angle + 45) % 90 - 45
     else:
         rot_angle = (angle + 90) % 180 - 90
 
-    return rot_angle, angles, average_deviation, hough_line_out
+    return rot_angle, angles, hough_line_out
 
 
 def determine_skew(
@@ -151,7 +98,7 @@ def determine_skew(
         min_deviation = (max_angle - min_angle) / num_angles
         warnings.warn("num_angles is deprecated, please use min_deviation", DeprecationWarning)
 
-    angle, _, _, _ = determine_skew_dev(
+    angle, _, _ = determine_skew_dev(
         image,
         sigma=sigma,
         num_peaks=num_peaks,
