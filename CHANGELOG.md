@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.3.0](https://github.com/sbrunner/deskew/tree/1.3.0) (2022-08-21)
+
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.2.0...1.3.0)
+
+#### :sparkles: Enhancements
+
+- Add image to understand the deskewing [\#247](https://github.com/sbrunner/deskew/pull/247) ([sbrunner](https://github.com/sbrunner))
+
+#### :hammer: Refactor
+
+- Remove not needed code that increase the code complexity [\#248](https://github.com/sbrunner/deskew/pull/248) ([sbrunner](https://github.com/sbrunner))
+
+#### :wrench: Build, CI, Tests, Code style
+
+- Remove duplicated [\#246](https://github.com/sbrunner/deskew/pull/246) ([sbrunner](https://github.com/sbrunner))
+- Disable the Renovate concurrent limit [\#245](https://github.com/sbrunner/deskew/pull/245) ([sbrunner](https://github.com/sbrunner))
+- Update the changelog [\#233](https://github.com/sbrunner/deskew/pull/233) ([github-actions[bot]](https://github.com/apps/github-actions))
+
+#### :package: Dependencies update
+
+- Lock file maintenance [\#244](https://github.com/sbrunner/deskew/pull/244) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [1.2.0](https://github.com/sbrunner/deskew/tree/1.2.0) (2022-08-13)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.1.0...1.2.0)
