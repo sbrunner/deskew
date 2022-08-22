@@ -54,7 +54,7 @@ pytest = "7.1.2"
 pytest-profiling = "1.7.0"
 coverage = "6.4.2"
 prospector = { extras = ["with_bandit", "with_mypy", "with_pyroma"], version = "1.7.7" }
-flake8 = "4.0.1"
+flake8 = "5.0.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version"]
