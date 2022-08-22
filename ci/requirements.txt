@@ -1,2 +1,2 @@
-c2cciutils==1.2.0
+c2cciutils==1.2.1
 poetry==1.1.14
