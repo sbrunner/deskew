@@ -1,5 +1,37 @@
 # Changelog
 
+## [Unreleased](https://github.com/sbrunner/deskew/tree/HEAD)
+
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.2...HEAD)
+
+#### :wrench: Build, CI, Tests, Code style
+
+- Better image check [\#254](https://github.com/sbrunner/deskew/pull/254) ([sbrunner](https://github.com/sbrunner))
+
+## [1.3.2](https://github.com/sbrunner/deskew/tree/1.3.2) (2022-08-26)
+
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.1...1.3.2)
+
+#### :bug: Bug Fixes
+
+- Better line dev image size [\#253](https://github.com/sbrunner/deskew/pull/253) ([sbrunner](https://github.com/sbrunner))
+
+#### :package: Dependencies update
+
+- Update all patch versions \(patch\) [\#251](https://github.com/sbrunner/deskew/pull/251) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [1.3.1](https://github.com/sbrunner/deskew/tree/1.3.1) (2022-08-22)
+
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.0...1.3.1)
+
+#### :wrench: Build, CI, Tests, Code style
+
+- Update the changelog [\#243](https://github.com/sbrunner/deskew/pull/243) ([github-actions[bot]](https://github.com/apps/github-actions))
+
+#### :package: Dependencies update
+
+- Lock file maintenance [\#249](https://github.com/sbrunner/deskew/pull/249) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [1.3.0](https://github.com/sbrunner/deskew/tree/1.3.0) (2022-08-21)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.2.0...1.3.0)
