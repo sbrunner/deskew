@@ -49,10 +49,10 @@ jobs:
           poetry run python --version
           [ "$(python3 --version)" == "$(poetry run python --version)" ]
 
-      - run: >
-          poetry run coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes
-          --profile --profile-svg --junitxml=results/test-reports/junit.xml tests &&
-          poetry run coverage report &&
+      - run: |
+          poetry run coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes \
+          --profile --profile-svg --junitxml=results/test-reports/junit.xml tests
+          poetry run coverage report
           poetry run coverage html --directory=results/coverage
 
       - uses: actions/upload-artifact@v3

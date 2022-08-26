@@ -204,7 +204,7 @@ def determine_skew_debug_images(
         debug_images.append(("hough_transform", cv2.imread(file.name)))
 
     # Detected lines
-    _, axe = plt.subplots(figsize=(15, 6))
+    _, axe = plt.subplots(figsize=(image.shape[0] / 100, image.shape[1] / 100))
 
     axe.imshow(image, cmap=cm.gray)
     axe.set_ylim((image.shape[0], 0))
