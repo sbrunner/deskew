@@ -125,24 +125,37 @@ def determine_skew_debug_images(
         angle_pm_90=angle_pm_90,
     )
     hough_line_data, hough_line_peaks_data, all_freqs = data
-    freqs_original, freqs = all_freqs
+    freqs0, freqs = all_freqs
 
-    skew_angle2 = None if skew_angle is None else (skew_angle + np.pi / 2) % (np.pi) - np.pi / 2
+    booth_angle: List[float] = []
+    skew_angles0: List[float] = []
+    if skew_angle is not None:
+        skew_angle0: float = float(skew_angle % np.pi - np.pi / 2)
+        booth_angle = [float(skew_angle), skew_angle0]
+        skew_angles0 = [skew_angle0] if angle_pm_90 else booth_angle
 
-    limits = []
+    limits: List[Tuple[float, float]] = []
+    limits2: List[Tuple[float, float]] = []
     if min_angle is not None and max_angle is not None:
         min_angle_norm = min_angle % (np.pi / (1 if angle_pm_90 else 2))
         max_angle_norm = max_angle % (np.pi / (1 if angle_pm_90 else 2))
         if min_angle_norm < max_angle_norm:
             min_angle_norm += np.pi / (1 if angle_pm_90 else 2)
         for add in [0.0] if angle_pm_90 else [0.0, np.pi / 2]:
-            min_angle_limit = (min_angle_norm + add + np.pi / 2) % np.pi - np.pi / 2
-            max_angle_limit = (max_angle_norm + add + np.pi / 2) % np.pi - np.pi / 2
+            min_angle_limit: float = (min_angle_norm + add + np.pi / 2) % np.pi - np.pi / 2
+            max_angle_limit: float = (max_angle_norm + add + np.pi / 2) % np.pi - np.pi / 2
+            min_angle_limit2: float = min_angle_limit % np.pi - np.pi / 2
+            max_angle_limit2: float = max_angle_limit % np.pi - np.pi / 2
             if min_angle_limit < max_angle_limit:
                 limits.append((-np.pi / 2, min_angle_limit))
                 limits.append((max_angle_limit, np.pi / 2))
             else:
                 limits.append((max_angle_limit, min_angle_limit))
+            if min_angle_limit2 < max_angle_limit2:
+                limits2.append((-np.pi / 2, min_angle_limit2))
+                limits2.append((max_angle_limit2, np.pi / 2))
+            else:
+                limits2.append((max_angle_limit2, min_angle_limit2))
 
     debug_images = []
 
@@ -160,14 +173,10 @@ def determine_skew_debug_images(
     axe.set_title("Hough transform")
     axe.set_xlabel("Angles (degrees)")
     axe.set_ylabel("Distance (pixels)")
-    if skew_angle is not None:
-        axe.axline((np.rad2deg(skew_angle), 0), (np.rad2deg(skew_angle), 10), color="lightgreen")
-        if not angle_pm_90:
-            if TYPE_CHECKING:
-                assert skew_angle2 is not None  # nosec
-            axe.axline((np.rad2deg(skew_angle2), 0), (np.rad2deg(skew_angle2), 10), color="lightgreen")
+    for angle in skew_angles0:
+        axe.axline((np.rad2deg(angle), 0), (np.rad2deg(angle), 10), color="lightgreen")
 
-    for limit_min, limit_max in limits:
+    for limit_min, limit_max in limits2:
         if limit_min != -np.pi / 2:
             axe.axline((np.rad2deg(limit_min), 0), (np.rad2deg(limit_min), 10))
         if limit_max != np.pi / 2:
@@ -211,21 +220,25 @@ def determine_skew_debug_images(
     axe.set_axis_off()
     axe.set_title("Detected lines")
 
-    for _, angle, dist in zip(*hough_line_peaks_data):
-        (coord0x, coord0y) = dist * np.array([np.cos(angle), np.sin(angle)])
+    for _, line_angle, dist in zip(*hough_line_peaks_data):
+        (coord0x, coord0y) = dist * np.array([np.cos(line_angle), np.sin(line_angle)])
         angle2 = (
-            (angle % np.pi - np.pi / 2) if angle_pm_90 else ((angle + np.pi / 4) % (np.pi / 2) - np.pi / 4)
+            (line_angle % np.pi - np.pi / 2)
+            if angle_pm_90
+            else ((line_angle + np.pi / 4) % (np.pi / 2) - np.pi / 4)
         )
         diff = float(abs(angle2 - skew_angle)) if skew_angle is not None else 999.0
         if diff < 0.001:
-            axe.axline((coord0x, coord0y), slope=np.tan(angle + np.pi / 2), linewidth=1, color="lightgreen")
+            axe.axline(
+                (coord0x, coord0y), slope=np.tan(line_angle + np.pi / 2), linewidth=1, color="lightgreen"
+            )
         else:
-            axe.axline((coord0x, coord0y), slope=np.tan(angle + np.pi / 2), linewidth=1)
+            axe.axline((coord0x, coord0y), slope=np.tan(line_angle + np.pi / 2), linewidth=1)
             axe.text(
                 coord0x,
                 coord0y,
-                f"{round(np.rad2deg(angle)*1000)/1000}",
-                rotation=np.rad2deg(angle - np.pi / 2),
+                f"{round(np.rad2deg(line_angle)*1000)/1000}",
+                rotation=np.rad2deg(line_angle - np.pi / 2),
                 rotation_mode="anchor",
                 transform_rotates_text=True,
             )
@@ -245,7 +258,13 @@ def determine_skew_debug_images(
     axe[0].set_title("Original detected angles")
     axe[1].set_title("Corrected angles")
 
-    def fill_polar(axe: Any, freqs: Dict[np.float64, int], half: bool = False) -> None:
+    def fill_polar(
+        axe: Any,
+        freqs: Dict[np.float64, int],
+        angles: List[float],
+        limits: List[Tuple[float, float]],
+        half: bool = False,
+    ) -> None:
         axe.scatter(freqs.keys(), freqs.values())
         axe.set_theta_zero_location("N")
         axe.grid(True)
@@ -256,10 +275,8 @@ def determine_skew_debug_images(
             axe.set_thetamin(-90)
             axe.set_thetamax(90)
 
-        if skew_angle is not None:
-            axe.axvline(skew_angle, color="lightgreen")
-            if not angle_pm_90 or not half:
-                axe.axvline(skew_angle2, color="lightgreen")
+        for angle in angles:
+            axe.axvline(angle, color="lightgreen")
 
         for limit_min, limit_max in limits:
             if limit_min != -np.pi / 2 and (not half or -np.pi / 4 < limit_min < np.pi / 4):
@@ -267,8 +284,8 @@ def determine_skew_debug_images(
             if limit_max != np.pi / 2 and (not half or -np.pi / 4 < limit_max < np.pi / 4):
                 axe.axvline(limit_max)
 
-    fill_polar(axe[0], freqs_original)
-    fill_polar(axe[1], freqs, not angle_pm_90)
+    fill_polar(axe[0], freqs0, skew_angles0, limits2)
+    fill_polar(axe[1], freqs, [] if skew_angle is None else [float(skew_angle)], limits, not angle_pm_90)
 
     plt.tight_layout()
     with tempfile.NamedTemporaryFile(suffix=".png") as file:
