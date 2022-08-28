@@ -2,11 +2,24 @@
 
 ## [Unreleased](https://github.com/sbrunner/deskew/tree/HEAD)
 
-[Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.2...HEAD)
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.3...HEAD)
+
+#### :package: Dependencies update
+
+- Update dependency poetry to v1.1.15 [\#257](https://github.com/sbrunner/deskew/pull/257) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [1.3.3](https://github.com/sbrunner/deskew/tree/1.3.3) (2022-08-28)
+
+[Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.2...1.3.3)
+
+#### :bug: Bug Fixes
+
+- Fix angles [\#256](https://github.com/sbrunner/deskew/pull/256) ([sbrunner](https://github.com/sbrunner))
 
 #### :wrench: Build, CI, Tests, Code style
 
 - Better image check [\#254](https://github.com/sbrunner/deskew/pull/254) ([sbrunner](https://github.com/sbrunner))
+- Update the changelog [\#250](https://github.com/sbrunner/deskew/pull/250) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [1.3.2](https://github.com/sbrunner/deskew/tree/1.3.2) (2022-08-26)
 
