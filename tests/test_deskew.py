@@ -15,7 +15,7 @@ else:
     NpNdarrayInt = np.ndarray
 
 
-def check_image(root_folder, image, name, level=0.9):
+def check_image(root_folder, image, name, level=1.0):
     assert image is not None, "Image required"
     expected_name = os.path.join(os.path.dirname(__file__), f"{name}.expected.png")
     result_name = os.path.join(root_folder, f"{name}.result.png")
@@ -34,23 +34,16 @@ def check_image(root_folder, image, name, level=0.9):
     if diff is None:
         cv2.imwrite(result_name, image)
         assert diff is not None, "No diff generated"
-    if score > level:
+    if score < level:
         cv2.imwrite(result_name, image)
         cv2.imwrite(diff_name, diff)
-        assert score > level, f"{result_name} != {expected_name} => {diff_name} ({score} > {level})"
+        assert score >= level, f"{result_name} != {expected_name} => {diff_name} ({score} < {level})"
 
 
 def image_diff(image1: NpNdarrayInt, image2: NpNdarrayInt) -> Tuple[float, NpNdarrayInt]:
     """Do a diff between images."""
-    width = max(image1.shape[1], image2.shape[1])
-    height = max(image1.shape[0], image2.shape[0])
-    image1 = cv2.resize(image1, (width, height))
-    image2 = cv2.resize(image2, (width, height))
 
-    image1 = image1 if len(image1.shape) == 2 else cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
-    image2 = image2 if len(image2.shape) == 2 else cv2.cvtColor(image2, cv2.COLOR_BGR2GRAY)
-
-    score, diff = structural_similarity(image1, image2, full=True)
+    score, diff = structural_similarity(image1, image2, multichannel=True, full=True)
     diff = (255 - diff * 255).astype("uint8")
     return score, diff
 
