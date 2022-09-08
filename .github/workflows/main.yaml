@@ -4,9 +4,9 @@ on:
   pull_request:
   push:
     branches:
-      - master
+    - master
     tags:
-      - '*'
+    - '*'
 
 env:
   HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
@@ -23,45 +23,45 @@ jobs:
       fail-fast: false
       matrix:
         python-version:
-          - '3.8'
-          - '3.9'
-          - '3.10'
+        - '3.8'
+        - '3.9'
+        - '3.10'
 
     steps:
-      - run: docker system prune --all --force
-      - name: GitHub event
-        run: echo ${GITHUB_EVENT} | python3 -m json.tool
-        env:
-          GITHUB_EVENT: ${{ toJson(github) }}
+    - run: docker system prune --all --force
+    - name: GitHub event
+      run: echo ${GITHUB_EVENT} | python3 -m json.tool
+      env:
+        GITHUB_EVENT: ${{ toJson(github) }}
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
 
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
-      - run: python3 -m pip install --user $(grep poetry ci/requirements.txt)
-      - run: poetry install --extras=debug_images
-      - name: Versions
-        run: |
-          poetry --version
-          python --version
-          poetry run python --version
-          [ "$(python3 --version)" == "$(poetry run python --version)" ]
+    - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
+    - run: python3 -m pip install --user $(grep poetry ci/requirements.txt)
+    - run: poetry install --extras=debug_images
+    - name: Versions
+      run: |
+        poetry --version
+        python --version
+        poetry run python --version
+        [ "$(python3 --version)" == "$(poetry run python --version)" ]
 
-      - run: |
-          poetry run coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes \
-          --profile --profile-svg --junitxml=results/test-reports/junit.xml tests
-          poetry run coverage report
-          poetry run coverage html --directory=results/coverage
+    - run: |
+        poetry run coverage run --source=deskew --module pytest --durations=0 --verbose --color=yes \
+        --profile --profile-svg --junitxml=results/test-reports/junit.xml tests
+        poetry run coverage report
+        poetry run coverage html --directory=results/coverage
 
-      - uses: actions/upload-artifact@v3
-        with:
-          name: Test results
-          path: results
-        if: always()
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Test results
+        path: results
+      if: always()
 
   build:
     name: Continuous integration
@@ -69,43 +69,43 @@ jobs:
     timeout-minutes: 15
     if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
     needs:
-      - test
+    - test
 
     steps:
-      - run: docker system prune --all --force
-      - name: GitHub event
-        run: echo ${GITHUB_EVENT} | python3 -m json.tool
-        env:
-          GITHUB_EVENT: ${{ toJson(github) }}
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.TOKEN }}
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - uses: actions/checkout@v3
-        if: env.HAS_SECRETS != 'HAS_SECRETS'
+    - run: docker system prune --all --force
+    - name: GitHub event
+      run: echo ${GITHUB_EVENT} | python3 -m json.tool
+      env:
+        GITHUB_EVENT: ${{ toJson(github) }}
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.TOKEN }}
+      if: env.HAS_SECRETS == 'HAS_SECRETS'
+    - uses: actions/checkout@v3
+      if: env.HAS_SECRETS != 'HAS_SECRETS'
 
-      - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
-      - run: python3 -m pip install --user --requirement=ci/requirements.txt
+    - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
+    - run: python3 -m pip install --user --requirement=ci/requirements.txt
 
-      - name: Checks
-        run: c2cciutils-checks
+    - name: Checks
+      run: c2cciutils-checks
 
-      - run: poetry install --extras=debug_images
-      - run: poetry run prospector --output=pylint --die-on-tool-error
+    - run: poetry install --extras=debug_images
+    - run: poetry run prospector --output=pylint --die-on-tool-error
 
-      - name: Init Git
-        run: |
-          git config credential.helper 'cache --timeout=120'
-          git config user.email "<ci@ci.com>"
-          git config user.name "CI"
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - name: Init pypi
-        run: |
-          echo "[pypi]" > ~/.pypirc
-          echo "username = ${{ secrets.PYPI_USERNAME }}" >> ~/.pypirc
-          echo "password = ${{ secrets.PYPI_PASSWORD }}" >> ~/.pypirc
-          python3 -m pip install --user wheel twine
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - name: Publish
-        run: c2cciutils-publish
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
+    - name: Init Git
+      run: |
+        git config credential.helper 'cache --timeout=120'
+        git config user.email "<ci@ci.com>"
+        git config user.name "CI"
+      if: env.HAS_SECRETS == 'HAS_SECRETS'
+    - name: Init pypi
+      run: |
+        echo "[pypi]" > ~/.pypirc
+        echo "username = ${{ secrets.PYPI_USERNAME }}" >> ~/.pypirc
+        echo "password = ${{ secrets.PYPI_PASSWORD }}" >> ~/.pypirc
+        python3 -m pip install --user wheel twine
+      if: env.HAS_SECRETS == 'HAS_SECRETS'
+    - name: Publish
+      run: c2cciutils-publish
+      if: env.HAS_SECRETS == 'HAS_SECRETS'
