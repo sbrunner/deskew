@@ -1,4 +1,3 @@
----
 name: Continuous integration
 
 on:
@@ -29,6 +28,7 @@ jobs:
           - '3.10'
 
     steps:
+      - run: docker system prune --all --force
       - name: GitHub event
         run: echo ${GITHUB_EVENT} | python3 -m json.tool
         env:
@@ -72,6 +72,7 @@ jobs:
       - test
 
     steps:
+      - run: docker system prune --all --force
       - name: GitHub event
         run: echo ${GITHUB_EVENT} | python3 -m json.tool
         env:
