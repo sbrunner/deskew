@@ -19,25 +19,41 @@ jobs:
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
       - run: python3 -m pip install --user --requirement=ci/requirements.txt
 
+      - name: Get Date
+        id: get-date
+        run: |
+          echo "::set-output name=date::$(/bin/date -u "+%Y%m%d%H%M%S")"
+      - uses: actions/cache@v3
+        with:
+          path: |
+            .github/changelog-generator-cache
+          key: changelog-${{ steps.get-date.outputs.date }}
+          restore-keys: |
+            changelog-
+
       - name: Get config
         id: config
         run: echo ::set-output name=config::$(python -c 'print(__import__("json").dumps(__import__("yaml").load(open(".github/changelog-config.yaml"))))')
-
       - name: Generate changelog
         id: changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           configureSections: ${{ steps.config.outputs.config }}
-          cacheFile: github-changelog-generator-action.cache
+          cacheFile: .github/changelog-generator-cache
+          unreleased: false
 
-      - run: c2cciutils-checks --fix --check=prettier
-      - run: git add CHANGELOG.md
-      - run: git config --global user.email "ci@example.com"
-      - run: git config --global user.name "CI"
-      - run: git commit -m "Update the changelog"
-      - run: git checkout -b changelog-update
-      - run: git push origin changelog-update -f
-      - run: gh pr create --base=master --fill --label=chore || true
+      - id: status
+        run: echo ::set-output name=status::$(git status --short)
+      - run: |
+          c2cciutils-checks --fix --check=prettier
+          git add CHANGELOG.md
+          git config --global user.email "ci@example.com"
+          git config --global user.name "CI"
+          git commit -m "Update the changelog"
+          git checkout -b changelog-update
+          git push origin changelog-update -f
+          gh pr create --base=master --fill --label=chore || true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: steps.status.outputs.status != ''
