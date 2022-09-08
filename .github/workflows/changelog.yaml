@@ -43,10 +43,10 @@ jobs:
           cacheFile: .github/changelog-generator-cache
           unreleased: false
 
+      - run: c2cciutils-checks --fix --check=prettier
       - id: status
         run: echo ::set-output name=status::$(git status --short)
       - run: |
-          c2cciutils-checks --fix --check=prettier
           git add CHANGELOG.md
           git config --global user.email "ci@example.com"
           git config --global user.name "CI"
