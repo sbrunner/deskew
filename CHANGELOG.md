@@ -1,13 +1,5 @@
 # Changelog
 
-## [Unreleased](https://github.com/sbrunner/deskew/tree/HEAD)
-
-[Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.3...HEAD)
-
-#### :package: Dependencies update
-
-- Update dependency poetry to v1.1.15 [\#257](https://github.com/sbrunner/deskew/pull/257) ([renovate[bot]](https://github.com/apps/renovate))
-
 ## [1.3.3](https://github.com/sbrunner/deskew/tree/1.3.3) (2022-08-28)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.2...1.3.3)
