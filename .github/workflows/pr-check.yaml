@@ -8,6 +8,7 @@ on:
       - labeled
       - unlabeled
 
+  push:
 jobs:
   build:
     name: Pull request check
@@ -24,8 +25,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: github.actor != 'renovate[bot]'
 
-      # Do spell on pull request title
+        # Do spell on pull request title
       - run: python3 -m pip install --user codespell
       - run: jq -r '.pull_request.title' ${GITHUB_EVENT_PATH} > pull-request-title
-      # --ignore-words=spell-ignore-words.txt
+        # --ignore-words=spell-ignore-words.txt
       - run: codespell pull-request-title
