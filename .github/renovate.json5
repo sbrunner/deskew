@@ -1,7 +1,7 @@
 {
   extends: ['config:base'],
   timezone: 'Europe/Zurich',
-  schedule: 'before 1am on Sunday',
+  schedule: 'after 1am on Sunday',
   labels: ['dependencies'],
   separateMajorMinor: true,
   separateMinorPatch: true,
