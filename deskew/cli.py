@@ -24,7 +24,7 @@ def main() -> None:
     options = parser.parse_args()
 
     image = io.imread(options.input)
-    grayscale = rgb2gray(image)
+    grayscale = image if len(image) == 2 else rgb2gray(image)
     angle = determine_skew(grayscale, sigma=options.sigma, num_peaks=options.num_peaks)
     if options.output is None:
         print(f"Estimated angle: {angle}")
