@@ -25,6 +25,15 @@
       groupName: 'all minor versions',
       automerge: true,
     },
+    /** Group Poetry packages */
+    {
+      matchPackageNames: ['poetry', 'poetry-core'],
+      groupName: 'Poetry',
+      automerge: true,
+      separateMajorMinor: false,
+      separateMinorPatch: false,
+    },
+    /** Separate pull request for scikit-image */
     {
       matchPackageNames: ['scikit-image'],
       groupName: 'scikit-image',
