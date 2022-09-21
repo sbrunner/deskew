@@ -4,11 +4,11 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.2...1.3.3)
 
-#### :bug: Bug Fixes
+**Fixed bugs:**
 
 - Fix angles [\#256](https://github.com/sbrunner/deskew/pull/256) ([sbrunner](https://github.com/sbrunner))
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Better image check [\#254](https://github.com/sbrunner/deskew/pull/254) ([sbrunner](https://github.com/sbrunner))
 - Update the changelog [\#250](https://github.com/sbrunner/deskew/pull/250) ([github-actions[bot]](https://github.com/apps/github-actions))
@@ -17,11 +17,11 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.1...1.3.2)
 
-#### :bug: Bug Fixes
+**Fixed bugs:**
 
 - Better line dev image size [\#253](https://github.com/sbrunner/deskew/pull/253) ([sbrunner](https://github.com/sbrunner))
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update all patch versions \(patch\) [\#251](https://github.com/sbrunner/deskew/pull/251) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -29,93 +29,78 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.3.0...1.3.1)
 
-#### :wrench: Build, CI, Tests, Code style
-
-- Update the changelog [\#243](https://github.com/sbrunner/deskew/pull/243) ([github-actions[bot]](https://github.com/apps/github-actions))
-
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#249](https://github.com/sbrunner/deskew/pull/249) ([renovate[bot]](https://github.com/apps/renovate))
+- Update the changelog [\#243](https://github.com/sbrunner/deskew/pull/243) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [1.3.0](https://github.com/sbrunner/deskew/tree/1.3.0) (2022-08-21)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.2.0...1.3.0)
 
-#### :sparkles: Enhancements
+**Implemented enhancements:**
 
 - Add image to understand the deskewing [\#247](https://github.com/sbrunner/deskew/pull/247) ([sbrunner](https://github.com/sbrunner))
 
-#### :hammer: Refactor
+**Merged pull requests:**
 
 - Remove not needed code that increase the code complexity [\#248](https://github.com/sbrunner/deskew/pull/248) ([sbrunner](https://github.com/sbrunner))
-
-#### :wrench: Build, CI, Tests, Code style
-
 - Remove duplicated [\#246](https://github.com/sbrunner/deskew/pull/246) ([sbrunner](https://github.com/sbrunner))
 - Disable the Renovate concurrent limit [\#245](https://github.com/sbrunner/deskew/pull/245) ([sbrunner](https://github.com/sbrunner))
-- Update the changelog [\#233](https://github.com/sbrunner/deskew/pull/233) ([github-actions[bot]](https://github.com/apps/github-actions))
-
-#### :package: Dependencies update
-
 - Lock file maintenance [\#244](https://github.com/sbrunner/deskew/pull/244) ([renovate[bot]](https://github.com/apps/renovate))
+- Update the changelog [\#233](https://github.com/sbrunner/deskew/pull/233) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [1.2.0](https://github.com/sbrunner/deskew/tree/1.2.0) (2022-08-13)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.1.0...1.2.0)
 
-#### :sparkles: Enhancements
+**Implemented enhancements:**
 
 - Be able to provide min and max angle [\#242](https://github.com/sbrunner/deskew/pull/242) ([sbrunner](https://github.com/sbrunner))
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Add spell on the pull request title [\#241](https://github.com/sbrunner/deskew/pull/241) ([sbrunner](https://github.com/sbrunner))
-- Fix mypy types [\#238](https://github.com/sbrunner/deskew/pull/238) ([sbrunner](https://github.com/sbrunner))
-- Remove hourly limit [\#236](https://github.com/sbrunner/deskew/pull/236) ([sbrunner](https://github.com/sbrunner))
-- Update the changelog [\#227](https://github.com/sbrunner/deskew/pull/227) ([github-actions[bot]](https://github.com/apps/github-actions))
-
-#### :package: Dependencies update
-
 - Lock file maintenance [\#240](https://github.com/sbrunner/deskew/pull/240) ([renovate[bot]](https://github.com/apps/renovate))
 - Lock file maintenance [\#239](https://github.com/sbrunner/deskew/pull/239) ([renovate[bot]](https://github.com/apps/renovate))
+- Fix mypy types [\#238](https://github.com/sbrunner/deskew/pull/238) ([sbrunner](https://github.com/sbrunner))
 - Lock file maintenance [\#237](https://github.com/sbrunner/deskew/pull/237) ([renovate[bot]](https://github.com/apps/renovate))
+- Remove hourly limit [\#236](https://github.com/sbrunner/deskew/pull/236) ([sbrunner](https://github.com/sbrunner))
 - Update dependency coverage to v6.4.2 [\#235](https://github.com/sbrunner/deskew/pull/235) ([renovate[bot]](https://github.com/apps/renovate))
 - Lock file maintenance [\#234](https://github.com/sbrunner/deskew/pull/234) ([renovate[bot]](https://github.com/apps/renovate))
+- Update the changelog [\#227](https://github.com/sbrunner/deskew/pull/227) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Update actions/setup-python action to v4 [\#221](https://github.com/sbrunner/deskew/pull/221) ([renovate[bot]](https://github.com/apps/renovate))
 
 ## [1.1.0](https://github.com/sbrunner/deskew/tree/1.1.0) (2022-07-11)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.26...1.1.0)
 
-#### :sparkles: Enhancements
+**Implemented enhancements:**
 
 - Drop Python 3.7 support [\#228](https://github.com/sbrunner/deskew/pull/228) ([sbrunner](https://github.com/sbrunner))
 
-#### :wrench: Build, CI, Tests, Code style
-
-- Better usage of chore [\#225](https://github.com/sbrunner/deskew/pull/225) ([sbrunner](https://github.com/sbrunner))
-- Update the changelog [\#219](https://github.com/sbrunner/deskew/pull/219) ([github-actions[bot]](https://github.com/apps/github-actions))
-- Update the changelog [\#216](https://github.com/sbrunner/deskew/pull/216) ([github-actions[bot]](https://github.com/apps/github-actions))
-
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#232](https://github.com/sbrunner/deskew/pull/232) ([renovate[bot]](https://github.com/apps/renovate))
 - Update dependency numpy to v1.23.1 [\#231](https://github.com/sbrunner/deskew/pull/231) ([renovate[bot]](https://github.com/apps/renovate))
 - Update dependency poetry to v1.1.14 [\#230](https://github.com/sbrunner/deskew/pull/230) ([renovate[bot]](https://github.com/apps/renovate))
 - Lock file maintenance [\#226](https://github.com/sbrunner/deskew/pull/226) ([renovate[bot]](https://github.com/apps/renovate))
+- Better usage of chore [\#225](https://github.com/sbrunner/deskew/pull/225) ([sbrunner](https://github.com/sbrunner))
 - Update dependency numpy to v1.22.0 \[SECURITY\] [\#223](https://github.com/sbrunner/deskew/pull/223) ([renovate[bot]](https://github.com/apps/renovate))
 - Lock file maintenance [\#222](https://github.com/sbrunner/deskew/pull/222) ([renovate[bot]](https://github.com/apps/renovate))
+- Update the changelog [\#219](https://github.com/sbrunner/deskew/pull/219) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Update the changelog [\#216](https://github.com/sbrunner/deskew/pull/216) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Update all patch versions \(patch\) [\#215](https://github.com/sbrunner/deskew/pull/215) ([renovate[bot]](https://github.com/apps/renovate))
 
 ## [1.0.26](https://github.com/sbrunner/deskew/tree/1.0.26) (2022-06-16)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.25...1.0.26)
 
-#### :bug: Bug Fixes
+**Fixed bugs:**
 
 - Fix the script name [\#218](https://github.com/sbrunner/deskew/pull/218) ([sbrunner](https://github.com/sbrunner))
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Update the changelog [\#210](https://github.com/sbrunner/deskew/pull/210) ([github-actions[bot]](https://github.com/apps/github-actions))
 
@@ -123,32 +108,26 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.24...1.0.25)
 
-#### :books: Documentation
+**Closed issues:**
 
-- Add changelog [\#205](https://github.com/sbrunner/deskew/pull/205) ([sbrunner](https://github.com/sbrunner))
+- Request for changelog and tagged versions [\#202](https://github.com/sbrunner/deskew/issues/202)
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
+- Update actions/checkout action to v3 [\#214](https://github.com/sbrunner/deskew/pull/214) ([renovate[bot]](https://github.com/apps/renovate))
+- Update dependency numpy to v1.21.0 \[SECURITY\] [\#213](https://github.com/sbrunner/deskew/pull/213) ([renovate[bot]](https://github.com/apps/renovate))
 - Test with different Python versions \(3.7, 3.8, 3.9\) [\#211](https://github.com/sbrunner/deskew/pull/211) ([sbrunner](https://github.com/sbrunner))
 - Update release creation [\#209](https://github.com/sbrunner/deskew/pull/209) ([sbrunner](https://github.com/sbrunner))
 - Update the changelog [\#207](https://github.com/sbrunner/deskew/pull/207) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Update the changelog [\#206](https://github.com/sbrunner/deskew/pull/206) ([github-actions[bot]](https://github.com/apps/github-actions))
-
-#### :package: Dependencies update
-
-- Update actions/checkout action to v3 [\#214](https://github.com/sbrunner/deskew/pull/214) ([renovate[bot]](https://github.com/apps/renovate))
-- Update dependency numpy to v1.21.0 \[SECURITY\] [\#213](https://github.com/sbrunner/deskew/pull/213) ([renovate[bot]](https://github.com/apps/renovate))
+- Add changelog [\#205](https://github.com/sbrunner/deskew/pull/205) ([sbrunner](https://github.com/sbrunner))
 - Lock file maintenance [\#204](https://github.com/sbrunner/deskew/pull/204) ([renovate[bot]](https://github.com/apps/renovate))
-
-**Closed issues:**
-
-- Request for changelog and tagged versions [\#202](https://github.com/sbrunner/deskew/issues/202)
 
 ## [1.0.24](https://github.com/sbrunner/deskew/tree/1.0.24) (2022-06-06)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.23...1.0.24)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#201](https://github.com/sbrunner/deskew/pull/201) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -156,7 +135,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.22...1.0.23)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update all patch versions [\#200](https://github.com/sbrunner/deskew/pull/200) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -164,7 +143,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.21...1.0.22)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#198](https://github.com/sbrunner/deskew/pull/198) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -172,7 +151,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.20...1.0.21)
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Remove poetry-dynamic-versioning [\#197](https://github.com/sbrunner/deskew/pull/197) ([sbrunner](https://github.com/sbrunner))
 
@@ -180,7 +159,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.19...1.0.20)
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Add pyroma check [\#196](https://github.com/sbrunner/deskew/pull/196) ([sbrunner](https://github.com/sbrunner))
 
@@ -192,7 +171,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.17...1.0.18)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#195](https://github.com/sbrunner/deskew/pull/195) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -200,7 +179,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.16...1.0.17)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update dependency coverage to v6.4 [\#194](https://github.com/sbrunner/deskew/pull/194) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -208,7 +187,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.15...1.0.16)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update dependency numpy to v1.22.4 [\#193](https://github.com/sbrunner/deskew/pull/193) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -220,7 +199,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.13...1.0.14)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#192](https://github.com/sbrunner/deskew/pull/192) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -228,7 +207,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.12...1.0.13)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update all patch versions [\#191](https://github.com/sbrunner/deskew/pull/191) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -236,7 +215,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.11...1.0.12)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#190](https://github.com/sbrunner/deskew/pull/190) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -244,7 +223,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.10...1.0.11)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update dependency c2cciutils to v1.1.10 [\#189](https://github.com/sbrunner/deskew/pull/189) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -252,7 +231,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.9...1.0.10)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update github/codeql-action action to v2 [\#187](https://github.com/sbrunner/deskew/pull/187) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -260,7 +239,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.8...1.0.9)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#188](https://github.com/sbrunner/deskew/pull/188) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -268,7 +247,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.7...1.0.8)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Lock file maintenance [\#186](https://github.com/sbrunner/deskew/pull/186) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -276,7 +255,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.6...1.0.7)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update dependency pytest to v7.1.2 [\#185](https://github.com/sbrunner/deskew/pull/185) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -284,7 +263,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.5...1.0.6)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update actions/upload-artifact action to v3 [\#184](https://github.com/sbrunner/deskew/pull/184) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -292,7 +271,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.4...1.0.5)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update dependency numpy to v1.22.3 [\#182](https://github.com/sbrunner/deskew/pull/182) ([renovate[bot]](https://github.com/apps/renovate))
 
@@ -300,7 +279,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.3...1.0.4)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update actions/checkout action to v3 [\#183](https://github.com/sbrunner/deskew/pull/183) ([renovate[bot]](https://github.com/apps/renovate))
 - Bump prospector from 1.7.4 to 1.7.7 [\#181](https://github.com/sbrunner/deskew/pull/181) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -311,12 +290,9 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.2...1.0.3)
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Configure Renovate and Poetry [\#177](https://github.com/sbrunner/deskew/pull/177) ([sbrunner](https://github.com/sbrunner))
-
-#### :package: Dependencies update
-
 - Bump c2cciutils from 1.1.7 to 1.1.9 [\#176](https://github.com/sbrunner/deskew/pull/176) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.6 to 1.1.7 [\#175](https://github.com/sbrunner/deskew/pull/175) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.5 to 1.1.6 [\#174](https://github.com/sbrunner/deskew/pull/174) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -334,7 +310,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/1.0.1...1.0.2)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump prospector from 1.6.0 to 1.7.4 [\#163](https://github.com/sbrunner/deskew/pull/163) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump coverage from 6.3.1 to 6.3.2 [\#161](https://github.com/sbrunner/deskew/pull/161) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -343,11 +319,18 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.40...1.0.1)
 
-#### :bug: Bug Fixes
+**Fixed bugs:**
 
 - Be able to have an angle between -90 and 90° [\#160](https://github.com/sbrunner/deskew/pull/160) ([sbrunner](https://github.com/sbrunner))
 
-#### :package: Dependencies update
+**Closed issues:**
+
+- Does not work with images rotated around 90 degrees [\#155](https://github.com/sbrunner/deskew/issues/155)
+- Incorrect Angles [\#28](https://github.com/sbrunner/deskew/issues/28)
+- error using the CLI [\#13](https://github.com/sbrunner/deskew/issues/13)
+- How to run? [\#4](https://github.com/sbrunner/deskew/issues/4)
+
+**Merged pull requests:**
 
 - Bump scikit-image from 0.19.1 to 0.19.2 [\#159](https://github.com/sbrunner/deskew/pull/159) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.2.dev20220214124120 to 1.2.dev20220215091734 [\#158](https://github.com/sbrunner/deskew/pull/158) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -369,22 +352,19 @@
 - Bump prospector from 1.5.3.1 to 1.6.0 [\#141](https://github.com/sbrunner/deskew/pull/141) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump numpy from 1.22.0 to 1.22.1 [\#140](https://github.com/sbrunner/deskew/pull/140) ([dependabot[bot]](https://github.com/apps/dependabot))
 
-**Closed issues:**
-
-- Does not work with images rotated around 90 degrees [\#155](https://github.com/sbrunner/deskew/issues/155)
-- Incorrect Angles [\#28](https://github.com/sbrunner/deskew/issues/28)
-- error using the CLI [\#13](https://github.com/sbrunner/deskew/issues/13)
-- How to run? [\#4](https://github.com/sbrunner/deskew/issues/4)
-
 ## [0.10.40](https://github.com/sbrunner/deskew/tree/0.10.40) (2022-01-15)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.39...0.10.40)
 
-#### :bug: Bug Fixes
+**Fixed bugs:**
 
 - Angle should be between -45 and 45 [\#137](https://github.com/sbrunner/deskew/pull/137) ([sbrunner](https://github.com/sbrunner))
 
-#### :package: Dependencies update
+**Closed issues:**
+
+- Detect Text direction [\#9](https://github.com/sbrunner/deskew/issues/9)
+
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20211215101636 to 1.1.dev20220105162844 [\#139](https://github.com/sbrunner/deskew/pull/139) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump numpy from 1.21.5 to 1.22.0 [\#138](https://github.com/sbrunner/deskew/pull/138) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -394,15 +374,11 @@
 - Bump c2cciutils from 1.1.dev20211125140927 to 1.1.dev20211209145632 [\#133](https://github.com/sbrunner/deskew/pull/133) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump prospector from 1.5.3 to 1.5.3.1 [\#132](https://github.com/sbrunner/deskew/pull/132) ([dependabot[bot]](https://github.com/apps/dependabot))
 
-**Closed issues:**
-
-- Detect Text direction [\#9](https://github.com/sbrunner/deskew/issues/9)
-
 ## [0.10.39](https://github.com/sbrunner/deskew/tree/0.10.39) (2021-12-08)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.38...0.10.39)
 
-#### :bug: Bug Fixes
+**Fixed bugs:**
 
 - Fix hough line out [\#131](https://github.com/sbrunner/deskew/pull/131) ([sbrunner](https://github.com/sbrunner))
 
@@ -410,7 +386,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.37...0.10.38)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump scikit-image from 0.18.3 to 0.19.0 [\#130](https://github.com/sbrunner/deskew/pull/130) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump prospector from 1.5.2 to 1.5.3 [\#129](https://github.com/sbrunner/deskew/pull/129) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -424,11 +400,11 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.36...0.10.37)
 
-#### :sparkles: Enhancements
+**Implemented enhancements:**
 
 - Add num angle to increase the angle precision [\#123](https://github.com/sbrunner/deskew/pull/123) ([sbrunner](https://github.com/sbrunner))
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump numpy from 1.21.3 to 1.21.4 [\#122](https://github.com/sbrunner/deskew/pull/122) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump coverage from 6.0.2 to 6.1.1 [\#121](https://github.com/sbrunner/deskew/pull/121) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -442,7 +418,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.35...0.10.36)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump coverage from 6.0.1 to 6.0.2 [\#115](https://github.com/sbrunner/deskew/pull/115) ([dependabot[bot]](https://github.com/apps/dependabot))
 
@@ -450,7 +426,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.34...0.10.35)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20211007121148 to 1.1.dev20211008145734 [\#114](https://github.com/sbrunner/deskew/pull/114) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.dev20211006140719 to 1.1.dev20211007121148 [\#113](https://github.com/sbrunner/deskew/pull/113) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -459,16 +435,13 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.33...0.10.34)
 
-#### :wrench: Build, CI, Tests, Code style
-
-- Add more types [\#108](https://github.com/sbrunner/deskew/pull/108) ([sbrunner](https://github.com/sbrunner))
-
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump coverage from 6.0 to 6.0.1 [\#112](https://github.com/sbrunner/deskew/pull/112) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.dev20211004142851 to 1.1.dev20211006140719 [\#111](https://github.com/sbrunner/deskew/pull/111) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.dev20210921153209 to 1.1.dev20211004142851 [\#110](https://github.com/sbrunner/deskew/pull/110) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump coverage from 5.5 to 6.0 [\#109](https://github.com/sbrunner/deskew/pull/109) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Add more types [\#108](https://github.com/sbrunner/deskew/pull/108) ([sbrunner](https://github.com/sbrunner))
 - Bump c2cciutils from 1.1.dev20210915084344 to 1.1.dev20210921153209 [\#107](https://github.com/sbrunner/deskew/pull/107) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump flake8 from 3.8.0 to 3.9.2 [\#106](https://github.com/sbrunner/deskew/pull/106) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump prospector from 1.5.0.1 to 1.5.1 [\#105](https://github.com/sbrunner/deskew/pull/105) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -489,7 +462,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.32...0.10.33)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20210727151149 to 1.1.dev20210729075943 [\#92](https://github.com/sbrunner/deskew/pull/92) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.dev20210712112154 to 1.1.dev20210727151149 [\#91](https://github.com/sbrunner/deskew/pull/91) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -499,7 +472,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.31...0.10.32)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20210709152623 to 1.1.dev20210712112154 [\#89](https://github.com/sbrunner/deskew/pull/89) ([dependabot[bot]](https://github.com/apps/dependabot))
 
@@ -507,7 +480,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.30...0.10.31)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20210701074602 to 1.1.dev20210709152623 [\#88](https://github.com/sbrunner/deskew/pull/88) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.dev20210629154910 to 1.1.dev20210701074602 [\#87](https://github.com/sbrunner/deskew/pull/87) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -521,7 +494,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.29...0.10.30)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20210604063451 to 1.1.dev20210615102932 [\#81](https://github.com/sbrunner/deskew/pull/81) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.dev20210511092229 to 1.1.dev20210604063451 [\#79](https://github.com/sbrunner/deskew/pull/79) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -530,12 +503,9 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.28...0.10.29)
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Activate type check [\#78](https://github.com/sbrunner/deskew/pull/78) ([sbrunner](https://github.com/sbrunner))
-
-#### :package: Dependencies update
-
 - Bump c2cciutils from 1.1.dev20210504062412 to 1.1.dev20210511092229 [\#77](https://github.com/sbrunner/deskew/pull/77) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump numpy from 1.20.2 to 1.20.3 [\#76](https://github.com/sbrunner/deskew/pull/76) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump c2cciutils from 1.1.dev20210428132049 to 1.1.dev20210504062412 [\#75](https://github.com/sbrunner/deskew/pull/75) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -552,7 +522,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.26...0.10.27)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20210401100258 to 1.1.dev20210415083211 [\#68](https://github.com/sbrunner/deskew/pull/68) ([dependabot[bot]](https://github.com/apps/dependabot))
 
@@ -560,7 +530,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.25...0.10.26)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump pytest from 6.2.2 to 6.2.3 [\#66](https://github.com/sbrunner/deskew/pull/66) ([dependabot[bot]](https://github.com/apps/dependabot))
 
@@ -568,7 +538,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.24...0.10.25)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Update Dependabot config file [\#65](https://github.com/sbrunner/deskew/pull/65) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -576,7 +546,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.23...0.10.24)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump decorator from 5.0.2 to 5.0.3 [\#64](https://github.com/sbrunner/deskew/pull/64) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -584,7 +554,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.22...0.10.23)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump decorator from 5.0.1 to 5.0.2 [\#63](https://github.com/sbrunner/deskew/pull/63) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -592,7 +562,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.21...0.10.22)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump decorator from 5.0.0 to 5.0.1 [\#62](https://github.com/sbrunner/deskew/pull/62) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -600,7 +570,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.20...0.10.21)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump decorator from 4.4.2 to 5.0.0 [\#61](https://github.com/sbrunner/deskew/pull/61) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -608,7 +578,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.19...0.10.20)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20210331152818 to 1.1.dev20210401100258 [\#60](https://github.com/sbrunner/deskew/pull/60) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -616,7 +586,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.18...0.10.19)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump tifffile from 2021.3.17 to 2021.3.31 [\#58](https://github.com/sbrunner/deskew/pull/58) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -624,7 +594,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.17...0.10.18)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20210315182348 to 1.1.dev20210331152818 [\#57](https://github.com/sbrunner/deskew/pull/57) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -632,7 +602,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.16...0.10.17)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump matplotlib from 3.4.0 to 3.4.1 [\#56](https://github.com/sbrunner/deskew/pull/56) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -640,7 +610,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.15...0.10.16)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump numpy from 1.20.1 to 1.20.2 [\#55](https://github.com/sbrunner/deskew/pull/55) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -648,7 +618,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.14...0.10.15)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Add flake8==3.8.0 run pipenv lock [\#54](https://github.com/sbrunner/deskew/pull/54) ([sbrunner](https://github.com/sbrunner))
 
@@ -660,7 +630,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.12...0.10.13)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.1.dev20210308113838 to 1.1.dev20210315182348 [\#53](https://github.com/sbrunner/deskew/pull/53) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -668,7 +638,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.11...0.10.12)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.0.dev20210308083048 to 1.1.dev20210308113838 [\#52](https://github.com/sbrunner/deskew/pull/52) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -676,7 +646,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.10...0.10.11)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.0.dev20210305083859 to 1.0.dev20210308083048 [\#49](https://github.com/sbrunner/deskew/pull/49) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -684,7 +654,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.9...0.10.10)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.0.dev20210304083613 to 1.0.dev20210305083859 [\#48](https://github.com/sbrunner/deskew/pull/48) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -692,7 +662,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.8...0.10.9)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.0.dev20210302092543 to 1.0.dev20210304083613 [\#47](https://github.com/sbrunner/deskew/pull/47) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -700,7 +670,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.7...0.10.8)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.0.dev20210302075833 to 1.0.dev20210302092543 [\#46](https://github.com/sbrunner/deskew/pull/46) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -708,7 +678,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.6...0.10.7)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump c2cciutils from 1.0.dev20210217133842 to 1.0.dev20210302075833 [\#45](https://github.com/sbrunner/deskew/pull/45) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -716,7 +686,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.5...0.10.6)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump coverage from 5.4 to 5.5 [\#44](https://github.com/sbrunner/deskew/pull/44) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -724,7 +694,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.4...0.10.5)
 
-#### :package: Dependencies update
+**Merged pull requests:**
 
 - Bump pytest from 3.10.1 to 6.2.2 [\#43](https://github.com/sbrunner/deskew/pull/43) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -732,18 +702,15 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.3...0.10.4)
 
-#### :books: Documentation
+**Closed issues:**
 
-- Added note description for deskew [\#11](https://github.com/sbrunner/deskew/pull/11) ([vaibhavshiledar](https://github.com/vaibhavshiledar))
+- Your .dependabot/config.yaml contained invalid details [\#14](https://github.com/sbrunner/deskew/issues/14)
+- Which is the original repository? [\#8](https://github.com/sbrunner/deskew/issues/8)
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Run pyupgrade --py36-plus [\#42](https://github.com/sbrunner/deskew/pull/42) ([sbrunner](https://github.com/sbrunner))
 - Use GitHub action, pipenv and prospector [\#41](https://github.com/sbrunner/deskew/pull/41) ([sbrunner](https://github.com/sbrunner))
-- Fix mypy error [\#15](https://github.com/sbrunner/deskew/pull/15) ([sbrunner](https://github.com/sbrunner))
-
-#### :package: Dependencies update
-
 - Bump c2cciutils from 1.0.dev20210208135331 to 1.0.dev20210217133842 [\#40](https://github.com/sbrunner/deskew/pull/40) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump c2cciutils from 1.0.dev20210208104705 to 1.0.dev20210208135331 [\#37](https://github.com/sbrunner/deskew/pull/37) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump c2cciutils from 1.0.dev20210204125831 to 1.0.dev20210208104705 [\#36](https://github.com/sbrunner/deskew/pull/36) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
@@ -764,17 +731,14 @@
 - Bump c2cciutils from 1.0.dev20201215125058 to 1.0.dev20201216090400 [\#19](https://github.com/sbrunner/deskew/pull/19) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump c2cciutils from 1.0.dev20201214090910 to 1.0.dev20201215125058 [\#18](https://github.com/sbrunner/deskew/pull/18) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump c2cciutils from 1.0.dev20201211125858 to 1.0.dev20201214090910 [\#16](https://github.com/sbrunner/deskew/pull/16) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-
-**Closed issues:**
-
-- Your .dependabot/config.yaml contained invalid details [\#14](https://github.com/sbrunner/deskew/issues/14)
-- Which is the original repository? [\#8](https://github.com/sbrunner/deskew/issues/8)
+- Fix mypy error [\#15](https://github.com/sbrunner/deskew/pull/15) ([sbrunner](https://github.com/sbrunner))
+- Added note description for deskew [\#11](https://github.com/sbrunner/deskew/pull/11) ([vaibhavshiledar](https://github.com/vaibhavshiledar))
 
 ## [0.10.3](https://github.com/sbrunner/deskew/tree/0.10.3) (2020-03-24)
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.2...0.10.3)
 
-#### :books: Documentation
+**Merged pull requests:**
 
 - Update README imports. [\#7](https://github.com/sbrunner/deskew/pull/7) ([n0mn0m](https://github.com/n0mn0m))
 
@@ -782,7 +746,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.1...0.10.2)
 
-#### :sparkles: Enhancements
+**Implemented enhancements:**
 
 - Be able to set the background color [\#6](https://github.com/sbrunner/deskew/pull/6) ([sbrunner](https://github.com/sbrunner))
 
@@ -794,7 +758,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.10.0...0.10.1)
 
-#### :bug: Bug Fixes
+**Fixed bugs:**
 
 - Fix no angle [\#3](https://github.com/sbrunner/deskew/pull/3) ([sbrunner](https://github.com/sbrunner))
 
@@ -806,7 +770,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.8.0...0.9.0)
 
-#### :wrench: Build, CI, Tests, Code style
+**Merged pull requests:**
 
 - Add a new test [\#2](https://github.com/sbrunner/deskew/pull/2) ([sbrunner](https://github.com/sbrunner))
 
@@ -814,7 +778,7 @@
 
 [Full Changelog](https://github.com/sbrunner/deskew/compare/0.7.0...0.8.0)
 
-#### :books: Documentation
+**Merged pull requests:**
 
 - Update readme [\#1](https://github.com/sbrunner/deskew/pull/1) ([sbrunner](https://github.com/sbrunner))
 
