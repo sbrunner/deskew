@@ -33,7 +33,7 @@ jobs:
 
       - name: Get config
         id: config
-        run: echo ::set-output name=config::$(python -c 'print(__import__("json").dumps(__import__("yaml").load(open(".github/changelog-config.yaml"))))')
+        run: echo ::set-output name=config::$(python -c 'print(__import__("json").dumps(__import__("yaml").load(open(".github/changelog-config.yaml"), Loader=__import__("yaml").SafeLoader)))')
       - name: Generate changelog
         id: changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.3
