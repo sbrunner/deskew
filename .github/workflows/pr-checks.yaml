@@ -1,0 +1,28 @@
+name: Pull request check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - labeled
+      - unlabeled
+      - edit
+      - synchronize
+
+jobs:
+  build:
+    name: Pull request check
+    runs-on: ubuntu-20.04
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
+      - run: python3 -m pip install --user --pre c2cciutils[pr_checks]
+
+      - name: Check pull request
+        run: c2cciutils-pull-request-checks
+        env:
+          GITHUB_EVENT: ${{ toJson(github) }}
