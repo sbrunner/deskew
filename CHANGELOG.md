@@ -768,7 +768,6 @@
 **Closed issues:**
 
 - Your .dependabot/config.yaml contained invalid details [\#14](https://github.com/sbrunner/deskew/issues/14)
-- Which is the original repository? [\#8](https://github.com/sbrunner/deskew/issues/8)
 
 ## [0.10.3](https://github.com/sbrunner/deskew/tree/0.10.3) (2020-03-24)
 
