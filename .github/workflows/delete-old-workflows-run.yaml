@@ -17,7 +17,7 @@ jobs:
       - name: Delete old workflow runs
         uses: MajorScruffy/delete-old-workflow-runs@v0.3.0
         with:
-          repository: mapfish/mapfish-print # replace this with your own repository
+          repository: ${{ env.GITHUB_REPOSITORY }}
           older-than-seconds: 43200000 # 500 days
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
