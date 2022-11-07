@@ -27,12 +27,8 @@
     },
     /** Group Poetry packages */
     {
-      matchPackageNames: [
-        'poetry',
-        'poetry-core',
-        'poetry-plugin-tweak-dependencies-version',
-        'poetry-dynamic-versioning',
-      ],
+      matchPackageNames: ['poetry', 'pip'],
+      matchPackagePrefixes: ['poetry-'],
       groupName: 'Poetry',
       automerge: true,
       separateMajorMinor: false,
