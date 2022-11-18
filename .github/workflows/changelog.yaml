@@ -22,7 +22,7 @@ jobs:
       - name: Get Date
         id: get-date
         run: |
-          echo "::set-output name=date::$(/bin/date -u "+%Y%m%d%H%M%S")"
+          echo "date=$(/bin/date -u "+%Y%m%d%H%M%S")" >> $GITHUB_OUTPUT
       - uses: actions/cache@v3
         with:
           path: |
@@ -33,7 +33,7 @@ jobs:
 
       - name: Get config
         id: config
-        run: echo ::set-output name=config::$(python -c 'print(__import__("json").dumps(__import__("yaml").load(open(".github/changelog-config.yaml"), Loader=__import__("yaml").SafeLoader)))')
+        run: echo "config=$(python -c 'print(__import__("json").dumps(__import__("yaml").load(open(".github/changelog-config.yaml"), Loader=__import__("yaml").SafeLoader)))')" >> $GITHUB_OUTPUT
       - name: Generate changelog
         id: changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.3
@@ -45,7 +45,7 @@ jobs:
 
       - run: c2cciutils-checks --fix --check=prettier
       - id: status
-        run: echo ::set-output name=status::$(git status --short)
+        run: echo "status=$(git status --short)" >> $GITHUB_OUTPUT
       - run: |
           git add CHANGELOG.md
           git config --global user.email "ci@example.com"
