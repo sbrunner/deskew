@@ -89,6 +89,8 @@ jobs:
 
       - name: Checks
         run: c2cciutils-checks
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - run: poetry install --extras=debug_images
       - run: poetry run prospector --output=pylint --die-on-tool-error
@@ -109,3 +111,5 @@ jobs:
       - name: Publish
         run: c2cciutils-publish
         if: env.HAS_SECRETS == 'HAS_SECRETS'
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
