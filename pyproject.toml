@@ -50,7 +50,7 @@ matplotlib = { version = "3.6.2", optional = true }
 debug_images = ["opencv-python-headless", "matplotlib"]
 
 [tool.poetry.group.dev.dependencies]
-prospector = { extras = ["with_bandit", "with_mypy", "with_pyroma"], version = "1.8.2" }
+prospector = { extras = ["with_bandit", "with_mypy", "with_pyroma"], version = "1.7.7" }
 pytest = "7.2.0"
 pytest-profiling = "1.7.0"
 coverage = "6.5.0"

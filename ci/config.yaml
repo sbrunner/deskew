@@ -5,10 +5,3 @@ checks:
   black:
     ignore_patterns_re:
       - README\.md
-  required_workflows:
-    backport.yaml: False
-    clean.yaml: False
-    audit.yaml: False
-  codespell:
-    ignore_re:
-      - ^poetry.lock$
