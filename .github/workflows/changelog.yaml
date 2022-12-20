@@ -1,23 +1,25 @@
 name: Changelog Generator
 
 on:
+  schedule:
+    - cron: '0 0 * * 1'
   push:
-    branches:
-      - master
     tags:
-      - '*'
+      - '*.*.*'
 
 jobs:
   changelog:
     name: Changelog Generator
-    runs-on: ubuntu-20.04
-    timeout-minutes: 10
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v3
-
-      - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
-      - run: python3 -m pip install --user --requirement=ci/requirements.txt
+      - name: Create release
+        run: |
+          if [[ ${{ env.GITHUB_REF_NAME }} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            gh release create ${{ env.GITHUB_REF_NAME }}
+          fi
+        if: env.GITHUB_REF_TYPE == 'tag'
 
       - name: Get Date
         id: get-date
@@ -25,35 +27,19 @@ jobs:
           echo "date=$(/bin/date -u "+%Y%m%d%H%M%S")" >> $GITHUB_OUTPUT
       - uses: actions/cache@v3
         with:
-          path: |
-            .github/changelog-generator-cache
-          key: changelog-${{ steps.get-date.outputs.date }}
+          path: .cache
+          key: automation-${{ steps.get-date.outputs.date }}
           restore-keys: |
-            changelog-
+            automation-
 
-      - name: Get config
-        id: config
-        run: echo "config=$(python -c 'print(__import__("json").dumps(__import__("yaml").load(open(".github/changelog-config.yaml"), Loader=__import__("yaml").SafeLoader)))')" >> $GITHUB_OUTPUT
+      - run: docker pull aeonphp/automation
       - name: Generate changelog
-        id: changelog
-        uses: heinrichreimer/github-changelog-generator-action@v2.3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          configureSections: ${{ steps.config.outputs.config }}
-          cacheFile: .github/changelog-generator-cache
-          unreleased: false
-
-      - run: c2cciutils-checks --fix --check=prettier
-      - id: status
-        run: echo "status=$(git status --short)" >> $GITHUB_OUTPUT
-      - run: |
-          git add CHANGELOG.md
-          git config --global user.email "ci@example.com"
-          git config --global user.name "CI"
-          git commit -m "Update the changelog"
-          git checkout -b changelog-update
-          git push origin changelog-update -f
-          gh pr create --base=master --fill --label=chore || true
+        run: >
+          docker run --env=AEON_AUTOMATION_GH_TOKEN --rm --volume=$(pwd)/.cache:/cache aeonphp/automation
+          changelog:generate:all
+          ${{ github.repository }}
+          --github-release-update
+          --cache-path=/cache
+          -v
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: steps.status.outputs.status != ''
+          AEON_AUTOMATION_GH_TOKEN: ${{ secrets.GOPASS_CI_GITHUB_TOKEN }}
