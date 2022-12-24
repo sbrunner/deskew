@@ -53,7 +53,7 @@ debug_images = ["opencv-python-headless", "matplotlib"]
 prospector = { extras = ["with_bandit", "with_mypy", "with_pyroma"], version = "1.7.7" }
 pytest = "7.2.0"
 pytest-profiling = "1.7.0"
-coverage = "6.5.0"
+coverage = "7.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version"]
