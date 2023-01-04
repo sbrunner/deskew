@@ -26,3 +26,4 @@ jobs:
         run: c2cciutils-pull-request-checks
         env:
           GITHUB_EVENT: ${{ toJson(github) }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
