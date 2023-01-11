@@ -1,0 +1,77 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: detect-private-key
+      - id: check-merge-conflict
+      - id: check-ast
+      - id: debug-statements
+      - id: check-toml
+      - id: check-yaml
+      - id: check-json
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+  - repo: https://github.com/sbrunner/pre-commit-copyright
+    rev: 0.1.3
+    hooks:
+      - id: copyright
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.2
+    hooks:
+      - id: codespell
+        exclude: ^(.*/)?poetry\.lock$
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.7.1
+    hooks:
+      - id: prettier
+        additional_dependencies:
+          - prettier@2.8.1 # npm
+          - prettier-plugin-sh@0.12.8 # npm
+          - prettier-plugin-toml@0.3.1 # npm
+          - '@prettier/plugin-xml@0.12.0' # npm
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.2
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: git-check
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.20.0
+    hooks:
+      - id: check-github-workflows
+      - id: check-renovate
+        additional_dependencies:
+          - pyjson5==1.6.2 # pypi
+  - repo: https://github.com/sirwart/ripsecrets
+    rev: v0.1.5
+    hooks:
+      - id: ripsecrets
+  - repo: https://github.com/psf/black
+    rev: 22.12.0
+    hooks:
+      - id: black
+        exclude: README\.md
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.11.4
+    hooks:
+      - id: isort
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.0.0
+    hooks:
+      - id: autoflake
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.3.1
+    hooks:
+      - id: pyupgrade
+        args:
+          - --py38-plus
+  - repo: https://github.com/PyCQA/prospector
+    rev: v1.8.4
+    hooks:
+      - id: prospector
+        args:
+          - --tool=pydocstyle
+          - --die-on-tool-error
