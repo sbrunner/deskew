@@ -42,4 +42,4 @@ jobs:
           --cache-path=/cache
           -v
         env:
-          AEON_AUTOMATION_GH_TOKEN: ${{ secrets.GOPASS_CI_GITHUB_TOKEN }}
+          AEON_AUTOMATION_GH_TOKEN: ${{ secrets.TOKEN }}
