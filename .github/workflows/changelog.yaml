@@ -19,7 +19,7 @@ jobs:
           if [[ ${{ env.GITHUB_REF_NAME }} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             gh release create ${{ env.GITHUB_REF_NAME }}
           fi
-        if: env.GITHUB_REF_TYPE == 'tag'
+        if: github.event_name == 'push' && github.ref_type == 'tag'
 
       - name: Get Date
         id: get-date
