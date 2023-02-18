@@ -40,6 +40,9 @@ jobs:
           ${{ github.repository }}
           --github-release-update
           --cache-path=/cache
+          --skip-from=dependabot-preview[bot]
+          --skip-from=dependabot[bot]
+          --skip-from=renovate[bot]
           -v
         env:
           AEON_AUTOMATION_GH_TOKEN: ${{ secrets.TOKEN }}
