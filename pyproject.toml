@@ -44,16 +44,16 @@ python = ">=3.8,<3.12"
 numpy = "1.24.2"
 scikit-image = "0.19.3"
 opencv-python-headless = { version = "4.7.0.72", optional = true }
-matplotlib = { version = "3.6.3", optional = true }
+matplotlib = { version = "3.7.0", optional = true }
 
 [tool.poetry.extras]
 debug_images = ["opencv-python-headless", "matplotlib"]
 
 [tool.poetry.group.dev.dependencies]
-prospector = { extras = ["with_bandit", "with_mypy", "with_pyroma"], version = "1.8.4" }
+prospector = { extras = ["with_bandit", "with_mypy", "with_pyroma"], version = "1.9.0" }
 pytest = "7.2.1"
 pytest-profiling = "1.7.0"
-coverage = "7.1.0"
+coverage = "7.2.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version"]
