@@ -43,7 +43,7 @@ def check_image(root_folder, image, name, level=1.0):
 def image_diff(image1: NpNdarrayInt, image2: NpNdarrayInt) -> Tuple[float, NpNdarrayInt]:
     """Do a diff between images."""
 
-    score, diff = structural_similarity(image1, image2, multichannel=True, full=True)
+    score, diff = structural_similarity(image1, image2, multichannel=True, full=True, channel_axis=2)
     diff = (255 - diff * 255).astype("uint8")
     return score, diff
 

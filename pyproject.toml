@@ -42,7 +42,7 @@ deskew = "deskew.cli:main"
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
 numpy = "1.24.2"
-scikit-image = "0.19.3"
+scikit-image = "0.20.0"
 opencv-python-headless = { version = "4.7.0.72", optional = true }
 matplotlib = { version = "3.7.0", optional = true }
 
