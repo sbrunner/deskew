@@ -8,28 +8,27 @@ By using the library you can set the argument `angle_pm_90` to `True` to have an
 
 ## Skew detection and correction in images containing text
 
-<img src="doc/input.jpeg" width=400px />
-<h5>Image with skew</h5>
-<img src="doc/sample_output.jpeg" height=300px />
-<h5>Image after deskew</h5>
+| Image with skew                                      | Image after deskew                                                 |
+| ---------------------------------------------------- | ------------------------------------------------------------------ |
+| ![Image with skew](doc/input.jpeg 'Image with skew') | ![Image after deskew](doc/sample_output.jpeg 'Image after deskew') |
 
 ## Cli usage
 
 Get the skew angle:
 
-```
+```bash
 deskew input.png
 ```
 
 Deskew an image:
 
-```
+```bash
 deskew --output output.png input.png
 ```
 
-# Lib usage
+## Lib usage
 
-scikit-image:
+With scikit-image:
 
 ```python
 import numpy as np
@@ -46,7 +45,7 @@ rotated = rotate(image, angle, resize=True) * 255
 io.imsave('output.png', rotated.astype(np.uint8))
 ```
 
-OpenCV:
+With OpenCV:
 
 ```python
 import math
@@ -79,7 +78,7 @@ rotated = rotate(image, angle, (0, 0, 0))
 cv2.imwrite('output.png', rotated)
 ```
 
-# Debug images
+## Debug images
 
 If you get wrong skew angle you can generate debug images, that can help you to tune the skewing detection.
 
