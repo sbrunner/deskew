@@ -1,5 +1,6 @@
 import argparse
 import sys
+from typing import List, Union
 
 import numpy as np
 from skimage import io
@@ -17,7 +18,7 @@ def main() -> None:
     parser.add_argument("--sigma", default=3.0, help="The use sigma")
     parser.add_argument("--num-peaks", default=20, help="The used number of peaks")
     parser.add_argument(
-        "--num-angles", default=180, help="The used number of angle (determine the pressision)"
+        "--num-angles", default=180, help="The used number of angle (determine the precision)"
     )
     parser.add_argument("--background", help="The used background color")
     parser.add_argument(default=None, dest="input", help="Input file name")
@@ -30,14 +31,26 @@ def main() -> None:
         print(f"Estimated angle: {angle}")
     else:
         if options.background:
-            try:
-                background = [int(c) for c in options.background.split(",")]
-            except:  # pylint: disable=bare-except
-                print("Wrong background color, should be r,g,b")
-                sys.exit(1)
+            background: Union[int, List[int]]
+            if len(image.shape) == 2:
+                try:
+                    background = int(options.background)
+                except:  # pylint: disable=bare-except
+                    print("Wrong background color, should be gray")
+                    sys.exit(1)
+            else:
+                try:
+                    background = [int(c) for c in options.background.split(",")]
+                except:  # pylint: disable=bare-except
+                    print("Wrong background color, should be r,g,b")
+                    sys.exit(1)
+
             rotated = rotate(image, angle, resize=True, cval=-1) * 255
             pos = np.where(rotated == -255)
-            rotated[pos[0], pos[1], :] = background
+            if len(image.shape) == 2:
+                rotated[pos[0], pos[1]] = background
+            else:
+                rotated[pos[0], pos[1], :] = background
         else:
             rotated = rotate(image, angle, resize=True) * 255
         io.imsave(options.output, rotated.astype(np.uint8))
