@@ -17,7 +17,7 @@ def main() -> None:
     parser.add_argument("--sigma", default=3.0, help="The use sigma")
     parser.add_argument("--num-peaks", default=20, help="The used number of peaks")
     parser.add_argument(
-        "--num-angles", default=180, help="The used number of angle (determine the pressision)"
+        "--num-angles", default=180, help="The used number of angle (determine the precision)"
     )
     parser.add_argument("--background", help="The used background color")
     parser.add_argument(default=None, dest="input", help="Input file name")
