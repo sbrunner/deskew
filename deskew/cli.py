@@ -1,6 +1,5 @@
 import argparse
 import sys
-from typing import List, Union
 
 import numpy as np
 from skimage import io
@@ -31,24 +30,23 @@ def main() -> None:
         print(f"Estimated angle: {angle}")
     else:
         if options.background:
-            background: Union[int, List[int]]
-            if len(image.shape) == 2:
-                try:
-                    background = int(options.background)
-                except:  # pylint: disable=bare-except
+            try:
+                background = [int(c) for c in options.background.split(",")]
+            except:  # pylint: disable=bare-except
+                if len(image.shape) == 2:
                     print("Wrong background color, should be gray")
-                    sys.exit(1)
-            else:
-                try:
-                    background = [int(c) for c in options.background.split(",")]
-                except:  # pylint: disable=bare-except
+                else:
                     print("Wrong background color, should be r,g,b")
-                    sys.exit(1)
+                sys.exit(1)
+
+            if len(image.shape) != 2 and len(background) != image.shape[2]:
+                print("Wrong background color, should be r,g,b")
+                sys.exit(1)
 
             rotated = rotate(image, angle, resize=True, cval=-1) * 255
             pos = np.where(rotated == -255)
             if len(image.shape) == 2:
-                rotated[pos[0], pos[1]] = background
+                rotated[pos[0], pos[1]] = int(round(np.mean(background)))
             else:
                 rotated[pos[0], pos[1], :] = background
         else:
