@@ -18,6 +18,8 @@ jobs:
 
     steps:
       - run: sudo pip uninstall attrs
+      - run: ls -l /usr/lib/python3/dist-packages/attrs*
+      - run: ls -l /usr/lib/python3/dist-packages
       - uses: actions/checkout@v3
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
