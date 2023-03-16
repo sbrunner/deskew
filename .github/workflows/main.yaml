@@ -93,6 +93,8 @@ jobs:
           key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: "pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}\npre-commit-"
       - run: pre-commit run --all-files
+        env:
+          SKIP: poetry-lock
       - run: git diff
         if: failure()
       - name: Checks

@@ -92,3 +92,12 @@ Then you can try to tune the following arguments `num_peaks`, `angle_pm_90`, `mi
 `min_deviation` and eventually `sigma`.
 
 Inspired by Alyn: https://github.com/kakul/Alyn
+
+## Contributing
+
+Install the pre-commit hooks:
+
+```bash
+pip install pre-commit
+pre-commit install --allow-missing-config
+```

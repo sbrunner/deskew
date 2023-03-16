@@ -15,7 +15,7 @@
   'pre-commit': { enabled: true },
   regexManagers: [
     {
-      fileMatch: ['^.pre-commit-config.yaml'],
+      fileMatch: ['^.pre-commit-config.yaml$'],
       matchStrings: [" +- '?(?<depName>[^' @=]+)(@|==)(?<currentValue>[^' @=]+)'? # (?<datasource>.+)"],
     },
   ],
