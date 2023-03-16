@@ -17,9 +17,7 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - run: sudo pip uninstall attrs
-      - run: ls -l /usr/lib/python3/dist-packages/attrs*
-      - run: ls -l /usr/lib/python3/dist-packages
+      - run: sudo rm -rf /usr/lib/python3/dist-packages/attrs
       - uses: actions/checkout@v3
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
