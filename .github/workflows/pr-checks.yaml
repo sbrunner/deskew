@@ -17,6 +17,7 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      - run: pip install --upgrade attrs
       - uses: actions/checkout@v3
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
