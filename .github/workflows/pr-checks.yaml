@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - run: sudo rm -rf /usr/lib/python3/dist-packages/attrs
+      - run: sudo pip uninstall --yes attrs
       - uses: actions/checkout@v3
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
