@@ -7,7 +7,7 @@ on:
       - reopened
       - labeled
       - unlabeled
-      - edit
+      - edited
       - synchronize
 
 jobs:
