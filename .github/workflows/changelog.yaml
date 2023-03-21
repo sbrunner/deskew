@@ -2,7 +2,7 @@ name: Changelog Generator
 
 on:
   schedule:
-    - cron: '0 0 * * 1,4'
+    - cron: 0 0 * * 1,4
   push:
     tags:
       - '*.*.*'
@@ -22,7 +22,7 @@ jobs:
           fi
         if: github.event_name == 'push' && github.ref_type == 'tag'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.TOKEN }}
 
       - name: Get Date
         id: get-date
