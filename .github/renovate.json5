@@ -13,6 +13,11 @@
     schedule: 'after 5pm on the first day of the month',
   },
   'pre-commit': { enabled: true },
+  osvVulnerabilityAlerts: true,
+  vulnerabilityAlerts: {
+    schedule: ['at any time'],
+    automerge: true,
+  },
   regexManagers: [
     {
       fileMatch: ['^.pre-commit-config.yaml$'],
