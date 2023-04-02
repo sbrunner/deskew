@@ -12,8 +12,8 @@ if TYPE_CHECKING:
     from typing import TypeAlias
 
     ImageType: TypeAlias = np.ndarray[np.uint8, Any]
-    ImageTypeUint64: TypeAlias = np.ndarray[np.uint8, Any]
-    ImageTypeFloat64: TypeAlias = np.ndarray[np.float64, Any]
+    ImageTypeUint64: TypeAlias = np.ndarray[np.uint8, Any]  # pylint: disable=invalid-name
+    ImageTypeFloat64: TypeAlias = np.ndarray[np.float64, Any]  # pylint: disable=invalid-name
 else:
     ImageType = np.ndarray
     ImageTypeUint64 = np.ndarray
