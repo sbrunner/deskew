@@ -14,10 +14,10 @@ def main() -> None:
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-o", "--output", default=None, help="Output file name")
-    parser.add_argument("--sigma", default=3.0, help="The use sigma")
-    parser.add_argument("--num-peaks", default=20, help="The used number of peaks")
+    parser.add_argument("--sigma", default=3.0, type=float, help="The use sigma")
+    parser.add_argument("--num-peaks", default=20, type=int, help="The used number of peaks")
     parser.add_argument(
-        "--num-angles", default=180, help="The used number of angle (determine the precision)"
+        "--num-angles", default=180, type=int, help="The used number of angle (determine the precision)"
     )
     parser.add_argument("--background", help="The used background color")
     parser.add_argument(default=None, dest="input", help="Input file name")
@@ -25,7 +25,9 @@ def main() -> None:
 
     image = io.imread(options.input)
     grayscale = image if len(image.shape) == 2 else rgb2gray(image)
-    angle = determine_skew(grayscale, sigma=options.sigma, num_peaks=options.num_peaks)
+    angle = determine_skew(
+        grayscale, sigma=options.sigma, num_peaks=options.num_peaks, num_angles=options.num_angles
+    )
     if options.output is None:
         print(f"Estimated angle: {angle}")
     else:
