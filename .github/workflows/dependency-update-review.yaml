@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Auto reviews updates
-        uses: golfzaptw/action-auto-reviews-from-branches@master
+        uses: golfzaptw/action-auto-reviews-from-branches@1.2.3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
           AUTHOR: renovate[bot]
