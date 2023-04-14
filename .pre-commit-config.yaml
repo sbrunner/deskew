@@ -7,6 +7,7 @@ ci:
     - poetry-lock
     - ripsecrets
     - jsonschema-validator
+    - jsonschema-validator
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
