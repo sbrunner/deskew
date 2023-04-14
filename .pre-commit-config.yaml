@@ -99,3 +99,8 @@ repos:
         args:
           - --tool=pydocstyle
           - --die-on-tool-error
+  - repo: https://github.com/sbrunner/jsonschema-validator
+    rev: 0.1.0
+    hooks:
+      - id: jsonschema-validator
+        files: "\n          (?x)^(\n              ci/config\\.yaml\n          )$)"
