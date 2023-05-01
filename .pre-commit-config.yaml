@@ -28,10 +28,10 @@ repos:
       - id: workflows-require-timeout
       - id: poetry-check
         additional_dependencies:
-          - poetry==1.4.1 # pypi
+          - poetry==1.4.2 # pypi
       - id: poetry-lock
         additional_dependencies:
-          - poetry==1.4.1 # pypi
+          - poetry==1.4.2 # pypi
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.4
     hooks:
