@@ -1143,6 +1143,17 @@ with-pyroma = ["pyroma (>=2.4)"]
 with-vulture = ["vulture (>=1.5)"]
 
 [[package]]
+name = "prospector-profile-duplicated"
+version = "0.1.0"
+description = "Profile that can be used to disable the duplicated or conflict rules between Prospector and other tools"
+optional = false
+python-versions = "*"
+files = [
+    {file = "prospector_profile_duplicated-0.1.0-py2.py3-none-any.whl", hash = "sha256:d9c8679736bb2f2310b0faec3f6955d63388abc594e293a3e82e43ae0315991c"},
+    {file = "prospector_profile_duplicated-0.1.0.tar.gz", hash = "sha256:144baaa10101a28834d68552ff0b1714c08f22c8a7e9506e02ccc8584a28943c"},
+]
+
+[[package]]
 name = "pycodestyle"
 version = "2.10.0"
 description = "Python style guide checker"
@@ -1941,5 +1952,5 @@ debug-images = ["matplotlib", "opencv-python-headless"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = ">=3.8,<4.0"
-content-hash = "a621fff15717779f58c72bec80709020b8a168daf94871921385398ae06f74f2"
+python-versions = ">=3.8,<3.12"
+content-hash = "ad750abac247bd2da196a2bf8550388c748696b12f004e56ca2716c114cbcf81"
