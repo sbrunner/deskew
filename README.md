@@ -13,11 +13,15 @@ By using the library you can set the argument `angle_pm_90` to `True` to have an
 | ![Image with skew](doc/input.jpeg 'Image with skew') | ![Image after deskew](doc/sample_output.jpeg 'Image after deskew') |
 
 ## Installation
+
 You can install deskew directly from pypi directly using the following comment
+
 ```bash
 python3 -m pip deskew
 ```
+
 Or to upgrade to newer version
+
 ```bash
 python3 -m pip -U deskew
 ```
