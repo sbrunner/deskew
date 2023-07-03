@@ -3,7 +3,7 @@ line-length = 110
 target-version = ["py38"]
 
 [tool.mypy]
-python_version = 3.8
+python_version = 3.9
 ignore_missing_imports = true
 warn_redundant_casts = true
 warn_unused_ignores = true
@@ -29,9 +29,6 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.7",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
   "Typing :: Typed"
 ]
 packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
@@ -40,7 +37,7 @@ packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
 deskew = "deskew.cli:main"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.12"
+python = ">=3.9,<3.12"
 numpy = "1.25.2"
 scikit-image = "0.21.0"
 opencv-python-headless = { version = "4.8.0.76", optional = true }
