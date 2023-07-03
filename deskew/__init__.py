@@ -1,7 +1,7 @@
 import subprocess  # nosec
 import tempfile
 import warnings
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Any, Optional
 
 import numpy as np
 from skimage.color import rgb2gray, rgba2rgb
