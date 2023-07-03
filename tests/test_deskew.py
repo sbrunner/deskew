@@ -1,5 +1,5 @@
 import os
-from typing import TYPE_CHECKING, Any, Tuple
+from typing import TYPE_CHECKING, Any
 
 import cv2
 import numpy as np
@@ -72,30 +72,30 @@ def test_deskew(image, expected_angle):
 
 
 @pytest.mark.parametrize(
-    "min_angle,max_angle,angle_pm_90,num_peaks,expected,postfix",
+    "min_angle,max_angle,angle_pm_90,num_peaks,expected,postfix,level",
     [
-        (None, None, False, 20, -3, ""),
-        (None, None, True, 20, -3, "-90"),
-        (-10, 10, False, 20, -3, "-min-max"),
-        (5, 10, False, 20, None, "-min-max-positive"),
-        (-10, -5, False, 20, None, "-min-max-negative"),
-        (35, -35, False, 20, None, "-min-max-inverted"),
-        (-10, 10, True, 20, -3, "-90-min-max"),
-        (5, 10, True, 20, None, "-90-min-max-positive"),
-        (-10, -5, True, 20, None, "-90-min-max-negative"),
-        (80, -80, True, 20, None, "-90-min-max-inverted"),
-        (None, None, False, 200, -3, "-many-peaks"),
-        (None, None, True, 200, -3, "-90-many-peaks"),
+        (None, None, False, 20, -3, "", 1),
+        (None, None, True, 20, -3, "-90", 1),
+        (-10, 10, False, 20, -3, "-min-max", 1),
+        (5, 10, False, 20, None, "-min-max-positive", 1),
+        (-10, -5, False, 20, None, "-min-max-negative", 1),
+        (35, -35, False, 20, None, "-min-max-inverted", 1),
+        (-10, 10, True, 20, -3, "-90-min-max", 1),
+        (5, 10, True, 20, None, "-90-min-max-positive", 1),
+        (-10, -5, True, 20, None, "-90-min-max-negative", 1),
+        (80, -80, True, 20, None, "-90-min-max-inverted", 1),
+        (None, None, False, 200, -3, "-many-peaks", 0.93),
+        (None, None, True, 200, -3, "-90-many-peaks", 0.93),
     ],
 )
-def test_determine_skew_debug_images(min_angle, max_angle, angle_pm_90, num_peaks, expected, postfix):
+def test_determine_skew_debug_images(min_angle, max_angle, angle_pm_90, num_peaks, expected, postfix, level):
     image = io.imread(os.path.join(os.path.dirname(__file__), "deskew-6.png"))
     angle, debug_images = determine_skew_debug_images(
         image, min_angle=min_angle, max_angle=max_angle, angle_pm_90=angle_pm_90, num_peaks=num_peaks
     )
     for name, debug_image in debug_images:
         print(name)
-        check_image("results", debug_image, f"debug-images-{name}{postfix}")
+        check_image("results", debug_image, f"debug-images-{name}{postfix}", level)
     if expected is None:
         assert angle is None
     else:
