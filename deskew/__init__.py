@@ -108,7 +108,7 @@ def determine_skew_debug_images(
     min_deviation: float = 1.0,
 ) -> tuple[Optional[np.float64], list[tuple[str, ImageType]]]:
     """Calculate skew angle, and return images useful for debugging."""
-    import cv2  # type: ignore # pylint: disable=import-outside-toplevel
+    import cv2  # pylint: disable=import-outside-toplevel
     import matplotlib.pyplot as plt  # type: ignore # pylint: disable=import-outside-toplevel
     from matplotlib import cm  # pylint: disable=import-outside-toplevel
 
