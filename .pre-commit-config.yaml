@@ -55,12 +55,12 @@ repos:
     hooks:
       - id: git-check
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.23.2
+    rev: 0.23.3
     hooks:
       - id: check-github-workflows
       - id: check-renovate
         additional_dependencies:
-          - pyjson5==1.6.3 # pypi
+          - pyjson5==1.6.4 # pypi
       - id: check-github-actions
       - id: check-jsonschema
         name: Check GitHub Workflows set timeout-minutes

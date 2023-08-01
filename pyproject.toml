@@ -44,7 +44,7 @@ python = ">=3.8,<3.12"
 numpy = "1.24.4"
 scikit-image = "0.21.0"
 opencv-python-headless = { version = "4.7.0.72", optional = true }
-matplotlib = { version = "3.7.1", optional = true }
+matplotlib = { version = "3.7.2", optional = true }
 
 [tool.poetry.extras]
 debug_images = ["opencv-python-headless", "matplotlib"]
