@@ -1,7 +1,7 @@
 import subprocess  # nosec
 import tempfile
 import warnings
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Any, Optional
 
 import numpy as np
 from skimage.color import rgb2gray, rgba2rgb
@@ -28,12 +28,12 @@ def determine_skew_dev(
     max_angle: Optional[float] = None,  # np.pi / 2,
     min_deviation: float = np.pi / 180,
     angle_pm_90: bool = False,
-) -> Tuple[
+) -> tuple[
     Optional[np.float64],
-    Tuple[
-        Tuple[ImageTypeUint64, List[List[np.float64]], ImageTypeFloat64],
-        Tuple[List[Any], List[np.float64], List[np.float64]],
-        Tuple[Dict[np.float64, int], Dict[np.float64, int]],
+    tuple[
+        tuple[ImageTypeUint64, list[list[np.float64]], ImageTypeFloat64],
+        tuple[list[Any], list[np.float64], list[np.float64]],
+        tuple[dict[np.float64, int], dict[np.float64, int]],
     ],
 ]:
     """Calculate skew angle."""
@@ -53,7 +53,7 @@ def determine_skew_dev(
     if len(angles_peaks) == 0:
         return None, (hough_line_out, hough_line_peaks_out, ({}, {}))
 
-    freqs_original: Dict[np.float64, int] = {}
+    freqs_original: dict[np.float64, int] = {}
     for peak in angles_peaks:
         freqs_original.setdefault(peak, 0)
         freqs_original[peak] += 1
@@ -73,7 +73,7 @@ def determine_skew_dev(
     if not angles_peaks_filtred:
         return None, (hough_line_out, hough_line_peaks_out, ({}, {}))
 
-    freqs: Dict[np.float64, int] = {}
+    freqs: dict[np.float64, int] = {}
     for peak in angles_peaks_filtred:
         freqs.setdefault(peak, 0)
         freqs[peak] += 1
@@ -106,9 +106,9 @@ def determine_skew_debug_images(
     min_angle: Optional[float] = None,
     max_angle: Optional[float] = None,
     min_deviation: float = 1.0,
-) -> Tuple[Optional[np.float64], List[Tuple[str, ImageType]]]:
+) -> tuple[Optional[np.float64], list[tuple[str, ImageType]]]:
     """Calculate skew angle, and return images useful for debugging."""
-    import cv2  # type: ignore # pylint: disable=import-outside-toplevel
+    import cv2  # pylint: disable=import-outside-toplevel
     import matplotlib.pyplot as plt  # type: ignore # pylint: disable=import-outside-toplevel
     from matplotlib import cm  # pylint: disable=import-outside-toplevel
 
@@ -127,15 +127,15 @@ def determine_skew_debug_images(
     hough_line_data, hough_line_peaks_data, all_freqs = data
     freqs0, freqs = all_freqs
 
-    booth_angle: List[float] = []
-    skew_angles0: List[float] = []
+    booth_angle: list[float] = []
+    skew_angles0: list[float] = []
     if skew_angle is not None:
         skew_angle0: float = float(skew_angle % np.pi - np.pi / 2)
         booth_angle = [float(skew_angle), skew_angle0]
         skew_angles0 = [skew_angle0] if angle_pm_90 else booth_angle
 
-    limits: List[Tuple[float, float]] = []
-    limits2: List[Tuple[float, float]] = []
+    limits: list[tuple[float, float]] = []
+    limits2: list[tuple[float, float]] = []
     if min_angle is not None and max_angle is not None:
         min_angle_norm = min_angle % (np.pi / (1 if angle_pm_90 else 2))
         max_angle_norm = max_angle % (np.pi / (1 if angle_pm_90 else 2))
@@ -260,9 +260,9 @@ def determine_skew_debug_images(
 
     def fill_polar(
         axe: Any,
-        freqs: Dict[np.float64, int],
-        angles: List[float],
-        limits: List[Tuple[float, float]],
+        freqs: dict[np.float64, int],
+        angles: list[float],
+        limits: list[tuple[float, float]],
         half: bool = False,
     ) -> None:
         axe.scatter(freqs.keys(), freqs.values())
