@@ -1,5 +1,6 @@
 inherits:
   - duplicated
+  - duplicated
 strictness: veryhigh
 max-line-length: 110
 doc-warnings: true

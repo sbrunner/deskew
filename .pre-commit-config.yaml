@@ -102,6 +102,7 @@ repos:
           - --die-on-tool-error
         additional_dependencies:
           - prospector-profile-duplicated==0.1.0 # pypi
+          - prospector-profile-duplicated==0.1.0 # pypi
   - repo: https://github.com/sbrunner/jsonschema-validator
     rev: 0.1.0
     hooks:
