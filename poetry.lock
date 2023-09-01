@@ -1175,13 +1175,13 @@ with-vulture = ["vulture (>=1.5)"]
 
 [[package]]
 name = "prospector-profile-duplicated"
-version = "0.1.0"
+version = "0.3.0"
 description = "Profile that can be used to disable the duplicated or conflict rules between Prospector and other tools"
 optional = false
 python-versions = "*"
 files = [
-    {file = "prospector_profile_duplicated-0.1.0-py2.py3-none-any.whl", hash = "sha256:d9c8679736bb2f2310b0faec3f6955d63388abc594e293a3e82e43ae0315991c"},
-    {file = "prospector_profile_duplicated-0.1.0.tar.gz", hash = "sha256:144baaa10101a28834d68552ff0b1714c08f22c8a7e9506e02ccc8584a28943c"},
+    {file = "prospector_profile_duplicated-0.3.0-py2.py3-none-any.whl", hash = "sha256:5c9bc909c0bc024421bbd38e75015b56425769233aad31437c41835c8d3a34e7"},
+    {file = "prospector_profile_duplicated-0.3.0.tar.gz", hash = "sha256:142dd353a2e65f3c39c36eba7d1a5f4ffc3869381425bed43a47cc158a122a8a"},
 ]
 
 [[package]]
@@ -1959,4 +1959,4 @@ debug-images = ["matplotlib", "opencv-python-headless"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.12"
-content-hash = "163e395d2f4feaebab09213722503525cd3c82b82d9cc41968a462307664be32"
+content-hash = "7c322b8a7d6d4fdfcb835770b3ffbc43cc9f3914e577c399172714d94833fbf0"
