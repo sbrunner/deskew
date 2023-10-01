@@ -1,6 +1,6 @@
 c2cciutils[checks,publish]==1.5.8
 poetry==1.6.1
 poetry-plugin-tweak-dependencies-version==1.5.1
-poetry-dynamic-versioning==1.0.1
+poetry-dynamic-versioning==1.1.0
 pip==23.2.1
 pre-commit==3.3.3
