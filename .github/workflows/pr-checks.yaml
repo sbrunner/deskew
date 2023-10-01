@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - run: pip install --upgrade attrs
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
       - run: python3 -m pip install --user --pre c2cciutils[pr_checks]

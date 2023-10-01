@@ -39,7 +39,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
       - run: python3 -m pip install --user $(grep poetry ci/requirements.txt)
@@ -77,11 +77,11 @@ jobs:
         run: echo ${GITHUB_EVENT} | python3 -m json.tool
         env:
           GITHUB_EVENT: ${{ toJson(github) }}
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.TOKEN }}
         if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         if: env.HAS_SECRETS != 'HAS_SECRETS'
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
