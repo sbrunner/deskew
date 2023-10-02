@@ -109,8 +109,7 @@ def determine_skew_debug_images(
 ) -> tuple[Optional[np.float64], list[tuple[str, ImageType]]]:
     """Calculate skew angle, and return images useful for debugging."""
     import cv2  # pylint: disable=import-outside-toplevel
-    import matplotlib.pyplot as plt  # type: ignore # pylint: disable=import-outside-toplevel
-    from matplotlib import cm  # pylint: disable=import-outside-toplevel
+    import matplotlib.pyplot as plt  # pylint: disable=import-outside-toplevel
 
     min_angle = np.deg2rad(min_angle) if min_angle is not None else None
     max_angle = np.deg2rad(max_angle) if max_angle is not None else None
@@ -166,7 +165,7 @@ def determine_skew_debug_images(
 
     axe.imshow(
         np.log(1 + hspace),
-        cmap=cm.gray,
+        cmap="gray",
         aspect="auto",
         extent=(-90, 90, 0, hspace.shape[0]),
     )
@@ -215,7 +214,7 @@ def determine_skew_debug_images(
     # Detected lines
     _, axe = plt.subplots(figsize=(image.shape[0] / 100, image.shape[1] / 100))
 
-    axe.imshow(image, cmap=cm.gray)
+    axe.imshow(image, cmap="gray")
     axe.set_ylim((image.shape[0], 0))
     axe.set_axis_off()
     axe.set_title("Detected lines")
