@@ -4,3 +4,4 @@ poetry-plugin-tweak-dependencies-version==1.5.1
 poetry-dynamic-versioning==1.1.0
 pip==23.2.1
 pre-commit==3.4.0
+poetry-plugin-drop-python-upper-constraint==0.1.0
