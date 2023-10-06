@@ -54,7 +54,7 @@ coverage = "7.3.1"
 prospector-profile-duplicated = "0.3.0"
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version", "poetry-plugin-drop-python-upper-constraint"]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version", "poetry-plugin-drop-python-upper-constraint", "poetry-plugin-drop-python-upper-constraint"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry-dynamic-versioning]
