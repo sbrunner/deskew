@@ -97,10 +97,8 @@ jobs:
           SKIP: poetry-lock
       - run: git diff && false
         if: failure()
-      - name: Checks
-        run: c2cciutils-checks
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - name: Print environment information
+        run: c2cciutils-env
 
       - run: poetry install --extras=debug_images
       - run: poetry run prospector --output=pylint --die-on-tool-error
