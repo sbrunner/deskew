@@ -19,10 +19,12 @@
     automerge: true,
   },
   regexManagers: [
+    /** Do updates on pre-commit additional dependencies */
     {
       fileMatch: ['^\\.pre\\-commit\\-config\\.yaml$'],
       matchStrings: [" +- '?(?<depName>[^' @=]+)(@|==)(?<currentValue>[^' @=]+)'? # (?<datasource>.+)"],
     },
+    /** Do update on the schema present in the ci/config.yaml */
     {
       fileMatch: ['^ci/config\\.yaml$'],
       matchStrings: [
@@ -32,17 +34,18 @@
     },
   ],
   packageRules: [
-    /** Automerge the patch, the minor and the dev dependency */
+    /** Auto merge the dev dependency update */
     {
       matchDepTypes: ['devDependencies'],
       automerge: true,
     },
-    /** Group the patch and the minor */
+    /** Group and auto merge the patch updates */
     {
       matchUpdateTypes: ['patch'],
       groupName: 'all patch versions',
       automerge: true,
     },
+    /** Group and auto merge the minor updates */
     {
       matchUpdateTypes: ['minor'],
       groupName: 'all minor versions',
@@ -62,6 +65,7 @@
       matchPackageNames: ['scikit-image'],
       groupName: 'scikit-image',
     },
+    /** Support the 4 parts of shellcheck-py version with a v prefix */
     {
       matchPackageNames: ['shellcheck-py/shellcheck-py'],
       versioning: 'regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$',
