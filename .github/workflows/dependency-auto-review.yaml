@@ -11,6 +11,7 @@ jobs:
     name: Auto reviews updates
     runs-on: ubuntu-22.04
     timeout-minutes: 5
+    if: github.event.pull_request.user.login == 'renovate[bot]'
 
     steps:
       - uses: actions/github-script@v6
@@ -22,4 +23,3 @@ jobs:
               pull_number: context.payload.pull_request.number,
               event: 'APPROVE',
             })
-    if: github.event.pull_request.user.login == 'renovate[bot]'
