@@ -32,6 +32,10 @@
       ],
       datasourceTemplate: 'github-tags',
     },
+    {
+      fileMatch: ['^.pre-commit-config\\.yaml$'],
+      matchStrings: [" +- '?(?<depName>[^' @=]+)(@|==)(?<currentValue>[^' @=]+)'? # (?<datasource>.+)"],
+    },
   ],
   packageRules: [
     /** Auto merge the dev dependency update */
