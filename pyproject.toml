@@ -37,7 +37,7 @@ packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
 deskew = "deskew.cli:main"
 
 [tool.poetry.dependencies]
-python = ">=3.12,<3.13"
+python = ">=3.9,<3.13"
 numpy = "1.26.1"
 scikit-image = "0.22.0"
 opencv-python-headless = { version = "4.8.1.78", optional = true }
