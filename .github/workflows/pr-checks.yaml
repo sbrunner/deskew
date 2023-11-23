@@ -15,6 +15,7 @@ jobs:
     name: Pull request check
     runs-on: ubuntu-22.04
     timeout-minutes: 5
+    if: github.event.pull_request.user.login != 'renovate[bot]'
 
     steps:
       - run: pip install --upgrade attrs

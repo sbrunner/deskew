@@ -1,0 +1,23 @@
+name: Delete old workflow runs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+env:
+  HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
+
+jobs:
+  build:
+    name: Delete old workflow runs
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+
+    steps:
+      - name: Delete old workflow runs
+        uses: MajorScruffy/delete-old-workflow-runs@v0.3.0
+        with:
+          repository: ${{ github.repository }}
+          older-than-seconds: 43200000 # 500 days
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
