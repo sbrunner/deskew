@@ -1,0 +1,49 @@
+name: Audit
+
+on:
+  schedule:
+    - cron: '30 2 * * *'
+
+jobs:
+  audit:
+    runs-on: ubuntu-22.04
+    name: Audit
+    timeout-minutes: 10
+
+    strategy:
+      fail-fast: false
+      matrix:
+        branch: []
+
+    steps:
+      # Remove Python packages with wrong version
+      - run: sudo apt-get remove python3-debian python3-distro-info
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+
+      - uses: camptocamp/initialise-gopass-summon-action@v2
+        with:
+          ci-gpg-private-key: ${{secrets.CI_GPG_PRIVATE_KEY}}
+          github-gopass-ci-token: ${{secrets.GOPASS_CI_GITHUB_TOKEN}}
+
+      - run: python3 -m pip install --pre c2cciutils[audit]
+
+      - name: Check .tool-versions file existence
+        id: tool-versions
+        uses: andstor/file-existence-action@v2
+        with:
+          files: .tool-versions
+      - uses: asdf-vm/actions/install@v3
+        if: steps.tool-versions.outputs.files_exists == 'true'
+      - run: cat /tmp/python-build.*.log
+        if: failure()
+      - run: python --version
+
+      - name: Audit
+        run: ~/.venv/bin/c2cciutils-audit --branch=${{ matrix.branch }}
+      - name: Audit Snyk debug
+        run: ~/.venv/bin/c2cciutils-audit --branch=${{ matrix.branch }} || true
+        if: failure()
+        env:
+          DEBUG: '*snyk*'
