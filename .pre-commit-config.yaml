@@ -38,11 +38,11 @@ repos:
       - id: codespell
         exclude: ^(.*/)?poetry\.lock$
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.3
+    rev: v3.1.0
     hooks:
       - id: prettier
         additional_dependencies:
-          - prettier@3.0.3 # npm
+          - prettier@3.1.0 # npm
           - prettier-plugin-sh@0.13.1 # npm
           - prettier-plugin-toml@1.0.0 # npm
           - '@prettier/plugin-xml@0.12.0' # npm
@@ -75,7 +75,7 @@ repos:
     hooks:
       - id: ripsecrets
   - repo: https://github.com/psf/black
-    rev: 23.10.1
+    rev: 23.11.0
     hooks:
       - id: black
         exclude: README\.md
@@ -101,7 +101,7 @@ repos:
           - --tool=pydocstyle
           - --die-on-tool-error
         additional_dependencies:
-          - prospector-profile-duplicated==0.3.0 # pypi
+          - prospector-profile-duplicated==0.4.0 # pypi
   - repo: https://github.com/sbrunner/jsonschema-validator
     rev: 0.1.0
     hooks:
