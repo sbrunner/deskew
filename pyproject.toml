@@ -51,7 +51,7 @@ prospector = { extras = ["with_bandit", "with_mypy", "with_pyroma"], version = "
 pytest = "7.4.3"
 pytest-profiling = "1.7.0"
 coverage = "7.3.2"
-prospector-profile-duplicated = "0.3.0"
+prospector-profile-duplicated = "0.4.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version", "poetry-plugin-drop-python-upper-constraint"]
