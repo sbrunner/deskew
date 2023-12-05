@@ -23,3 +23,5 @@ jobs:
               pull_number: context.payload.pull_request.number,
               event: 'APPROVE',
             })
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
