@@ -17,13 +17,13 @@ By using the library you can set the argument `angle_pm_90` to `True` to have an
 You can install deskew directly from pypi directly using the following comment
 
 ```bash
-python3 -m pip deskew
+python3 -m pip install deskew
 ```
 
 Or to upgrade to newer version
 
 ```bash
-python3 -m pip -U deskew
+python3 -m pip install -U deskew
 ```
 
 ## Cli usage
