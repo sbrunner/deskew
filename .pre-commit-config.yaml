@@ -42,7 +42,7 @@ repos:
     hooks:
       - id: prettier
         additional_dependencies:
-          - prettier@3.1.0 # npm
+          - prettier@3.1.1 # npm
           - prettier-plugin-sh@0.13.1 # npm
           - prettier-plugin-toml@2.0.1 # npm
           - '@prettier/plugin-xml@0.12.0' # npm
@@ -55,12 +55,12 @@ repos:
     hooks:
       - id: git-check
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.27.2
+    rev: 0.27.3
     hooks:
       - id: check-github-workflows
       - id: check-renovate
         additional_dependencies:
-          - pyjson5==1.6.4 # pypi
+          - pyjson5==1.6.5 # pypi
       - id: check-github-actions
       - id: check-jsonschema
         name: Check GitHub Workflows set timeout-minutes
