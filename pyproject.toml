@@ -48,9 +48,9 @@ debug_images = ["opencv-python-headless", "matplotlib"]
 
 [tool.poetry.group.dev.dependencies]
 prospector = { extras = ["with_bandit", "with_mypy", "with_pyroma"], version = "1.10.3" }
-pytest = "7.4.3"
+pytest = "7.4.4"
 pytest-profiling = "1.7.0"
-coverage = "7.3.2"
+coverage = "7.3.4"
 prospector-profile-duplicated = "0.4.0"
 
 [build-system]
