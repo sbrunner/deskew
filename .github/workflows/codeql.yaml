@@ -18,9 +18,9 @@ jobs:
         if: env.HAS_SECRETS == 'HAS_SECRETS'
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         if: env.HAS_SECRETS == 'HAS_SECRETS'
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
         if: env.HAS_SECRETS == 'HAS_SECRETS'
