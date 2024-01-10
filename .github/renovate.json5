@@ -18,6 +18,7 @@
     schedule: ['at any time'],
     automerge: true,
   },
+  baseBranches: ['1.5', 'master'],
   regexManagers: [
     /** Do updates on pre-commit additional dependencies */
     {
