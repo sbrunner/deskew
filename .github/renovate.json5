@@ -70,10 +70,13 @@
       matchPackageNames: ['shellcheck-py/shellcheck-py'],
       versioning: 'regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$',
     },
-    /** Auto merge the GitHub action and pre-commit updates */
+    /** Group and auto merge the CI dependencies */
     {
-      matchDatasources: ['github-actions', 'pre-commit'],
+      matchFileNames: ['.github/**', '.pre-commit-config.yaml', 'ci/**'],
+      groupName: 'CI dependencies',
       automerge: true,
+      separateMajorMinor: false,
+      separateMinorPatch: false,
     },
   ],
 }
