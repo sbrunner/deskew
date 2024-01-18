@@ -9,9 +9,9 @@ env:
 
 jobs:
   build:
+    name: Delete old workflow runs
     runs-on: ubuntu-22.04
     timeout-minutes: 25
-    name: Delete old workflow runs
 
     steps:
       - name: Delete old workflow runs
@@ -20,4 +20,4 @@ jobs:
           repository: ${{ github.repository }}
           older-than-seconds: 43200000 # 500 days
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
