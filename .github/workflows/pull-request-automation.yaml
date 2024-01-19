@@ -13,7 +13,16 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - uses: actions/github-script@v7
+      - name: Print context
+        uses: actions/github-script@v7
+        with:
+          script: |-
+            console.log(context);
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        if: github.event.pull_request.user.login == 'renovate[bot]'
+      - name: Auto reviews Renovate updates
+        uses: actions/github-script@v7
         with:
           script: |-
             github.rest.pulls.createReview({
@@ -22,13 +31,9 @@ jobs:
               pull_number: context.payload.pull_request.number,
               event: 'APPROVE',
             })
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        name: Auto reviews Renovate updates
         if: github.event.pull_request.user.login == 'renovate[bot]'
       - name: Auto review and merge snyk auto fix
         uses: actions/github-script@v7
-        if: github.event.pull_request.user.login == 'sbrunner' && startsWith(github.head_ref, 'snyk-fix/')
         with:
           script: |-
             github.rest.pulls.createReview({
@@ -51,9 +56,9 @@ jobs:
                 }
               }
             `)
+        if: github.event.pull_request.user.login == 'sbrunner' && startsWith(github.head_ref, 'snyk-fix/')
       - name: Auto close pre-commit.ci autoupdate
         uses: actions/github-script@v7
-        if: github.event.pull_request.user.login == 'pre-commit-ci'
         with:
           script: |-
             github.rest.pulls.update({
@@ -62,3 +67,4 @@ jobs:
               pull_number: context.payload.pull_request.number,
               state: 'closed',
             });
+        if: github.event.pull_request.user.login == 'pre-commit-ci'
