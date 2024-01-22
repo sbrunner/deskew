@@ -5,6 +5,7 @@ on:
     types:
       - opened
       - reopened
+      - closed
 
 jobs:
   auto-merge:
@@ -13,14 +14,15 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      - name: Print event
+        run: echo "${GITHUB}" | jq
+        env:
+          GITHUB: ${{ toJson(github) }}
       - name: Print context
         uses: actions/github-script@v7
         with:
           script: |-
             console.log(context);
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        if: github.event.pull_request.user.login == 'renovate[bot]'
       - name: Auto reviews Renovate updates
         uses: actions/github-script@v7
         with:
@@ -31,7 +33,10 @@ jobs:
               pull_number: context.payload.pull_request.number,
               event: 'APPROVE',
             })
-        if: github.event.pull_request.user.login == 'renovate[bot]'
+        if: |-
+          github.event.pull_request.user.login == 'renovate[bot]'
+          && (github.event.action == 'opened'
+            || github.event.action == 'reopened')
       - name: Auto review and merge snyk auto fix
         uses: actions/github-script@v7
         with:
@@ -56,7 +61,35 @@ jobs:
                 }
               }
             `)
-        if: github.event.pull_request.user.login == 'sbrunner' && startsWith(github.head_ref, 'snyk-fix/')
+        if: |-
+          github.event.pull_request.user.login == 'sbrunner'
+          && startsWith(github.head_ref, 'snyk-fix/')
+          && (github.event.action == 'opened'
+            || github.event.action == 'reopened')
+      - name: Restart audit workflow
+        uses: actions/github-script@v7
+        with:
+          script: |-
+            let runs = await github.rest.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'audit.yaml',
+              per_page: 1,
+            });
+            runs = runs.data.workflow_runs;
+            if (runs.length == 1 && runs[0].status != 'success') {
+              console.log(`Rerun workflow ${runs[0].id} ${runs[0].status}`);
+              github.rest.actions.reRunWorkflowFailedJobs({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: runs[0].id,
+              });
+            }
+        if: |-
+          github.event.pull_request.user.login == 'sbrunner'
+          && (startsWith(github.head_ref, 'snyk-fix/')
+            || startsWith(github.head_ref, 'dpkg-update/'))
+          && github.event.action == 'closed'
       - name: Auto close pre-commit.ci autoupdate
         uses: actions/github-script@v7
         with:
@@ -67,4 +100,7 @@ jobs:
               pull_number: context.payload.pull_request.number,
               state: 'closed',
             });
-        if: github.event.pull_request.user.login == 'pre-commit-ci'
+        if: |-
+          github.event.pull_request.user.login == 'pre-commit-ci'
+          && (github.event.action == 'opened'
+            || github.event.action == 'reopened')
