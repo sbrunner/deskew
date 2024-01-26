@@ -20,4 +20,4 @@ jobs:
           repository: ${{ github.repository }}
           older-than-seconds: 43200000 # 500 days
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
