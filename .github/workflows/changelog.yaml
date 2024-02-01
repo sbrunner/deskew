@@ -28,7 +28,7 @@ jobs:
       - name: Get Date
         id: get-date
         run: echo "date=$(/bin/date -u "+%Y%m%d%H%M%S")" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: .cache
           key: automation-${{ steps.get-date.outputs.date }}
