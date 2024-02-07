@@ -57,8 +57,6 @@
       matchPackagePrefixes: ['poetry-'],
       groupName: 'Poetry',
       automerge: true,
-      separateMajorMinor: false,
-      separateMinorPatch: false,
     },
     /** Separate pull request for scikit-image */
     {
@@ -75,8 +73,6 @@
       matchFileNames: ['.github/**', '.pre-commit-config.yaml', 'ci/**'],
       groupName: 'CI dependencies',
       automerge: true,
-      separateMajorMinor: false,
-      separateMinorPatch: false,
     },
   ],
 }
