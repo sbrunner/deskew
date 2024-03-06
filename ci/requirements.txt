@@ -1,7 +1,7 @@
-c2cciutils[checks,publish]==1.6.15
+c2cciutils[checks,publish]==1.6.17
 poetry==1.7.1
 poetry-plugin-tweak-dependencies-version==1.5.2
 poetry-dynamic-versioning==1.2.0
-pre-commit==3.6.0
+pre-commit==3.6.2
 poetry-plugin-drop-python-upper-constraint==0.1.0
 poetry-plugin-export==1.6.0
