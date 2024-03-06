@@ -42,7 +42,7 @@ repos:
     hooks:
       - id: prettier
         additional_dependencies:
-          - prettier@3.2.4 # npm
+          - prettier@3.2.5 # npm
           - prettier-plugin-sh@0.14.0 # npm
           - prettier-plugin-toml@2.0.1 # npm
           - '@prettier/plugin-xml@0.12.0' # npm
@@ -60,7 +60,7 @@ repos:
       - id: check-github-workflows
       - id: check-renovate
         additional_dependencies:
-          - pyjson5==1.6.5 # pypi
+          - pyjson5==1.6.6 # pypi
       - id: check-github-actions
       - id: check-jsonschema
         name: Check GitHub Workflows set timeout-minutes
@@ -88,7 +88,7 @@ repos:
     hooks:
       - id: autoflake
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.0
+    rev: v3.15.1
     hooks:
       - id: pyupgrade
         args:
