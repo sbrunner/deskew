@@ -22,7 +22,7 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
   - repo: https://github.com/sbrunner/hooks
-    rev: 0.7.0
+    rev: 1.0.0
     hooks:
       - id: copyright
       - id: workflows-require-timeout
@@ -101,7 +101,7 @@ repos:
           - --tool=pydocstyle
           - --die-on-tool-error
         additional_dependencies:
-          - prospector-profile-duplicated==0.5.1 # pypi
+          - prospector-profile-duplicated==1.2.0 # pypi
   - repo: https://github.com/sbrunner/jsonschema-validator
     rev: 0.1.0
     hooks:
