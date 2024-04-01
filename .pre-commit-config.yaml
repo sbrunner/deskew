@@ -28,10 +28,10 @@ repos:
       - id: workflows-require-timeout
       - id: poetry-check
         additional_dependencies:
-          - poetry==1.7.1 # pypi
+          - poetry==1.8.2 # pypi
       - id: poetry-lock
         additional_dependencies:
-          - poetry==1.7.1 # pypi
+          - poetry==1.8.2 # pypi
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
@@ -47,7 +47,7 @@ repos:
           - prettier-plugin-toml@2.0.1 # npm
           - '@prettier/plugin-xml@0.12.0' # npm
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.9.0.6
+    rev: v0.10.0.1
     hooks:
       - id: shellcheck
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
@@ -55,7 +55,7 @@ repos:
     hooks:
       - id: git-check
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.27.4
+    rev: 0.28.1
     hooks:
       - id: check-github-workflows
       - id: check-renovate
@@ -75,7 +75,7 @@ repos:
     hooks:
       - id: ripsecrets
   - repo: https://github.com/psf/black
-    rev: 24.1.1
+    rev: 24.3.0
     hooks:
       - id: black
         exclude: README\.md
@@ -84,7 +84,7 @@ repos:
     hooks:
       - id: isort
   - repo: https://github.com/PyCQA/autoflake
-    rev: v2.2.1
+    rev: v2.3.1
     hooks:
       - id: autoflake
   - repo: https://github.com/asottile/pyupgrade
