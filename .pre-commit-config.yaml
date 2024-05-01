@@ -9,7 +9,7 @@ ci:
     - jsonschema-validator
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: detect-private-key
       - id: check-merge-conflict
@@ -75,7 +75,7 @@ repos:
     hooks:
       - id: ripsecrets
   - repo: https://github.com/psf/black
-    rev: 24.3.0
+    rev: 24.4.2
     hooks:
       - id: black
         exclude: README\.md
@@ -101,7 +101,7 @@ repos:
           - --tool=pydocstyle
           - --die-on-tool-error
         additional_dependencies:
-          - prospector-profile-duplicated==1.2.0 # pypi
+          - prospector-profile-duplicated==1.5.0 # pypi
   - repo: https://github.com/sbrunner/jsonschema-validator
     rev: 0.1.0
     hooks:
