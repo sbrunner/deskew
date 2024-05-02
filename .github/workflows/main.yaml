@@ -13,11 +13,47 @@ env:
   PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
 
 jobs:
+  checks:
+    name: Check with pre-commit and Prospector
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
+      - run: python3 -m pip install --user --requirement=ci/requirements.txt
+
+      - name: Print environment information
+        run: c2cciutils-env
+        env:
+          GITHUB_EVENT: ${{ toJson(github) }}
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: "pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}\npre-commit-"
+      - run: pre-commit run --all-files
+      - run: git diff --exit-code --patch > /tmp/pre-commit.patch || true
+        if: failure()
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Apply pre-commit fix.patch
+          path: /tmp/pre-commit.patch
+          retention-days: 1
+        if: failure()
+
+      - run: poetry install --extras=debug_images
+      - run: poetry run prospector --output=pylint --die-on-tool-error
+
   test:
     name: Run tests
     runs-on: ubuntu-22.04
     timeout-minutes: 15
-    if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
+    needs:
+      - checks
 
     strategy:
       fail-fast: false
@@ -63,20 +99,14 @@ jobs:
           path: results
         if: always()
 
-  build:
-    name: Continuous integration
+  publish:
+    name: Publish package
     runs-on: ubuntu-22.04
     timeout-minutes: 15
-    if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
     needs:
       - test
 
     steps:
-      - run: docker system prune --all --force
-      - name: GitHub event
-        run: echo ${GITHUB_EVENT} | python3 -m json.tool
-        env:
-          GITHUB_EVENT: ${{ toJson(github) }}
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.TOKEN }}
@@ -86,26 +116,6 @@ jobs:
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
       - run: python3 -m pip install --user --requirement=ci/requirements.txt
-
-      - uses: actions/cache@v4
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
-          restore-keys: "pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}\npre-commit-"
-      - run: pre-commit run --all-files
-      - run: git diff --exit-code --patch > /tmp/pre-commit.patch || true
-        if: failure()
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Apply pre-commit fix.patch
-          path: /tmp/pre-commit.patch
-          retention-days: 1
-        if: failure()
-      - name: Print environment information
-        run: c2cciutils-env
-
-      - run: poetry install --extras=debug_images
-      - run: poetry run prospector --output=pylint --die-on-tool-error
 
       - name: Init Git
         run: |
