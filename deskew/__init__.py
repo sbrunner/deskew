@@ -312,7 +312,29 @@ def determine_skew(
     """
     Calculate skew angle.
 
-    Return None if no skew will be found
+    Parameters
+    ----------
+    image: np.ndarray
+        Input image
+    sigma: float
+        Standard deviation of Gaussian filter
+    num_peaks: int
+        Number of peaks to detect
+    num_angles: int
+        Number of angles to consider
+    angle_pm_90: bool
+        Consider angles in the range [-180, 180] instead of [-90, 90]
+    min_angle: float
+        Minimum angle to consider
+    max_angle: float
+        Maximum angle to consider
+    min_deviation: float
+        Minimum deviation between angles
+
+    Returns
+    -------
+    float
+        Skew angle in degrees, None if no skew will be found
     """
     if num_angles is not None:
         min_deviation = 180 / num_angles
