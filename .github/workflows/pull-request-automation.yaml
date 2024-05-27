@@ -57,32 +57,3 @@ jobs:
           github.event.pull_request.user.login == 'renovate[bot]'
           && (github.event.action == 'opened'
             || github.event.action == 'reopened')
-      - name: Auto review and merge snyk auto fix
-        uses: actions/github-script@v7
-        with:
-          script: |-
-            github.rest.pulls.createReview({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number,
-              event: 'APPROVE',
-            });
-            github.graphql(`
-              mutation {
-                enablePullRequestAutoMerge(input: {
-                  pullRequestId: "${context.payload.pull_request.node_id}",
-                  mergeMethod: SQUASH,
-                }) {
-                  pullRequest {
-                    autoMergeRequest {
-                      enabledAt
-                    }
-                  }
-                }
-              }
-            `)
-        if: |-
-          github.event.pull_request.user.login == 'sbrunner'
-          && startsWith(github.head_ref, 'snyk-fix/')
-          && (github.event.action == 'opened'
-            || github.event.action == 'reopened')
