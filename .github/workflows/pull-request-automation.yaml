@@ -5,14 +5,10 @@ on:
     types:
       - opened
       - reopened
-      - closed
-  pull_request_target:
-    types:
-      - closed
 
 jobs:
   auto-merge:
-    name: Auto reviews, merge and close pull requests
+    name: Auto reviews pull requests from bots
     runs-on: ubuntu-22.04
     timeout-minutes: 5
 
@@ -41,8 +37,6 @@ jobs:
           && (github.event.pull_request.user.login == 'geo-ghci-test[bot]'
             || github.event.pull_request.user.login == 'geo-ghci-int[bot]'
             || github.event.pull_request.user.login == 'geo-ghci[bot]')
-          && (github.event.action == 'opened'
-            || github.event.action == 'reopened')
       - name: Auto reviews Renovate updates
         uses: actions/github-script@v7
         with:
@@ -55,5 +49,3 @@ jobs:
             })
         if: |-
           github.event.pull_request.user.login == 'renovate[bot]'
-          && (github.event.action == 'opened'
-            || github.event.action == 'reopened')
