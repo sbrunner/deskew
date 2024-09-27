@@ -1,12 +1,3 @@
-ci:
-  autoupdate_schedule: quarterly
-
-  skip:
-    - copyright
-    - poetry-check
-    - poetry-lock
-    - ripsecrets
-    - jsonschema-validator
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
@@ -110,3 +101,7 @@ repos:
           (?x)^(
               ci/config\.yaml
           )$
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 37.428.1
+    hooks:
+      - id: renovate-config-validator
