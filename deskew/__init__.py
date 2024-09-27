@@ -3,7 +3,10 @@ import tempfile
 import warnings
 from typing import TYPE_CHECKING, Any, Optional
 
+import matplotlib.axes
+import matplotlib.projections.polar
 import numpy as np
+import numpy.typing as npt
 from skimage.color import rgb2gray, rgba2rgb
 from skimage.feature import canny
 from skimage.transform import hough_line, hough_line_peaks
@@ -11,9 +14,9 @@ from skimage.transform import hough_line, hough_line_peaks
 if TYPE_CHECKING:
     from typing import TypeAlias
 
-    ImageType: TypeAlias = np.ndarray[np.uint8, Any]
-    ImageTypeUint64: TypeAlias = np.ndarray[np.uint8, Any]
-    ImageTypeFloat64: TypeAlias = np.ndarray[np.float64, Any]
+    ImageType: TypeAlias = npt.NDArray[np.integer[Any] | np.floating[Any]]
+    ImageTypeUint64: TypeAlias = npt.NDArray[np.uint8]
+    ImageTypeFloat64: TypeAlias = npt.NDArray[np.float64]
 else:
     ImageType = np.ndarray
     ImageTypeUint64 = np.ndarray
@@ -252,19 +255,19 @@ def determine_skew_debug_images(
         image = cv2.imread(file.name)
         debug_images.append(("detected_lines", cv2.imread(file.name)))
 
-    _, axe = plt.subplots(1, 2, figsize=(15, 6), subplot_kw={"polar": True})
+    _, (axe0, axe1) = plt.subplots(1, 2, figsize=(15, 6), subplot_kw={"polar": True})
 
-    axe[0].set_title("Original detected angles")
-    axe[1].set_title("Corrected angles")
+    axe0.set_title("Original detected angles")
+    axe1.set_title("Corrected angles")
 
     def fill_polar(
-        axe: Any,
+        axe: matplotlib.projections.polar.PolarAxes,
         freqs: dict[np.float64, int],
         angles: list[float],
         limits: list[tuple[float, float]],
         half: bool = False,
     ) -> None:
-        axe.scatter(freqs.keys(), freqs.values())
+        axe.scatter(list(freqs.keys()), list(freqs.values()))
         axe.set_theta_zero_location("N")
         axe.grid(True)
         if half:
@@ -283,8 +286,8 @@ def determine_skew_debug_images(
             if limit_max != np.pi / 2 and (not half or -np.pi / 4 < limit_max < np.pi / 4):
                 axe.axvline(limit_max)
 
-    fill_polar(axe[0], freqs0, skew_angles0, limits2)
-    fill_polar(axe[1], freqs, [] if skew_angle is None else [float(skew_angle)], limits, not angle_pm_90)
+    fill_polar(axe0, freqs0, skew_angles0, limits2)
+    fill_polar(axe1, freqs, [] if skew_angle is None else [float(skew_angle)], limits, not angle_pm_90)
 
     plt.tight_layout()
     with tempfile.NamedTemporaryFile(suffix=".png") as file:
