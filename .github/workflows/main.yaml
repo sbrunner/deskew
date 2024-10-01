@@ -15,7 +15,7 @@ env:
 jobs:
   checks:
     name: Check with pre-commit and Prospector
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
 
@@ -50,7 +50,7 @@ jobs:
 
   test:
     name: Run tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     needs:
       - checks
@@ -101,7 +101,7 @@ jobs:
 
   publish:
     name: Publish package
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     needs:
       - test
