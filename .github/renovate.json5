@@ -32,6 +32,13 @@
       ],
       datasourceTemplate: 'github-tags',
     },
+    /** Python version in actions/setup-python action */
+    {
+      fileMatch: ['^\\.github/workflows/.*\\.yaml$'],
+      matchStrings: [' python-version: [\'"](?<currentValue>[0-9\\.]+)[\'"]'],
+      datasourceTemplate: 'python-version',
+      depNameTemplate: 'python',
+    },
   ],
   packageRules: [
     /** Auto merge the dev dependency update */
@@ -73,6 +80,12 @@
       matchFileNames: ['.github/**', '.pre-commit-config.yaml', 'ci/**'],
       groupName: 'CI dependencies',
       automerge: true,
+    },
+    /** Ungroup Python dependencies */
+    {
+      matchDepNames: ['python'],
+      groupName: 'Python',
+      versioning: 'regex:^(?<major>\\d+)\\.(?<minor>\\d+)$',
     },
   ],
 }
