@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: detect-private-key
       - id: check-merge-conflict
@@ -94,7 +94,7 @@ repos:
         additional_dependencies:
           - prospector-profile-duplicated==1.10.0 # pypi
   - repo: https://github.com/sbrunner/jsonschema-validator
-    rev: 0.3.2
+    rev: 1.0.0
     hooks:
       - id: jsonschema-validator
         files: |-
@@ -102,6 +102,6 @@ repos:
               ci/config\.yaml
           )$
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 38.142.7
+    rev: 39.86.3
     hooks:
       - id: renovate-config-validator
