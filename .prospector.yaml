@@ -1,36 +1,14 @@
 inherits:
+  - utils:base
+  - utils:no-design-checks
+  - utils:fix
+  - utils:unsafe
   - duplicated
-strictness: veryhigh
-max-line-length: 110
-doc-warnings: true
-
-pylint:
-  disable:
-    - too-many-arguments
-    - too-many-statements
-
-pycodestyle:
-  disable:
-    - E501 # line too long
-    - E722 # do not use bare 'except'
-
-pydocstyle:
-  disable:
-    - D102 # Missing docstring in public method
-    - D104 # Missing docstring in public package
-    - D212 # Multi-line docstring summary should start at the first line
-    - D202 # No blank lines allowed after function docstring
 
 mypy:
-  run: true
-
   options:
-    python-version: '3.13'
-pyroma:
-  run: true
+    python-version: '3.10'
 
-mccabe:
-  run: false
 ruff:
   options:
-    target-version: py313
+    target-version: py310
