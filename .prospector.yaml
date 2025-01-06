@@ -21,14 +21,16 @@ pydocstyle:
     - D212 # Multi-line docstring summary should start at the first line
     - D202 # No blank lines allowed after function docstring
 
-bandit:
-  run: true
-
 mypy:
   run: true
 
+  options:
+    python-version: '3.13'
 pyroma:
   run: true
 
 mccabe:
   run: false
+ruff:
+  options:
+    target-version: py313

@@ -1,15 +1,3 @@
-[tool.black]
-line-length = 110
-target-version = ["py310"]
-
-[tool.mypy]
-python_version = "3.10"
-ignore_missing_imports = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-warn_return_any = true
-strict = true
-
 [tool.pytest.ini_options]
 pytest_plugins = ["pytest_profiling"]
 
@@ -23,13 +11,14 @@ homepage = "https://github.com/sbrunner/deskew"
 repository = "https://github.com/sbrunner/deskew"
 license = "MIT"
 classifiers = [
-  "Development Status :: 5 - Production/Stable",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3",
-  "Typing :: Typed"
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.13',
+    'Typing :: Typed',
 ]
 packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
 
@@ -53,6 +42,12 @@ pytest-profiling = "1.8.1"
 coverage = "7.6.10"
 prospector-profile-duplicated = "1.10.0"
 
+
+[tool.ruff]
+target-version = "py313"
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version", "poetry-plugin-drop-python-upper-constraint"]
 build-backend = "poetry.core.masonry.api"
@@ -62,8 +57,10 @@ enable = true
 vcs = "git"
 pattern = "^((?P<epoch>\\d+)!)?(?P<base>\\d+(\\.\\d+)*)"
 format-jinja = """
-{%- if env.get("VERSION_TYPE") == "version_branch" -%}
-{{serialize_pep440(bump_version(base, 1 if env.get("IS_MASTER") == "TRUE" else 2), dev=distance)}}
+{%- if env.get("VERSION_TYPE") == "default_branch" -%}
+{{serialize_pep440(bump_version(base, 1), dev=distance)}}
+{%- elif env.get("VERSION_TYPE") == "stabilization_branch" -%}
+{{serialize_pep440(bump_version(base, 2), dev=distance)}}
 {%- elif distance == 0 -%}
 {{serialize_pep440(base)}}
 {%- else -%}

@@ -8,6 +8,10 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: write
+  id-token: write
+
 env:
   HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
   PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
@@ -37,8 +41,8 @@ jobs:
           path: ~/.cache/pre-commit
           key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: "pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}\npre-commit-"
-      - run: pre-commit run --all-files
-      - run: git diff --exit-code --patch > /tmp/pre-commit.patch || true
+      - run: pre-commit run --all-files --color=always
+      - run: git diff --exit-code --patch > /tmp/pre-commit.patch; git diff --color; git reset --hard || true
         if: failure()
       - uses: actions/upload-artifact@v4
         with:
@@ -133,12 +137,12 @@ jobs:
           echo "password = ${{ secrets.PYPI_PASSWORD }}" >> ~/.pypirc
         if: env.HAS_SECRETS == 'HAS_SECRETS'
       - name: Publish
-        run: c2cciutils-publish
+        run: tag-publish
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - run: git diff --exit-code --patch > /tmp/dpkg-versions.patch || true
+      - run: git diff --exit-code --patch > /tmp/dpkg-versions.patch; git diff --color; git reset --hard || true
         if: failure()
       - uses: actions/upload-artifact@v4
         with:

@@ -1,29 +1,19 @@
 {
-  extends: ['config:base'],
-  timezone: 'Europe/Zurich',
-  schedule: 'after 5pm on the first day of the month',
-  labels: ['dependencies'],
-  separateMajorMinor: true,
-  separateMinorPatch: true,
-  prHourlyLimit: 0,
-  prConcurrentLimit: 0,
-  lockFileMaintenance: {
-    enabled: true,
-    automerge: true,
-    schedule: 'after 5pm on the first day of the month',
-  },
-  'pre-commit': { enabled: true },
+  extends: [
+    'config:base',
+    'github>camptocamp/gs-renovate-config-preset:base.json5#0.3.3',
+    'github>camptocamp/gs-renovate-config-preset:ci.json5#0.3.3',
+    'github>camptocamp/gs-renovate-config-preset:pre-commit.json5#0.3.3',
+    'github>camptocamp/gs-renovate-config-preset:python.json5#0.3.3',
+    'github>camptocamp/gs-renovate-config-preset:json-schema.json5#0.3.3',
+    'github>camptocamp/gs-renovate-config-preset:shellcheck.json5#0.3.3',
+  ],
   osvVulnerabilityAlerts: true,
   vulnerabilityAlerts: {
     schedule: ['at any time'],
     automerge: true,
   },
-  regexManagers: [
-    /** Do updates on pre-commit additional dependencies */
-    {
-      fileMatch: ['^\\.pre\\-commit\\-config\\.yaml$'],
-      matchStrings: [" +- '?(?<depName>[^' @=]+)(@|==)(?<currentValue>[^' @=]+)'? # (?<datasource>.+)"],
-    },
+  customManagers: [
     /** Do update on the schema present in the ci/config.yaml */
     {
       fileMatch: ['^ci/config\\.yaml$'],
@@ -31,60 +21,14 @@
         '.*https://raw\\.githubusercontent\\.com/(?<depName>[^\\s]+)/(?<currentValue>[0-9\\.]+)/.*',
       ],
       datasourceTemplate: 'github-tags',
-    },
-    /** Python version in actions/setup-python action */
-    {
-      fileMatch: ['^\\.github/workflows/.*\\.yaml$'],
-      matchStrings: [' python-version: [\'"](?<currentValue>[0-9\\.]+)[\'"]'],
-      datasourceTemplate: 'python-version',
-      depNameTemplate: 'python',
+      customType: 'regex',
     },
   ],
   packageRules: [
-    /** Auto merge the dev dependency update */
-    {
-      matchDepTypes: ['devDependencies'],
-      automerge: true,
-    },
-    /** Group and auto merge the patch updates */
-    {
-      matchUpdateTypes: ['patch'],
-      groupName: 'all patch versions',
-      automerge: true,
-    },
-    /** Group and auto merge the minor updates */
-    {
-      matchUpdateTypes: ['minor'],
-      groupName: 'all minor versions',
-      automerge: true,
-    },
-    /** Group Poetry packages */
-    {
-      matchPackagePrefixes: ['poetry-'],
-      groupName: 'Poetry',
-      automerge: true,
-      matchDepNames: ['poetry', 'pip'],
-    },
     /** Separate pull request for scikit-image */
     {
       groupName: 'scikit-image',
       matchDepNames: ['scikit-image'],
-    },
-    /** Support the 4 parts of shellcheck-py version with a v prefix */
-    {
-      versioning: 'regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$',
-      matchDepNames: ['shellcheck-py/shellcheck-py'],
-    },
-    /** Group and auto merge the CI dependencies */
-    {
-      matchFileNames: ['.github/**', '.pre-commit-config.yaml', 'ci/**'],
-      groupName: 'CI dependencies',
-      automerge: true,
-    },
-    /** Ungroup Python dependencies */
-    {
-      matchDepNames: ['python'],
-      groupName: 'Python',
     },
   ],
 }
