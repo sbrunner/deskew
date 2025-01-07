@@ -27,12 +27,12 @@ def determine_skew_dev(
     image: ImageType,
     sigma: float = 3.0,
     num_peaks: int = 20,
-    min_angle: Optional[float] = None,  # -np.pi / 2,
-    max_angle: Optional[float] = None,  # np.pi / 2,
+    min_angle: float | None = None,  # -np.pi / 2,
+    max_angle: float | None = None,  # np.pi / 2,
     min_deviation: float = np.pi / 180,
     angle_pm_90: bool = False,
 ) -> tuple[
-    Optional[np.float64],
+    np.float64 | None,
     tuple[
         tuple[ImageTypeUint64, list[list[np.float64]], ImageTypeFloat64],
         tuple[list[Any], list[np.float64], list[np.float64]],
@@ -40,7 +40,6 @@ def determine_skew_dev(
     ],
 ]:
     """Calculate skew angle."""
-
     num_angles = round(np.pi / min_deviation)
     imagergb = rgba2rgb(image) if len(image.shape) == 3 and image.shape[2] == 4 else image  # type: ignore[no-untyped-call]
     img = rgb2gray(imagergb) if len(imagergb.shape) == 3 else imagergb
@@ -106,10 +105,10 @@ def determine_skew_debug_images(
     sigma: float = 3.0,
     num_peaks: int = 20,
     angle_pm_90: bool = False,
-    min_angle: Optional[float] = None,
-    max_angle: Optional[float] = None,
+    min_angle: float | None = None,
+    max_angle: float | None = None,
     min_deviation: float = 1.0,
-) -> tuple[Optional[np.float64], list[tuple[str, ImageType]]]:
+) -> tuple[np.float64 | None, list[tuple[str, ImageType]]]:
     """Calculate skew angle, and return images useful for debugging."""
     import cv2  # pylint: disable=import-outside-toplevel
     import matplotlib.pyplot as plt  # pylint: disable=import-outside-toplevel
@@ -222,7 +221,7 @@ def determine_skew_debug_images(
     axe.set_axis_off()
     axe.set_title("Detected lines")
 
-    for _, line_angle, dist in zip(*hough_line_peaks_data):
+    for _, line_angle, dist in zip(*hough_line_peaks_data, strict=False):
         (coord0x, coord0y) = dist * np.array([np.cos(line_angle), np.sin(line_angle)])
         angle2 = (
             (line_angle % np.pi - np.pi / 2)
@@ -306,12 +305,12 @@ def determine_skew(
     image: ImageType,
     sigma: float = 3.0,
     num_peaks: int = 20,
-    num_angles: Optional[int] = None,
+    num_angles: int | None = None,
     angle_pm_90: bool = False,
-    min_angle: Optional[float] = None,
-    max_angle: Optional[float] = None,
+    min_angle: float | None = None,
+    max_angle: float | None = None,
     min_deviation: float = 1.0,
-) -> Optional[np.float64]:
+) -> np.float64 | None:
     """
     Calculate skew angle.
 

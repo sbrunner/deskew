@@ -83,3 +83,8 @@ repos:
     rev: 0.8.0
     hooks:
       - id: python-versions
+  - repo: https://github.com/sbrunner/jsonschema-validator
+    rev: 0.3.2
+    hooks:
+      - id: jsonschema-validator
+        files: ^\.github/publish\.yaml$
