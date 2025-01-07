@@ -40,7 +40,6 @@ def determine_skew_dev(
     ],
 ]:
     """Calculate skew angle."""
-
     num_angles = round(np.pi / min_deviation)
     imagergb = rgba2rgb(image) if len(image.shape) == 3 and image.shape[2] == 4 else image  # type: ignore[no-untyped-call]
     img = rgb2gray(imagergb) if len(imagergb.shape) == 3 else imagergb
@@ -222,7 +221,7 @@ def determine_skew_debug_images(
     axe.set_axis_off()
     axe.set_title("Detected lines")
 
-    for _, line_angle, dist in zip(*hough_line_peaks_data):
+    for _, line_angle, dist in zip(*hough_line_peaks_data, strict=False):
         (coord0x, coord0y) = dist * np.array([np.cos(line_angle), np.sin(line_angle)])
         angle2 = (
             (line_angle % np.pi - np.pi / 2)
