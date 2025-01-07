@@ -45,14 +45,14 @@ def main() -> None:
                 print("Wrong background color, should be r,g,b")
                 sys.exit(1)
 
-            rotated = rotate(image, angle, resize=True, cval=-1) * 255
+            rotated = rotate(image, angle, resize=True, cval=-1) * 255  # type: ignore[no-untyped-call]
             pos = np.where(rotated == -255)
             if len(image.shape) == 2:
                 rotated[pos[0], pos[1]] = int(round(np.mean(background)))
             else:
                 rotated[pos[0], pos[1], :] = background
         else:
-            rotated = rotate(image, angle, resize=True) * 255
+            rotated = rotate(image, angle, resize=True) * 255  # type: ignore[no-untyped-call]
         io.imsave(options.output, rotated.astype(np.uint8))
 
 

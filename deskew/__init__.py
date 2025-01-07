@@ -1,7 +1,7 @@
 import subprocess  # nosec
 import tempfile
 import warnings
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 import matplotlib.axes
 import matplotlib.projections.polar
@@ -42,13 +42,13 @@ def determine_skew_dev(
     """Calculate skew angle."""
 
     num_angles = round(np.pi / min_deviation)
-    imagergb = rgba2rgb(image) if len(image.shape) == 3 and image.shape[2] == 4 else image
+    imagergb = rgba2rgb(image) if len(image.shape) == 3 and image.shape[2] == 4 else image  # type: ignore[no-untyped-call]
     img = rgb2gray(imagergb) if len(imagergb.shape) == 3 else imagergb
-    edges = canny(img, sigma=sigma)
-    out, angles, distances = hough_line(edges, np.linspace(-np.pi / 2, np.pi / 2, num_angles, endpoint=False))
+    edges = canny(img, sigma=sigma)  # type: ignore[no-untyped-call]
+    out, angles, distances = hough_line(edges, np.linspace(-np.pi / 2, np.pi / 2, num_angles, endpoint=False))  # type: ignore[no-untyped-call]
     hough_line_out = (out, angles, distances)
 
-    hspace, angles_peaks, dists = hough_line_peaks(
+    hspace, angles_peaks, dists = hough_line_peaks(  # type: ignore[no-untyped-call]
         out, angles, distances, num_peaks=num_peaks, threshold=0.05 * np.max(out)
     )
     hough_line_peaks_out = (hspace, angles_peaks, dists)
@@ -341,7 +341,7 @@ def determine_skew(
     """
     if num_angles is not None:
         min_deviation = 180 / num_angles
-        warnings.warn("num_angles is deprecated, please use min_deviation", DeprecationWarning)
+        warnings.warn("num_angles is deprecated, please use min_deviation", DeprecationWarning, stacklevel=2)
 
     angle, _ = determine_skew_dev(
         image,

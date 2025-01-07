@@ -17,9 +17,6 @@ repos:
     hooks:
       - id: copyright
       - id: workflows-require-timeout
-      - id: poetry-check
-        additional_dependencies:
-          - poetry==1.8.5 # pypi
       - id: poetry-lock
         additional_dependencies:
           - poetry==1.8.5 # pypi
@@ -49,9 +46,6 @@ repos:
     rev: 0.30.0
     hooks:
       - id: check-github-workflows
-      - id: check-renovate
-        additional_dependencies:
-          - pyjson5==1.6.7 # pypi
       - id: check-github-actions
       - id: check-jsonschema
         name: Check GitHub Workflows set timeout-minutes
@@ -65,43 +59,27 @@ repos:
     rev: v0.1.8
     hooks:
       - id: ripsecrets
-  - repo: https://github.com/psf/black
-    rev: 24.10.0
-    hooks:
-      - id: black
-        exclude: README\.md
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-  - repo: https://github.com/PyCQA/autoflake
-    rev: v2.3.1
-    hooks:
-      - id: autoflake
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.1
-    hooks:
-      - id: pyupgrade
-        args:
-          - --py39-plus
   - repo: https://github.com/PyCQA/prospector
     rev: v1.13.3
     hooks:
       - id: prospector
         args:
-          - --tool=pydocstyle
+          - --tool=ruff
           - --die-on-tool-error
+          - --output-format=pylint
         additional_dependencies:
           - prospector-profile-duplicated==1.10.0 # pypi
-  - repo: https://github.com/sbrunner/jsonschema-validator
-    rev: 1.0.0
-    hooks:
-      - id: jsonschema-validator
-        files: |-
-          (?x)^(
-              ci/config\.yaml
-          )$
+          - prospector-profile-utils==1.14.1 # pypi
+          - ruff==0.7.3 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 39.86.3
     hooks:
       - id: renovate-config-validator
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.1
+    hooks:
+      - id: ruff-format
+  - repo: https://github.com/sbrunner/python-versions-hook
+    rev: 0.8.0
+    hooks:
+      - id: python-versions
