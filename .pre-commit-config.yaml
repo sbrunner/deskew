@@ -19,7 +19,7 @@ repos:
       - id: workflows-require-timeout
       - id: poetry-lock
         additional_dependencies:
-          - poetry==1.8.5 # pypi
+          - poetry==2.0.1 # pypi
   - repo: https://github.com/codespell-project/codespell
     rev: v2.3.0
     hooks:
@@ -84,7 +84,7 @@ repos:
     hooks:
       - id: python-versions
   - repo: https://github.com/sbrunner/jsonschema-validator
-    rev: 0.3.2
+    rev: 1.0.0
     hooks:
       - id: jsonschema-validator
         files: ^\.github/publish\.yaml$
