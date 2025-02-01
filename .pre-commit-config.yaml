@@ -13,7 +13,7 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
   - repo: https://github.com/sbrunner/hooks
-    rev: 1.1.2
+    rev: 1.2.1
     hooks:
       - id: copyright
       - id: workflows-require-timeout
@@ -21,7 +21,7 @@ repos:
         additional_dependencies:
           - poetry==1.8.5 # pypi
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.3.0
+    rev: v2.4.1
     hooks:
       - id: codespell
         exclude: ^(.*/)?poetry\.lock$
@@ -43,7 +43,7 @@ repos:
     hooks:
       - id: git-check
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.30.0
+    rev: 0.31.1
     hooks:
       - id: check-github-workflows
       - id: check-github-actions
@@ -60,7 +60,7 @@ repos:
     hooks:
       - id: ripsecrets
   - repo: https://github.com/PyCQA/prospector
-    rev: v1.13.3
+    rev: 1.14.0
     hooks:
       - id: prospector
         args:
@@ -69,14 +69,14 @@ repos:
           - --output-format=pylint
         additional_dependencies:
           - prospector-profile-duplicated==1.10.0 # pypi
-          - prospector-profile-utils==1.14.1 # pypi
-          - ruff==0.7.3 # pypi
+          - prospector-profile-utils==1.17.0 # pypi
+          - ruff==0.9.4 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 39.86.3
+    rev: 39.146.1
     hooks:
       - id: renovate-config-validator
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.1
+    rev: v0.9.4
     hooks:
       - id: ruff-format
   - repo: https://github.com/sbrunner/python-versions-hook
