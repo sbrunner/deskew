@@ -68,7 +68,7 @@ repos:
           - --die-on-tool-error
           - --output-format=pylint
         additional_dependencies:
-          - prospector-profile-duplicated==1.10.0 # pypi
+          - prospector-profile-duplicated==1.10.4 # pypi
           - prospector-profile-utils==1.17.0 # pypi
           - ruff==0.9.4 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
