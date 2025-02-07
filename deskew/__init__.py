@@ -238,7 +238,7 @@ def determine_skew_debug_images(
             axe.text(
                 coord0x,
                 coord0y,
-                f"{round(np.rad2deg(line_angle)*1000)/1000}",
+                f"{round(np.rad2deg(line_angle) * 1000) / 1000}",
                 rotation=np.rad2deg(line_angle - np.pi / 2),
                 rotation_mode="anchor",
                 transform_rotates_text=True,
