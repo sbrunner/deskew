@@ -11,3 +11,8 @@ mypy:
 ruff:
   options:
     target-version: py310
+
+pylint:
+  disable:
+    - no-member # Module {} has no {} member
+    - no-name-in-module # No name {} in module {}
