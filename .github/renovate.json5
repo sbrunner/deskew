@@ -1,28 +1,15 @@
 {
   extends: [
-    'config:base',
     'github>camptocamp/gs-renovate-config-preset:base.json5#0.3.3',
+    'github>camptocamp/gs-renovate-config-preset:group.json5#0.8.0',
     'github>camptocamp/gs-renovate-config-preset:ci.json5#0.3.3',
     'github>camptocamp/gs-renovate-config-preset:pre-commit.json5#0.3.3',
     'github>camptocamp/gs-renovate-config-preset:python.json5#0.3.3',
     'github>camptocamp/gs-renovate-config-preset:json-schema.json5#0.3.3',
     'github>camptocamp/gs-renovate-config-preset:shellcheck.json5#0.3.3',
-  ],
-  osvVulnerabilityAlerts: true,
-  vulnerabilityAlerts: {
-    schedule: ['at any time'],
-    automerge: true,
-  },
-  customManagers: [
-    /** Do update on the schema present in the ci/config.yaml */
-    {
-      fileMatch: ['^ci/config\\.yaml$'],
-      matchStrings: [
-        '.*https://raw\\.githubusercontent\\.com/(?<depName>[^\\s]+)/(?<currentValue>[0-9\\.]+)/.*',
-      ],
-      datasourceTemplate: 'github-tags',
-      customType: 'regex',
-    },
+    'github>camptocamp/gs-renovate-config-preset:preset.json5#0.8.0',
+    'github>camptocamp/gs-renovate-config-preset:security.json5#0.8.0',
+    'github>camptocamp/gs-renovate-config-preset:own.json5#0.8.0',
   ],
   packageRules: [
     /** Separate pull request for scikit-image */

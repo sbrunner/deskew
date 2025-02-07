@@ -2,7 +2,6 @@ inherits:
   - utils:base
   - utils:no-design-checks
   - utils:fix
-  - utils:unsafe
   - duplicated
 
 mypy:
