@@ -16,6 +16,7 @@ else:
 
 
 def check_image(root_folder, image, name, level=1.0):
+    """Check the image."""
     assert image is not None, "Image required"
     expected_name = os.path.join(os.path.dirname(__file__), f"{name}.expected.png")
     result_name = os.path.join(root_folder, f"{name}.result.png")
@@ -27,7 +28,7 @@ def check_image(root_folder, image, name, level=1.0):
     if not os.path.isfile(expected_name):
         cv2.imwrite(result_name, image)
         cv2.imwrite(expected_name, image)
-        assert False, "Expected image not found: " + expected_name
+        pytest.fail("Expected image not found: " + expected_name)
     expected = cv2.imread(expected_name)
     assert expected is not None, "Wrong image: " + expected_name
     score, diff = image_diff(expected, image)
@@ -42,14 +43,13 @@ def check_image(root_folder, image, name, level=1.0):
 
 def image_diff(image1: NpNdarrayInt, image2: NpNdarrayInt) -> tuple[float, NpNdarrayInt]:
     """Do a diff between images."""
-
     score, diff = structural_similarity(image1, image2, multichannel=True, full=True, channel_axis=2)
     diff = (255 - diff * 255).astype("uint8")
     return score, diff
 
 
 @pytest.mark.parametrize(
-    "image,expected_angle",
+    ("image", "expected_angle"),
     [
         ("1", pytest.approx(-1.0, abs=0.01)),
         ("2", pytest.approx(-2.0, abs=0.01)),
@@ -62,6 +62,7 @@ def image_diff(image1: NpNdarrayInt, image2: NpNdarrayInt) -> tuple[float, NpNda
     ],
 )
 def test_deskew(image, expected_angle):
+    """Test the deskew function."""
     root_folder = f"results/{image}"
     if not os.path.exists(root_folder):
         os.makedirs(root_folder)
@@ -72,7 +73,7 @@ def test_deskew(image, expected_angle):
 
 
 @pytest.mark.parametrize(
-    "min_angle,max_angle,angle_pm_90,num_peaks,expected,postfix,level",
+    ("min_angle", "max_angle", "angle_pm_90", "num_peaks", "expected", "postfix", "level"),
     [
         (None, None, False, 20, -3, "", 1),
         (None, None, True, 20, -3, "-90", 1),
@@ -89,6 +90,7 @@ def test_deskew(image, expected_angle):
     ],
 )
 def test_determine_skew_debug_images(min_angle, max_angle, angle_pm_90, num_peaks, expected, postfix, level):
+    """Test the determine_skew_debug_images function."""
     image = io.imread(os.path.join(os.path.dirname(__file__), "deskew-6.png"))
     angle, debug_images = determine_skew_debug_images(
         image, min_angle=min_angle, max_angle=max_angle, angle_pm_90=angle_pm_90, num_peaks=num_peaks

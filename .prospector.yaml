@@ -2,7 +2,6 @@ inherits:
   - utils:base
   - utils:no-design-checks
   - utils:fix
-  - utils:unsafe
   - duplicated
 
 mypy:
@@ -12,3 +11,8 @@ mypy:
 ruff:
   options:
     target-version: py310
+
+pylint:
+  disable:
+    - no-member # Module {} has no {} member
+    - no-name-in-module # No name {} in module {}
