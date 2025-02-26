@@ -1165,17 +1165,17 @@ files = [
 
 [[package]]
 name = "prospector-profile-utils"
-version = "1.21.0"
+version = "1.21.2"
 description = "Some utility Prospector profiles."
 optional = false
 python-versions = "*"
 files = [
-    {file = "prospector_profile_utils-1.21.0-py2.py3-none-any.whl", hash = "sha256:bb8ea942abc3e0b06ea17d9b13812890e9c4b46d56b40c39ad9cd399b8830b72"},
-    {file = "prospector_profile_utils-1.21.0.tar.gz", hash = "sha256:448639f624c3cbd2c06fe6dc139a0f92ced971ab6b16e17224d9007089f2b552"},
+    {file = "prospector_profile_utils-1.21.2-py2.py3-none-any.whl", hash = "sha256:2d855271aa6783b8c680f4d8a51723c4599d1f0ebea1e3ca4c9b7248611015f4"},
+    {file = "prospector_profile_utils-1.21.2.tar.gz", hash = "sha256:08fbab70aeada7b934db20a94d97b8845e356313628c42bccaa0e358bbed21ab"},
 ]
 
 [package.dependencies]
-prospector = ">=1.13.0"
+prospector = {version = ">=1.13.0", extras = ["with-bandit", "with-mypy", "with-ruff"]}
 
 [[package]]
 name = "pycodestyle"
@@ -1911,4 +1911,4 @@ debug-images = ["matplotlib", "opencv-python-headless"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.14"
-content-hash = "b3ae7719955b6eb841b0ae4b43aceccaf19ecce20269c69cbd6662111a4e6f74"
+content-hash = "48fa2e93575e889639914226d951f4aa2c4ef65432a7078479e0b308eb7b1504"
