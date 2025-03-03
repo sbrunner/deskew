@@ -48,7 +48,11 @@ def determine_skew_dev(
     hough_line_out = (out, angles, distances)
 
     hspace, angles_peaks, dists = hough_line_peaks(  # type: ignore[no-untyped-call]
-        out, angles, distances, num_peaks=num_peaks, threshold=0.05 * np.max(out)
+        out,
+        angles,
+        distances,
+        num_peaks=num_peaks,
+        threshold=0.05 * np.max(out),
     )
     hough_line_peaks_out = (hspace, angles_peaks, dists)
 
@@ -80,13 +84,8 @@ def determine_skew_dev(
         freqs.setdefault(peak, 0)
         freqs[peak] += 1
 
-    sorted_keys = sorted(freqs.keys(), key=freqs.get, reverse=True)  # type: ignore
+    sorted_keys = sorted(freqs.keys(), key=freqs.get, reverse=True)  # type: ignore[arg-type]
     max_freq = freqs[sorted_keys[0]]
-
-    max_arr = []
-    for sorted_key in sorted_keys:
-        if freqs[sorted_key] == max_freq:
-            max_arr.append(sorted_key)
 
     angle = None
     for sorted_key in sorted_keys:
@@ -231,7 +230,10 @@ def determine_skew_debug_images(
         diff = float(abs(angle2 - skew_angle)) if skew_angle is not None else 999.0
         if diff < 0.001:
             axe.axline(
-                (coord0x, coord0y), slope=np.tan(line_angle + np.pi / 2), linewidth=1, color="lightgreen"
+                (coord0x, coord0y),
+                slope=np.tan(line_angle + np.pi / 2),
+                linewidth=1,
+                color="lightgreen",
             )
         else:
             axe.axline((coord0x, coord0y), slope=np.tan(line_angle + np.pi / 2), linewidth=1)
@@ -268,7 +270,7 @@ def determine_skew_debug_images(
     ) -> None:
         axe.scatter(list(freqs.keys()), list(freqs.values()))
         axe.set_theta_zero_location("N")
-        axe.grid(True)
+        axe.grid(visible=True)
         if half:
             axe.set_thetamin(-45)
             axe.set_thetamax(45)
