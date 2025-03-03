@@ -84,13 +84,8 @@ def determine_skew_dev(
         freqs.setdefault(peak, 0)
         freqs[peak] += 1
 
-    sorted_keys = sorted(freqs.keys(), key=freqs.get, reverse=True)  # type: ignore
+    sorted_keys = sorted(freqs.keys(), key=freqs.get, reverse=True)  # type: ignore[arg-type]
     max_freq = freqs[sorted_keys[0]]
-
-    max_arr = []
-    for sorted_key in sorted_keys:
-        if freqs[sorted_key] == max_freq:
-            max_arr.append(sorted_key)
 
     angle = None
     for sorted_key in sorted_keys:
@@ -275,7 +270,7 @@ def determine_skew_debug_images(
     ) -> None:
         axe.scatter(list(freqs.keys()), list(freqs.values()))
         axe.set_theta_zero_location("N")
-        axe.grid(True)
+        axe.grid(visible=True)
         if half:
             axe.set_thetamin(-45)
             axe.set_thetamax(45)
