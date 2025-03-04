@@ -13,7 +13,7 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
   - repo: https://github.com/sbrunner/hooks
-    rev: 1.3.0
+    rev: 1.4.0
     hooks:
       - id: copyright
       - id: workflows-require-timeout
