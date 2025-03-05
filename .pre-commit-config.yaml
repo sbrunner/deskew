@@ -70,8 +70,8 @@ repos:
           - --output-format=pylint
           - --profile=.prospector.yaml
         additional_dependencies:
-          - prospector-profile-duplicated==1.10.4 # pypi
-          - prospector-profile-utils==1.21.9 # pypi
+          - prospector-profile-duplicated==1.10.5 # pypi
+          - prospector-profile-utils==1.22.3 # pypi
         exclude: |-
           (?x)(
             ^tests?/?
@@ -88,7 +88,7 @@ repos:
           - --profile=utils:tests
           - --profile=utils:pre-commit
         additional_dependencies:
-          - prospector-profile-utils==1.21.9 # pypi
+          - prospector-profile-utils==1.22.3 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 39.182.3
     hooks:
