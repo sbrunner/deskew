@@ -3,7 +3,7 @@ poetry==2.1.1
 poetry-plugin-tweak-dependencies-version==1.5.2
 poetry-dynamic-versioning==1.7.1
 pre-commit==4.1.0
-poetry-plugin-drop-python-upper-constraint==0.1.0
+poetry-plugin-drop-python-upper-constraint==1.0.0
 poetry-plugin-export==1.9.0
 importlib-metadata<8.6.2
 certifi>=2024.7.4 # not directly required, pinned by Snyk to avoid a vulnerability
