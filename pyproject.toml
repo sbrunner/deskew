@@ -37,7 +37,7 @@ deskew = "deskew.cli:main"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
-numpy = "2.2.3"
+numpy = "2.2.4"
 scikit-image = "0.25.2"
 opencv-python-headless = { version = "4.11.0.86", optional = true }
 matplotlib = { version = "3.10.1", optional = true }
@@ -49,7 +49,7 @@ debug_images = ["opencv-python-headless", "matplotlib"]
 prospector = { version = "1.16.1", extras = ["with_bandit", "with_mypy", "with_pyroma", "with_ruff"] }
 prospector-profile-duplicated = "1.10.5"
 prospector-profile-utils = "1.22.3"
-pytest = "8.3.4"
+pytest = "8.3.5"
 pytest-profiling = "1.8.1"
 
 [tool.poetry-dynamic-versioning]
