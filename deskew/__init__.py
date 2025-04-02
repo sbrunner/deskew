@@ -206,7 +206,7 @@ def determine_skew_debug_images(
     with tempfile.NamedTemporaryFile(suffix=".png") as file:
         plt.savefig(file.name)
         try:
-            subprocess.run(["gm", "convert", "-flatten", file.name, file.name], check=True)  # nosec
+            subprocess.run(["gm", "convert", "-flatten", file.name, file.name], check=True)  # noqa: S603, S607
         except FileNotFoundError:
             print("Install graphicsmagick to don't have transparent background")
 
@@ -250,7 +250,7 @@ def determine_skew_debug_images(
     with tempfile.NamedTemporaryFile(suffix=".png") as file:
         plt.savefig(file.name)
         try:
-            subprocess.run(["gm", "convert", "-flatten", file.name, file.name], check=True)  # nosec
+            subprocess.run(["gm", "convert", "-flatten", file.name, file.name], check=True)  # noqa: S603, S607
         except FileNotFoundError:
             print("Install graphicsmagick to don't have transparent background")
         image = cv2.imread(file.name)
@@ -294,7 +294,7 @@ def determine_skew_debug_images(
     with tempfile.NamedTemporaryFile(suffix=".png") as file:
         plt.savefig(file.name)
         try:
-            subprocess.run(["gm", "convert", "-flatten", file.name, file.name], check=True)  # nosec
+            subprocess.run(["gm", "convert", "-flatten", file.name, file.name], check=True)  # noqa: S603, S607
         except FileNotFoundError:
             print("Install graphicsmagick to don't have transparent background")
         image = cv2.imread(file.name)

@@ -54,7 +54,7 @@ def main() -> None:
             rotated = rotate(image, angle, resize=True, cval=-1) * 255  # type: ignore[no-untyped-call]
             pos = np.where(rotated == -255)
             if len(image.shape) == 2:
-                rotated[pos[0], pos[1]] = int(round(np.mean(background)))
+                rotated[pos[0], pos[1]] = round(np.mean(background))
             else:
                 rotated[pos[0], pos[1], :] = background
         else:
