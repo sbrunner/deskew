@@ -9,31 +9,7 @@ convention = "numpy"
 pytest_plugins = ["pytest_profiling"]
 
 [tool.poetry]
-name = "deskew"
 version = "0.0.0"
-description = "Skew detection and correction in images containing text"
-readme = "README.md"
-authors = ["Stéphane Brunner <stephane.brunner@gmail.com>"]
-homepage = "https://github.com/sbrunner/deskew"
-repository = "https://github.com/sbrunner/deskew"
-license = "MIT"
-classifiers = [
-    'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Developers',
-    'License :: OSI Approved :: MIT License',
-    'Operating System :: OS Independent',
-    'Programming Language :: Python',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.10',
-    'Programming Language :: Python :: 3.11',
-    'Programming Language :: Python :: 3.12',
-    'Programming Language :: Python :: 3.13',
-    'Typing :: Typed',
-]
-packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
-
-[tool.poetry.scripts]
-deskew = "deskew.cli:main"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
@@ -70,6 +46,35 @@ format-jinja = """
 
 [tool.poetry-plugin-tweak-dependencies-version]
 default = "present"
+
+[project]
+dynamic = ["dependencies", "version"]
+name = "deskew"
+description = "Skew detection and correction in images containing text"
+readme = "README.md"
+license = "MIT"
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Typing :: Typed',
+]
+authors = [{name = "Stéphane Brunner",email = "stephane.brunner@gmail.com"}]
+packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
+
+[project.urls]
+repository = "https://github.com/sbrunner/deskew"
+"Bug Tracker" = "https://github.com/sbrunner/deskew/issues"
+
+[project.scripts]
+deskew = "deskew.cli:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version", "poetry-plugin-drop-python-upper-constraint"]
