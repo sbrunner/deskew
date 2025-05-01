@@ -5,7 +5,7 @@ poetry-dynamic-versioning==1.8.2
 pre-commit==4.2.0
 poetry-plugin-drop-python-upper-constraint==1.0.0
 poetry-plugin-export==1.9.0
-importlib-metadata<8.6.2
+importlib-metadata<8.7.1
 certifi>=2024.7.4 # not directly required, pinned by Snyk to avoid a vulnerability
 zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
 tag-publish==1.0.1
