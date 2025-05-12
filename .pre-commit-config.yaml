@@ -17,7 +17,7 @@ repos:
     hooks:
       - id: copyright
       - id: workflows-require-timeout
-      - id: poetry-lock
+      - id: poetry2-lock
         additional_dependencies:
           - poetry==2.1.2 # pypi
       - id: canonicalize
