@@ -68,6 +68,7 @@ classifiers = [
 ]
 authors = [{name = "Stéphane Brunner",email = "stephane.brunner@gmail.com"}]
 packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
+requires-python = ">=3.10"
 
 [project.urls]
 repository = "https://github.com/sbrunner/deskew"
@@ -77,5 +78,5 @@ repository = "https://github.com/sbrunner/deskew"
 deskew = "deskew.cli:main"
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version", "poetry-plugin-drop-python-upper-constraint"]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version"]
 build-backend = "poetry.core.masonry.api"
