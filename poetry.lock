@@ -1169,22 +1169,22 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "prospector"
-version = "1.16.1"
+version = "1.17.1"
 description = "Prospector is a tool to analyse Python code by aggregating the result of other tools."
 optional = false
-python-versions = "<4.0,>=3.9"
+python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "prospector-1.16.1-py3-none-any.whl", hash = "sha256:7cb7549aad3219fa6da82962acd6b6871f5a6aa3ab8d0dfcaa5bcb17f05774ff"},
-    {file = "prospector-1.16.1.tar.gz", hash = "sha256:a6087287722104788c4366272c7f2095c748cb8968c5aac48c764f9e3eff2fea"},
+    {file = "prospector-1.17.1-py3-none-any.whl", hash = "sha256:da26d4f5c02af4ed38260ddb6dd8d5635f02ae0af8af17dccf20885f672f6ff5"},
+    {file = "prospector-1.17.1.tar.gz", hash = "sha256:3ea49d2969d876e199bacd337d89a7b0469e25997f20124f3daa59f01efb3111"},
 ]
 
 [package.dependencies]
-bandit = {version = ">=1.5.1", optional = true, markers = "extra == \"with-bandit\" or extra == \"with_everything\""}
+bandit = {version = "*", optional = true, markers = "extra == \"with-bandit\""}
 dodgy = ">=0.2.1,<0.3.0"
 GitPython = ">=3.1.27,<4.0.0"
 mccabe = ">=0.7.0,<0.8.0"
-mypy = {version = ">=0.600", optional = true, markers = "extra == \"with-mypy\" or extra == \"with_everything\""}
+mypy = {version = "*", optional = true, markers = "extra == \"with-mypy\""}
 packaging = "*"
 pep8-naming = ">=0.3.3,<=0.10.0"
 pycodestyle = ">=2.9.0"
@@ -1193,21 +1193,21 @@ pyflakes = ">=2.2.0"
 pylint = ">=3.0"
 pylint-celery = "0.3"
 pylint-django = ">=2.6.1"
-pyroma = {version = ">=2.4", optional = true, markers = "extra == \"with-pyroma\" or extra == \"with_everything\""}
+pyroma = {version = "*", optional = true, markers = "extra == \"with-pyroma\""}
 PyYAML = "*"
 requirements-detector = ">=1.3.2"
-ruff = {version = "*", optional = true, markers = "extra == \"with-ruff\" or extra == \"with_everything\""}
+ruff = {version = "*", optional = true, markers = "extra == \"with-ruff\""}
 setoptconf-tmp = ">=0.3.1,<0.4.0"
 toml = ">=0.10.2,<0.11.0"
 
 [package.extras]
-with-bandit = ["bandit (>=1.5.1)"]
-with-everything = ["bandit (>=1.5.1)", "mypy (>=0.600)", "pyright (>=1.1.3)", "pyroma (>=2.4)", "ruff", "vulture (>=1.5)"]
-with-mypy = ["mypy (>=0.600)"]
-with-pyright = ["pyright (>=1.1.3)"]
-with-pyroma = ["pyroma (>=2.4)"]
+with-bandit = ["bandit"]
+with-everything = ["bandit", "mypy", "pyright", "pyroma", "ruff", "vulture"]
+with-mypy = ["mypy"]
+with-pyright = ["pyright"]
+with-pyroma = ["pyroma"]
 with-ruff = ["ruff"]
-with-vulture = ["vulture (>=1.5)"]
+with-vulture = ["vulture"]
 
 [[package]]
 name = "prospector-profile-duplicated"
@@ -2008,4 +2008,4 @@ debug-images = ["matplotlib", "opencv-python-headless"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.14"
-content-hash = "b4b7d9d8edd50611b2bd5573221c382732bbd1d5cb4dbacc0dd0d92e2fccc294"
+content-hash = "eb1b5c8853e0230605756d3c05778a2cb9ba91319ae6866faab28578192775c9"
