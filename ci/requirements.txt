@@ -1,5 +1,5 @@
 c2cciutils==1.7.3
-poetry==2.1.2
+poetry==2.1.3
 poetry-plugin-tweak-dependencies-version==1.5.2
 poetry-dynamic-versioning==1.8.2
 pre-commit==4.2.0
