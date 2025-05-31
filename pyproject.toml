@@ -13,10 +13,10 @@ version = "0.0.0"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
-numpy = "2.2.5"
+numpy = "2.2.6"
 scikit-image = "0.25.2"
 opencv-python-headless = { version = "4.11.0.86", optional = true }
-matplotlib = { version = "3.10.1", optional = true }
+matplotlib = { version = "3.10.3", optional = true }
 
 [tool.poetry.extras]
 debug_images = ["opencv-python-headless", "matplotlib"]
