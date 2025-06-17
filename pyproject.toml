@@ -69,6 +69,7 @@ classifiers = [
 authors = [{name = "Stéphane Brunner",email = "stephane.brunner@gmail.com"}]
 packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
 requires-python = ">=3.10"
+dependencies = ["numpy", "scikit-image"]
 
 [project.urls]
 repository = "https://github.com/sbrunner/deskew"
@@ -77,6 +78,9 @@ repository = "https://github.com/sbrunner/deskew"
 [project.scripts]
 deskew = "deskew.cli:main"
 
+[project.optional-dependencies]
+debug_images = ["opencv-python-headless", "matplotlib"]
+
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "poetry-plugin-tweak-dependencies-version"]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
 build-backend = "poetry.core.masonry.api"
