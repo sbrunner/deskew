@@ -48,3 +48,5 @@ jobs:
             })
         if: |-
           github.event.pull_request.user.login == 'renovate[bot]'
+    permissions:
+      pull-requests: write
