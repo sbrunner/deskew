@@ -3,8 +3,6 @@ import tempfile
 import warnings
 from typing import TYPE_CHECKING, Any
 
-import matplotlib.axes
-import matplotlib.projections.polar
 import numpy as np
 import numpy.typing as npt
 from skimage.color import rgb2gray, rgba2rgb
@@ -13,6 +11,8 @@ from skimage.transform import hough_line, hough_line_peaks
 
 if TYPE_CHECKING:
     from typing import TypeAlias
+
+    import matplotlib.projections.polar
 
     ImageType: TypeAlias = npt.NDArray[np.integer[Any] | np.floating[Any]]
     ImageTypeUint64: TypeAlias = npt.NDArray[np.uint8]
@@ -262,7 +262,7 @@ def determine_skew_debug_images(
     axe1.set_title("Corrected angles")
 
     def fill_polar(
-        axe: matplotlib.projections.polar.PolarAxes,
+        axe: "matplotlib.projections.polar.PolarAxes",
         freqs: dict[np.float64, int],
         angles: list[float],
         limits: list[tuple[float, float]],
