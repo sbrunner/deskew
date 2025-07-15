@@ -1,15 +1,15 @@
 {
   extends: [
-    'github>camptocamp/gs-renovate-config-preset:base.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:group.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:ci.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:pre-commit.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:python.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:json-schema.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:shellcheck.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:preset.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:own.json5#1.3.2',
-    'github>camptocamp/gs-renovate-config-preset:security.json5#1.3.2',
+    'github>camptocamp/gs-renovate-config-preset:base.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:group.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:ci.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:pre-commit.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:python.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:json-schema.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:shellcheck.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:preset.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:own.json5#1.4.0',
+    'github>camptocamp/gs-renovate-config-preset:security.json5#1.4.0',
   ],
   packageRules: [
     /** Separate pull request for scikit-image */
