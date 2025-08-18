@@ -13,7 +13,7 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
   - repo: https://github.com/sbrunner/hooks
-    rev: 1.5.0
+    rev: 1.6.0
     hooks:
       - id: copyright
       - id: workflows-require-timeout
@@ -71,7 +71,7 @@ repos:
           - --profile=.prospector.yaml
         additional_dependencies:
           - prospector-profile-duplicated==1.10.5 # pypi
-          - prospector-profile-utils==1.25.0 # pypi
+          - prospector-profile-utils==1.26.0 # pypi
           - pylint[spelling]==3.3.7 # pypi
           - ruff==0.12.7 # pypi
         exclude: |-
@@ -90,7 +90,7 @@ repos:
           - --profile=utils:tests
           - --profile=utils:pre-commit
         additional_dependencies:
-          - prospector-profile-utils==1.25.0 # pypi
+          - prospector-profile-utils==1.26.0 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 41.43.0
     hooks:
