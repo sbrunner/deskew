@@ -2,8 +2,19 @@
 target-version = "py310"
 line-length = 110
 
+[tool.ruff.lint]
+select = []
+ignore = ["ANN401", "C90", "D100", "D104", "D105", "D107", "D200", "D202", "D207", "D208", "D212", "E501", "EM101", "EM102", "ERA001", "FA", "FBT001", "FBT002", "FIX002", "I001", "PERF203", "PLR09", "PLR2004", "Q000", "S101", "SIM105", "T201", "TD002", "W293"]
+extend-select = ["UP", "I", "S", "B", "ALL"]
+
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/**" = ["E722", "RUF100"]
+"**/tests/**" = ["E722", "RUF100"]
+"**/test_*.py" = ["E722", "RUF100"]
+"**/*_test.py" = ["E722", "RUF100"]
 
 [tool.pytest.ini_options]
 pytest_plugins = ["pytest_profiling"]
@@ -13,7 +24,7 @@ version = "0.0.0"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
-numpy = "2.3.1"
+numpy = "2.2.6"
 scikit-image = "0.25.2"
 opencv-python-headless = { version = "4.12.0.88", optional = true }
 matplotlib = { version = "3.10.5", optional = true }
