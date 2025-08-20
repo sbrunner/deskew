@@ -109,8 +109,8 @@ def determine_skew_debug_images(
     min_deviation: float = 1.0,
 ) -> tuple[np.float64 | None, list[tuple[str, ImageType]]]:
     """Calculate skew angle, and return images useful for debugging."""
-    import cv2  # pylint: disable=import-outside-toplevel
-    import matplotlib.pyplot as plt  # pylint: disable=import-outside-toplevel
+    import cv2  # pylint: disable=import-outside-toplevel # noqa: PLC0415
+    import matplotlib.pyplot as plt  # pylint: disable=import-outside-toplevel # noqa: PLC0415
 
     min_angle = np.deg2rad(min_angle) if min_angle is not None else None
     max_angle = np.deg2rad(max_angle) if max_angle is not None else None

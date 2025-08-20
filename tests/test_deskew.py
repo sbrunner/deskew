@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import cv2
@@ -18,26 +18,26 @@ else:
 def check_image(root_folder, image, name, level=1.0):
     """Check the image."""
     assert image is not None, "Image required"
-    expected_name = os.path.join(os.path.dirname(__file__), f"{name}.expected.png")
-    result_name = os.path.join(root_folder, f"{name}.result.png")
-    diff_name = os.path.join(root_folder, f"{name}.diff.png")
+    expected_name = Path(__file__).parent / f"{name}.expected.png"
+    result_name = Path(root_folder) / f"{name}.result.png"
+    diff_name = Path(root_folder) / f"{name}.diff.png"
     # Set to True to regenerate images
     if False:
-        cv2.imwrite(expected_name, image)
+        cv2.imwrite(str(expected_name), image)
         return
-    if not os.path.isfile(expected_name):
-        cv2.imwrite(result_name, image)
-        cv2.imwrite(expected_name, image)
-        pytest.fail("Expected image not found: " + expected_name)
-    expected = cv2.imread(expected_name)
-    assert expected is not None, "Wrong image: " + expected_name
+    if not expected_name.is_file():
+        cv2.imwrite(str(result_name), image)
+        cv2.imwrite(str(expected_name), image)
+        pytest.fail("Expected image not found: " + str(expected_name))
+    expected = cv2.imread(str(expected_name))
+    assert expected is not None, "Wrong image: " + str(expected_name)
     score, diff = image_diff(expected, image)
     if diff is None:
-        cv2.imwrite(result_name, image)
+        cv2.imwrite(str(result_name), image)
         assert diff is not None, "No diff generated"
     if score < level:
-        cv2.imwrite(result_name, image)
-        cv2.imwrite(diff_name, diff)
+        cv2.imwrite(str(result_name), image)
+        cv2.imwrite(str(diff_name), diff)
         assert score >= level, f"{result_name} != {expected_name} => {diff_name} ({score} < {level})"
 
 
@@ -63,11 +63,10 @@ def image_diff(image1: NpNdarrayInt, image2: NpNdarrayInt) -> tuple[float, NpNda
 )
 def test_deskew(image, expected_angle):
     """Test the deskew function."""
-    root_folder = f"results/{image}"
-    if not os.path.exists(root_folder):
-        os.makedirs(root_folder)
+    root_folder = Path("results") / image
+    root_folder.mkdir(parents=True, exist_ok=True)
 
-    image = io.imread(os.path.join(os.path.dirname(__file__), f"deskew-{image}.png"))
+    image = io.imread(str(Path(__file__).parent / f"deskew-{image}.png"))
     angle = determine_skew(image)
     assert angle == expected_angle
 
@@ -91,7 +90,7 @@ def test_deskew(image, expected_angle):
 )
 def test_determine_skew_debug_images(min_angle, max_angle, angle_pm_90, num_peaks, expected, postfix, level):
     """Test the determine_skew_debug_images function."""
-    image = io.imread(os.path.join(os.path.dirname(__file__), "deskew-6.png"))
+    image = io.imread(str(Path(__file__).parent / "deskew-6.png"))
     angle, debug_images = determine_skew_debug_images(
         image,
         min_angle=min_angle,
