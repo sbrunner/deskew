@@ -93,7 +93,11 @@ def test_determine_skew_debug_images(min_angle, max_angle, angle_pm_90, num_peak
     """Test the determine_skew_debug_images function."""
     image = io.imread(os.path.join(os.path.dirname(__file__), "deskew-6.png"))
     angle, debug_images = determine_skew_debug_images(
-        image, min_angle=min_angle, max_angle=max_angle, angle_pm_90=angle_pm_90, num_peaks=num_peaks
+        image,
+        min_angle=min_angle,
+        max_angle=max_angle,
+        angle_pm_90=angle_pm_90,
+        num_peaks=num_peaks,
     )
     for name, debug_image in debug_images:
         print(name)
