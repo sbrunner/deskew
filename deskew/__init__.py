@@ -253,7 +253,7 @@ def determine_skew_debug_images(
             subprocess.run(["gm", "convert", "-flatten", file.name, file.name], check=True)  # noqa: S603, S607
         except FileNotFoundError:
             print("Install graphicsmagick to don't have transparent background")
-        image = cv2.imread(file.name)
+        image = cv2.imread(file.name)  # type: ignore[assignment]
         debug_images.append(("detected_lines", cv2.imread(file.name)))
 
     _, (axe0, axe1) = plt.subplots(1, 2, figsize=(15, 6), subplot_kw={"polar": True})
@@ -297,10 +297,10 @@ def determine_skew_debug_images(
             subprocess.run(["gm", "convert", "-flatten", file.name, file.name], check=True)  # noqa: S603, S607
         except FileNotFoundError:
             print("Install graphicsmagick to don't have transparent background")
-        image = cv2.imread(file.name)
+        image = cv2.imread(file.name)  # type: ignore[assignment]
         debug_images.append(("polar_angles", cv2.imread(file.name)))
 
-    return None if skew_angle is None else np.rad2deg(skew_angle), debug_images
+    return None if skew_angle is None else np.rad2deg(skew_angle), debug_images  # type: ignore[return-value]
 
 
 def determine_skew(
