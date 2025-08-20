@@ -1241,14 +1241,14 @@ prospector = ">=1.15.0"
 
 [[package]]
 name = "prospector-profile-utils"
-version = "1.25.0"
+version = "1.26.2"
 description = "Some utility Prospector profiles."
 optional = false
 python-versions = "*"
 groups = ["dev"]
 files = [
-    {file = "prospector_profile_utils-1.25.0-py2.py3-none-any.whl", hash = "sha256:79e3a329c945e0e509a7a259f12336f83eadd75f47478af794efe8e62861cf1b"},
-    {file = "prospector_profile_utils-1.25.0.tar.gz", hash = "sha256:054f1a0d8dbe0a6817b9753cd29a74baa3062e1d24260241cf53ffd831505fa9"},
+    {file = "prospector_profile_utils-1.26.2-py2.py3-none-any.whl", hash = "sha256:7b57eb14666a9e4df6a10a2ac6feea02fff6c69d9b4c2e2b85e76848fa16412f"},
+    {file = "prospector_profile_utils-1.26.2.tar.gz", hash = "sha256:78830cc4ebb8f94a487f3afa03a5ba17dab06d8477ce61395b4de28d1a0d63c7"},
 ]
 
 [package.dependencies]
@@ -2094,4 +2094,4 @@ debug-images = ["matplotlib", "opencv-python-headless"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.14"
-content-hash = "02a84da9e985b0033d6d65da849e00a76313435b5ea1d3ee3a8c791c24d4887c"
+content-hash = "45ed56faf42e19d444048ebf416c9b02a73b776eb8bda441b84c7a6047333208"
