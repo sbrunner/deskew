@@ -11,10 +11,10 @@ extend-select = ["UP", "I", "S", "B", "ALL"]
 convention = "numpy"
 
 [tool.ruff.lint.extend-per-file-ignores]
-"tests/**" = ["E722", "RUF100"]
-"**/tests/**" = ["E722", "RUF100"]
-"**/test_*.py" = ["E722", "RUF100"]
-"**/*_test.py" = ["E722", "RUF100"]
+"tests/**" = ["ANN", "ARG", "ASYNC", "BLE001", "D", "DTZ", "E722", "FBT003", "INP001", "N", "PGH003", "PLC", "PLR2004", "PLW0603", "PLW1641", "RET", "RUF012", "RUF100", "S104", "S105", "S106", "S108", "S113", "S324", "S603", "S607", "S608", "SLF", "TRY003", "TRY301"]
+"**/tests/**" = ["ANN", "ARG", "ASYNC", "BLE001", "D", "DTZ", "E722", "FBT003", "INP001", "N", "PGH003", "PLC", "PLR2004", "PLW0603", "PLW1641", "RET", "RUF012", "RUF100", "S104", "S105", "S106", "S108", "S113", "S324", "S603", "S607", "S608", "SLF", "TRY003", "TRY301"]
+"**/test_*.py" = ["ANN", "ARG", "ASYNC", "BLE001", "D", "DTZ", "E722", "FBT003", "INP001", "N", "PGH003", "PLC", "PLR2004", "PLW0603", "PLW1641", "RET", "RUF012", "RUF100", "S104", "S105", "S106", "S108", "S113", "S324", "S603", "S607", "S608", "SLF", "TRY003", "TRY301"]
+"**/*_test.py" = ["ANN", "ARG", "ASYNC", "BLE001", "D", "DTZ", "E722", "FBT003", "INP001", "N", "PGH003", "PLC", "PLR2004", "PLW0603", "PLW1641", "RET", "RUF012", "RUF100", "S104", "S105", "S106", "S108", "S113", "S324", "S603", "S607", "S608", "SLF", "TRY003", "TRY301"]
 
 [tool.pytest.ini_options]
 pytest_plugins = ["pytest_profiling"]
