@@ -24,9 +24,9 @@ jobs:
     if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
       - run: python3 -m pip install --requirement=ci/requirements.txt
@@ -77,11 +77,11 @@ jobs:
           GITHUB_EVENT: ${{ toJson(github) }}
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - run: python3 -m pip install $(grep poetry ci/requirements.txt)
       - run: poetry install --extras=debug_images
@@ -110,14 +110,14 @@ jobs:
       - test
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           token: ${{ secrets.TOKEN }}
         if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: env.HAS_SECRETS != 'HAS_SECRETS'
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
       - run: python3 -m pip install --requirement=ci/requirements.txt
