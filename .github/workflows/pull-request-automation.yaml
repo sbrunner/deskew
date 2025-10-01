@@ -19,12 +19,12 @@ jobs:
         env:
           GITHUB: ${{ toJson(github) }}
       - name: Print context
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |-
             console.log(context);
       - name: Auto reviews GHCI updates
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         if: |-
           startsWith(github.head_ref, 'ghci/audit/')
           && (github.event.pull_request.user.login == 'geo-ghci-test[bot]'
@@ -39,7 +39,7 @@ jobs:
               event: 'APPROVE',
             })
       - name: Auto reviews Renovate updates
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         if: |-
           github.event.pull_request.user.login == 'renovate[bot]'
         with:
