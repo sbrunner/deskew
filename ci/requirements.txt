@@ -1,4 +1,4 @@
-c2cciutils==1.7.4
+c2cciutils==1.7.5
 poetry==2.2.1
 poetry-dynamic-versioning==1.9.1
 pre-commit==4.3.0
