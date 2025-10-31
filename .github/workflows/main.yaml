@@ -44,7 +44,7 @@ jobs:
       - run: pre-commit run --all-files --color=always
       - run: git diff --exit-code --patch > /tmp/pre-commit.patch; git diff --color; git reset --hard || true
         if: failure()
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: Apply pre-commit fix.patch
           path: /tmp/pre-commit.patch
@@ -96,7 +96,7 @@ jobs:
           poetry run pytest --durations=0 --verbose --color=yes \
           --profile --profile-svg --junitxml=results/test-reports/junit.xml tests
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: Test results (${{ matrix.python-version }})
           path: results
@@ -142,7 +142,7 @@ jobs:
         if: env.HAS_SECRETS == 'HAS_SECRETS'
       - run: git diff --exit-code --patch > /tmp/dpkg-versions.patch; git diff --color; git reset --hard || true
         if: failure()
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: Update dpkg versions list.patch
           path: /tmp/dpkg-versions.patch
