@@ -80,7 +80,7 @@ classifiers = [
 authors = [{name = "Stéphane Brunner",email = "stephane.brunner@gmail.com"}]
 packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
 requires-python = ">=3.10"
-dependencies = ["numpy", "scikit-image", "pillow==11.3.0"]
+dependencies = ["numpy", "scikit-image", "pillow==12.0.0"]
 
 [project.urls]
 repository = "https://github.com/sbrunner/deskew"
