@@ -2291,4 +2291,4 @@ debug-images = ["matplotlib", "opencv-python-headless"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.14"
-content-hash = "764fd74e9c0fa31328b9f38e8360b9804f166c3f7e8f7e5a6ff3e1b5060095a2"
+content-hash = "685242e2cfa2dcfc34784e2902d8eec1cbe5beb6ee7ac6f315a9647ecc2e55f5"
