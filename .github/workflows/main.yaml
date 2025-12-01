@@ -24,7 +24,7 @@ jobs:
     if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: actions/setup-python@v6
         with:
@@ -81,7 +81,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - run: python3 -m pip install $(grep poetry ci/requirements.txt)
       - run: poetry install --extras=debug_images
@@ -110,11 +110,11 @@ jobs:
       - test
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           token: ${{ secrets.TOKEN }}
         if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         if: env.HAS_SECRETS != 'HAS_SECRETS'
 
       - uses: actions/setup-python@v6
