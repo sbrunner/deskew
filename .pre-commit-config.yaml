@@ -98,7 +98,7 @@ repos:
         additional_dependencies:
           - prospector-profile-utils==1.26.5 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 42.29.0
+    rev: 42.29.3
     hooks:
       - id: renovate-config-validator
   - repo: https://github.com/astral-sh/ruff-pre-commit
