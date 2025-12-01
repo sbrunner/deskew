@@ -1,7 +1,7 @@
 c2cciutils==1.7.5
 poetry==2.2.1
 poetry-dynamic-versioning==1.9.1
-pre-commit==4.3.0
+pre-commit==4.5.0
 poetry-plugin-export==1.9.0
 importlib-metadata<8.7.1
 certifi>=2024.7.4 # not directly required, pinned by Snyk to avoid a vulnerability
