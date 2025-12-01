@@ -36,7 +36,7 @@ debug_images = ["opencv-python-headless", "matplotlib"]
 prospector = { version = "1.17.3", extras = ["with_bandit", "with_mypy", "with_pyroma", "with_ruff"] }
 prospector-profile-duplicated = "1.10.5"
 prospector-profile-utils = "1.26.5"
-pytest = "8.4.2"
+pytest = "9.0.1"
 pytest-profiling = "1.8.1"
 
 [tool.poetry-dynamic-versioning]
