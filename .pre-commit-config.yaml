@@ -78,8 +78,9 @@ repos:
         additional_dependencies:
           - prospector-profile-duplicated==1.10.5 # pypi
           - prospector-profile-utils==1.26.5 # pypi
-          - pylint[spelling]==4.0.2 # pypi
+          - pylint[spelling]==3.3.8 # pypi
           - ruff==0.14.7 # pypi
+          - mypy==1.17.1 # pypi
         exclude: |-
           (?x)(
             ^tests?/?
