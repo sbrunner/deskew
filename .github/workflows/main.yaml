@@ -67,6 +67,11 @@ jobs:
           - '3.12'
           - '3.13'
 
+    outputs:
+      success-3-11: ${{ steps.success.outputs.success-3-11 }}
+      success-3-12: ${{ steps.success.outputs.success-3-12 }}
+      success-3-13: ${{ steps.success.outputs.success-3-13 }}
+
     steps:
       - run: docker system prune --all --force
       - name: GitHub event
@@ -100,14 +105,25 @@ jobs:
           path: results
         if: always()
 
+      # Mark as success
+      - id: success
+        run: |
+          version=${{ matrix.python-version }}
+          echo "::set-output name=success-${version//\./-}::true"
+
   publish:
     name: Publish package
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     needs:
       - test
+    if: always()
 
     steps:
+      - run: '[[ "${{ needs.test.outputs.success-3-11 }}" == "true" ]]'
+      - run: '[[ "${{ needs.test.outputs.success-3-12 }}" == "true" ]]'
+      - run: '[[ "${{ needs.test.outputs.success-3-13 }}" == "true" ]]'
+
       - uses: actions/checkout@v6
         with:
           token: ${{ secrets.TOKEN }}
