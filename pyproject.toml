@@ -4,7 +4,7 @@ line-length = 110
 
 [tool.ruff.lint]
 select = []
-ignore = ["ANN401", "C90", "D100", "D104", "D105", "D107", "D200", "D202", "D207", "D208", "D212", "E501", "EM101", "EM102", "ERA001", "FA", "FBT001", "FBT002", "FIX002", "I001", "PERF203", "PLR09", "PLR2004", "Q000", "S101", "SIM105", "T201", "TD002", "W293"]
+ignore = ["ANN401", "C90", "COM812", "D100", "D104", "D105", "D107", "D200", "D202", "D207", "D208", "D212", "E501", "EM101", "EM102", "ERA001", "FA", "FBT001", "FBT002", "FIX002", "I001", "PERF203", "PLR09", "PLR2004", "Q000", "S101", "SIM105", "T201", "TD002", "W293"]
 extend-select = ["UP", "I", "S", "B", "ALL"]
 
 [tool.ruff.lint.pydocstyle]
