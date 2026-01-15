@@ -23,7 +23,7 @@ repos:
       - id: canonicalize
       - id: prospector-to-ruff
         additional_dependencies:
-          - prospector-profile-duplicated==1.10.5 # pypi
+          - prospector-profile-duplicated==1.11.0 # pypi
           - prospector-profile-utils==1.26.5 # pypi
         args:
           - --test=utils:tests
@@ -76,7 +76,7 @@ repos:
           - --output-format=pylint
           - --profile=.prospector.yaml
         additional_dependencies:
-          - prospector-profile-duplicated==1.10.5 # pypi
+          - prospector-profile-duplicated==1.11.0 # pypi
           - prospector-profile-utils==1.26.5 # pypi
           - pylint[spelling]==3.3.9 # pypi
           - ruff==0.14.10 # pypi
