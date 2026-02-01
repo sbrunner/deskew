@@ -19,7 +19,7 @@ repos:
       - id: workflows-require-timeout
       - id: poetry2-lock
         additional_dependencies:
-          - poetry==2.3.1 # pypi
+          - poetry==2.3.2 # pypi
       - id: canonicalize
       - id: prospector-to-ruff
         additional_dependencies:
@@ -100,7 +100,7 @@ repos:
           - prospector-profile-utils==1.26.5 # pypi
           - pylint[spelling]==3.3.9 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 43.0.8
+    rev: 43.0.9
     hooks:
       - id: renovate-config-validator
   - repo: https://github.com/astral-sh/ruff-pre-commit
