@@ -67,7 +67,7 @@ repos:
     hooks:
       - id: ripsecrets
   - repo: https://github.com/PyCQA/prospector
-    rev: v1.18.0
+    rev: v1.17.3
     hooks:
       - id: prospector
         args:
