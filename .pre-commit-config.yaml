@@ -50,7 +50,7 @@ repos:
     hooks:
       - id: git-check
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.36.1
+    rev: 0.37.0
     hooks:
       - id: check-github-workflows
       - id: check-github-actions
@@ -78,8 +78,8 @@ repos:
         additional_dependencies:
           - prospector-profile-duplicated==1.12.0 # pypi
           - prospector-profile-utils==1.27.0 # pypi
-          - pylint[spelling]==4.0.4 # pypi
-          - ruff==0.15.0 # pypi
+          - pylint[spelling]==4.0.5 # pypi
+          - ruff==0.15.4 # pypi
           - mypy==1.19.1 # pypi
         exclude: |-
           (?x)(
@@ -98,13 +98,13 @@ repos:
           - --profile=utils:pre-commit
         additional_dependencies:
           - prospector-profile-utils==1.27.0 # pypi
-          - pylint[spelling]==4.0.4 # pypi
+          - pylint[spelling]==4.0.5 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 43.8.2
+    rev: 43.46.2
     hooks:
       - id: renovate-config-validator
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.0
+    rev: v0.15.4
     hooks:
       - id: ruff-format
   - repo: https://github.com/sbrunner/python-versions-hook
