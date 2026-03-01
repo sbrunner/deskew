@@ -26,7 +26,7 @@ version = "0.0.0"
 python = ">=3.11,<3.15"
 numpy = ">=2"
 scikit-image = "0.26.0"
-opencv-python-headless = { version = "4.13.0.90", optional = true }
+opencv-python-headless = { version = "4.13.0.92", optional = true }
 matplotlib = { version = "3.10.8", optional = true }
 
 [tool.poetry.extras]
@@ -34,8 +34,8 @@ debug_images = ["opencv-python-headless", "matplotlib"]
 
 [tool.poetry.group.dev.dependencies]
 prospector = { version = "1.18.0", extras = ["with_bandit", "with_mypy", "with_pyroma", "with_ruff"] }
-prospector-profile-duplicated = "1.11.0"
-prospector-profile-utils = "1.26.5"
+prospector-profile-duplicated = "1.12.0"
+prospector-profile-utils = "1.27.0"
 pytest = "8.4.2"
 pytest-profiling = "1.8.1"
 

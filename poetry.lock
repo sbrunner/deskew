@@ -1103,21 +1103,21 @@ files = [
 
 [[package]]
 name = "opencv-python-headless"
-version = "4.13.0.90"
+version = "4.13.0.92"
 description = "Wrapper package for OpenCV python bindings."
 optional = true
 python-versions = ">=3.6"
 groups = ["main"]
 markers = "extra == \"debug-images\""
 files = [
-    {file = "opencv_python_headless-4.13.0.90-cp37-abi3-macosx_13_0_arm64.whl", hash = "sha256:12a28674f215542c9bf93338de1b5bffd76996d32da9acb9e739fdb9c8bbd738"},
-    {file = "opencv_python_headless-4.13.0.90-cp37-abi3-macosx_14_0_x86_64.whl", hash = "sha256:32255203040dc98803be96362e13f9e4bce20146898222d2e5c242f80de50da5"},
-    {file = "opencv_python_headless-4.13.0.90-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:e13790342591557050157713af17a7435ac1b50c65282715093c9297fa045d8f"},
-    {file = "opencv_python_headless-4.13.0.90-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:dbc1f4625e5af3a80ebdbd84380227c0f445228588f2521b11af47710caca1ba"},
-    {file = "opencv_python_headless-4.13.0.90-cp37-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:eba38bc255d0b7d1969c5bcc90a060ca2b61a3403b613872c750bfa5dfe9e03b"},
-    {file = "opencv_python_headless-4.13.0.90-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:f46b17ea0aa7e4124ca6ad71143f89233ae9557f61d2326bcdb34329a1ddf9bd"},
-    {file = "opencv_python_headless-4.13.0.90-cp37-abi3-win32.whl", hash = "sha256:96060fc57a1abb1144b0b8129e2ff3bfcdd0ccd8e8bd05bd85256ff4ed587d3b"},
-    {file = "opencv_python_headless-4.13.0.90-cp37-abi3-win_amd64.whl", hash = "sha256:0e0c8c9f620802fddc4fa7f471a1d263c7b0dca16cd9e7e2f996bb8bd2128c0c"},
+    {file = "opencv_python_headless-4.13.0.92-cp37-abi3-macosx_13_0_arm64.whl", hash = "sha256:1a7d040ac656c11b8c38677cc8cccdc149f98535089dbe5b081e80a4e5903209"},
+    {file = "opencv_python_headless-4.13.0.92-cp37-abi3-macosx_14_0_x86_64.whl", hash = "sha256:3e0a6f0a37994ec6ce5f59e936be21d5d6384a4556f2d2da9c2f9c5dc948394c"},
+    {file = "opencv_python_headless-4.13.0.92-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:5c8cfc8e87ed452b5cecb9419473ee5560a989859fe1d10d1ce11ae87b09a2cb"},
+    {file = "opencv_python_headless-4.13.0.92-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:0525a3d2c0b46c611e2130b5fdebc94cf404845d8fa64d2f3a3b679572a5bd22"},
+    {file = "opencv_python_headless-4.13.0.92-cp37-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:eb60e36b237b1ebd40a912da5384b348df8ed534f6f644d8e0b4f103e272ba7d"},
+    {file = "opencv_python_headless-4.13.0.92-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:0bd48544f77c68b2941392fcdf9bcd2b9cdf00e98cb8c29b2455d194763cf99e"},
+    {file = "opencv_python_headless-4.13.0.92-cp37-abi3-win32.whl", hash = "sha256:a7cf08e5b191f4ebb530791acc0825a7986e0d0dee2a3c491184bd8599848a4b"},
+    {file = "opencv_python_headless-4.13.0.92-cp37-abi3-win_amd64.whl", hash = "sha256:77a82fe35ddcec0f62c15f2ba8a12ecc2ed4207c17b0902c7a3151ae29f37fb6"},
 ]
 
 [package.dependencies]
@@ -1353,14 +1353,14 @@ with-vulture = ["vulture"]
 
 [[package]]
 name = "prospector-profile-duplicated"
-version = "1.11.0"
+version = "1.12.0"
 description = "Profile that can be used to disable the duplicated or conflict rules between Prospector and other tools"
 optional = false
 python-versions = "*"
 groups = ["dev"]
 files = [
-    {file = "prospector_profile_duplicated-1.11.0-py2.py3-none-any.whl", hash = "sha256:8552d57b17442d5dfa143e9e05dd4139c86e1a12ea7b35fef968dbf0820856ce"},
-    {file = "prospector_profile_duplicated-1.11.0.tar.gz", hash = "sha256:b2fc64541e0cef51e6929f090f204774c219a0fe01ffb9760cc6165ea97d7227"},
+    {file = "prospector_profile_duplicated-1.12.0-py2.py3-none-any.whl", hash = "sha256:e833592234172f7b557c54c0c6ad047ac1df0019e361d3d2549f59978062cd98"},
+    {file = "prospector_profile_duplicated-1.12.0.tar.gz", hash = "sha256:5543e27d7ac77a5426123c988274b50834b07902567abdb5a1f61496cc625d96"},
 ]
 
 [package.dependencies]
@@ -1368,18 +1368,18 @@ prospector = "*"
 
 [[package]]
 name = "prospector-profile-utils"
-version = "1.26.5"
+version = "1.27.0"
 description = "Some utility Prospector profiles."
 optional = false
 python-versions = "*"
 groups = ["dev"]
 files = [
-    {file = "prospector_profile_utils-1.26.5-py2.py3-none-any.whl", hash = "sha256:370637f4a1ec9bc48c02a2cf7d66aec29dc47690f7936f66f6571333af56c0ba"},
-    {file = "prospector_profile_utils-1.26.5.tar.gz", hash = "sha256:393614037822c26eb3ec25ba2e281de1edc07e36e0c6ea716a7b94c2a047308d"},
+    {file = "prospector_profile_utils-1.27.0-py2.py3-none-any.whl", hash = "sha256:15902c24d5005c895d79b232678c878b1d2bdaaedfec7d29774d2b3ba5e0d4d7"},
+    {file = "prospector_profile_utils-1.27.0.tar.gz", hash = "sha256:1f74b5c07b895ce280e5988a3b82f475424b59efc70914881fcddd0cdec7a716"},
 ]
 
 [package.dependencies]
-prospector = {version = ">=1.14.0", extras = ["with-mypy", "with-ruff"]}
+prospector = {version = ">=1.13.0", extras = ["with-mypy", "with-ruff"]}
 
 [[package]]
 name = "pycodestyle"
@@ -2130,4 +2130,4 @@ debug-images = ["matplotlib", "opencv-python-headless"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.15"
-content-hash = "95d7ac45425ee410a564c4ebaf7a2c684bba3a0b45038da34f1babacd4be1ca5"
+content-hash = "7b4a6571292c6fdfac145ebbb8e4e21e764e95a163d4caae981e7e059dfde5ac"
