@@ -10,20 +10,44 @@ from deskew import determine_skew
 
 
 def main() -> None:
-    """Run the command."""
+    """Read a tilted image file and calculate the skew angle.
+
+    Optionally saves a corrected (rotated) version of the image.
+    """
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("-o", "--output", default=None, help="Output file name")
-    parser.add_argument("--sigma", default=3.0, type=float, help="The use sigma")
-    parser.add_argument("--num-peaks", default=20, type=int, help="The used number of peaks")
+    parser.add_argument("-o", "--output", default=None, help="Output file path.")
+    parser.add_argument(
+        "--sigma",
+        default=3.0,
+        type=float,
+        help=("Blur strength (Gaussian sigma). Higher values reduce noise "
+              "but may miss fine details."),
+    )
+    parser.add_argument(
+        "--num-peaks",
+        default=20,
+        type=int,
+        help=("Number of peaks to detect. More peaks can improve accuracy "
+              "but increase processing time."),
+    )
     parser.add_argument(
         "--num-angles",
         default=180,
         type=int,
-        help="The used number of angle (determine the precision)",
+        help=(
+            "The number of angles to check (search precision). "
+            "Higher values provide better precision but are slower."
+        ),
     )
-    parser.add_argument("--background", help="The used background color")
-    parser.add_argument(default=None, dest="input", help="Input file name")
+    parser.add_argument(
+        "--background",
+        help=(
+            "Background color for rotated image corners. "
+            "Use single value for grayscale or comma-separated RGB values."
+        ),
+    )
+    parser.add_argument("input", help="Input file name.")
     options = parser.parse_args()
 
     image = io.imread(options.input)
