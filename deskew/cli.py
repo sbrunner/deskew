@@ -10,7 +10,7 @@ from deskew import determine_skew
 
 
 def main() -> None:
-    """Reads a tilted image file and calculates the skew angle.
+    """Read a tilted image file and calculate the skew angle.
 
     Optionally saves a corrected (rotated) version of the image.
     """
