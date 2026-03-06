@@ -45,7 +45,7 @@ def main() -> None:
             "Use single value for grayscale or comma-separated RGB values."
         ),
     )
-    parser.add_argument(default=None, dest="input", help="Input file name.")
+    parser.add_argument("input", help="Input file name.")
     options = parser.parse_args()
 
     image = io.imread(options.input)
