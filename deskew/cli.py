@@ -21,13 +21,15 @@ def main() -> None:
         "--sigma",
         default=3.0,
         type=float,
-        help=("Blur strength (Gaussian sigma). Higher values reduce noise but may miss fine details."),
+        help=("Blur strength (Gaussian sigma). Higher values reduce noise "
+              "but may miss fine details."),
     )
     parser.add_argument(
         "--num-peaks",
         default=20,
         type=int,
-        help=("Number of peaks to detect. More peaks can improve accuracy but increase processing time."),
+        help=("Number of peaks to detect. More peaks can improve accuracy "
+              "but increase processing time."),
     )
     parser.add_argument(
         "--num-angles",
