@@ -19,7 +19,7 @@ repos:
       - id: workflows-require-timeout
       - id: poetry2-lock
         additional_dependencies:
-          - poetry==2.3.3 # pypi
+          - poetry==2.3.4 # pypi
       - id: canonicalize
       - id: prospector-to-ruff
         additional_dependencies:
