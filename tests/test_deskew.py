@@ -15,7 +15,7 @@ else:
     NpNdarrayInt = np.ndarray
 
 
-def check_image(root_folder, image, name, level=1.0, tolerance=2e-6):
+def check_image(root_folder, image, name, level=1.0):
     """Check the image."""
     assert image is not None, "Image required"
     expected_name = Path(__file__).parent / f"{name}.expected.png"
@@ -35,12 +35,10 @@ def check_image(root_folder, image, name, level=1.0, tolerance=2e-6):
     if diff is None:
         cv2.imwrite(str(result_name), image)
         assert diff is not None, "No diff generated"
-    if score + tolerance < level:
+    if score < level:
         cv2.imwrite(str(result_name), image)
         cv2.imwrite(str(diff_name), diff)
-        assert score + tolerance >= level, (
-            f"{result_name} != {expected_name} => {diff_name} ({score} + {tolerance} < {level})"
-        )
+        assert score >= level, f"{result_name} != {expected_name} => {diff_name} ({score} < {level})"
 
 
 def image_diff(image1: NpNdarrayInt, image2: NpNdarrayInt) -> tuple[float, NpNdarrayInt]:
