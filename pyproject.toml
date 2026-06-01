@@ -1,3 +1,40 @@
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+dynamic = ["dependencies", "version"]
+name = "deskew"
+description = "Skew detection and correction in images containing text"
+readme = "README.md"
+license = "MIT"
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Typing :: Typed',
+]
+authors = [{name = "Stéphane Brunner",email = "stephane.brunner@gmail.com"}]
+packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
+requires-python = ">=3.11"
+dependencies = ["numpy", "scikit-image", "pillow==12.2.0"]
+
+[project.urls]
+repository = "https://github.com/sbrunner/deskew"
+"Bug Tracker" = "https://github.com/sbrunner/deskew/issues"
+
+[project.scripts]
+deskew = "deskew.cli:main"
+
+[project.optional-dependencies]
+debug_images = ["opencv-python-headless", "matplotlib"]
+
 [tool.ruff]
 target-version = "py311"
 line-length = 110
@@ -57,39 +94,3 @@ format-jinja = """
 
 [tool.poetry-plugin-tweak-dependencies-version]
 default = "present"
-
-[project]
-dynamic = ["dependencies", "version"]
-name = "deskew"
-description = "Skew detection and correction in images containing text"
-readme = "README.md"
-license = "MIT"
-classifiers = [
-    'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Developers',
-    'Operating System :: OS Independent',
-    'Programming Language :: Python',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.11',
-    'Programming Language :: Python :: 3.12',
-    'Programming Language :: Python :: 3.13',
-    'Typing :: Typed',
-]
-authors = [{name = "Stéphane Brunner",email = "stephane.brunner@gmail.com"}]
-packages = [{ include = "deskew" }, { include = "deskew/py.typed" }]
-requires-python = ">=3.11"
-dependencies = ["numpy", "scikit-image", "pillow==12.2.0"]
-
-[project.urls]
-repository = "https://github.com/sbrunner/deskew"
-"Bug Tracker" = "https://github.com/sbrunner/deskew/issues"
-
-[project.scripts]
-deskew = "deskew.cli:main"
-
-[project.optional-dependencies]
-debug_images = ["opencv-python-headless", "matplotlib"]
-
-[build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-build-backend = "poetry.core.masonry.api"
