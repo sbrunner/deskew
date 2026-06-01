@@ -19,7 +19,7 @@ repos:
       - id: workflows-require-timeout
       - id: poetry2-lock
         additional_dependencies:
-          - poetry==2.3.4 # pypi
+          - poetry==2.4.1 # pypi
       - id: canonicalize
       - id: prospector-to-ruff
         additional_dependencies:
@@ -50,7 +50,7 @@ repos:
     hooks:
       - id: git-check
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.37.1
+    rev: 0.37.2
     hooks:
       - id: check-github-workflows
       - id: check-github-actions
@@ -79,8 +79,8 @@ repos:
           - prospector-profile-duplicated==1.12.0 # pypi
           - prospector-profile-utils==1.27.0 # pypi
           - pylint[spelling]==4.0.5 # pypi
-          - ruff==0.15.11 # pypi
-          - mypy==1.20.2 # pypi
+          - ruff==0.15.14 # pypi
+          - mypy==2.1.0 # pypi
         exclude: |-
           (?x)(
             ^tests?/?
@@ -100,11 +100,11 @@ repos:
           - prospector-profile-utils==1.27.0 # pypi
           - pylint[spelling]==4.0.5 # pypi
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 43.141.2
+    rev: 43.150.0
     hooks:
       - id: renovate-config-validator
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.11
+    rev: v0.15.14
     hooks:
       - id: ruff-format
   - repo: https://github.com/sbrunner/python-versions-hook
