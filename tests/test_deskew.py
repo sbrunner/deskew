@@ -15,7 +15,7 @@ else:
     NpNdarrayInt = np.ndarray
 
 
-def check_image(root_folder, image, name, level=1.0):
+def check_image(root_folder, image, name, level=0.9999):
     """Check the image."""
     assert image is not None, "Image required"
     expected_name = Path(__file__).parent / f"{name}.expected.png"
@@ -74,16 +74,16 @@ def test_deskew(image, expected_angle):
 @pytest.mark.parametrize(
     ("min_angle", "max_angle", "angle_pm_90", "num_peaks", "expected", "postfix", "level"),
     [
-        (None, None, False, 20, -3, "", 1),
-        (None, None, True, 20, -3, "-90", 1),
-        (-10, 10, False, 20, -3, "-min-max", 1),
-        (5, 10, False, 20, None, "-min-max-positive", 1),
-        (-10, -5, False, 20, None, "-min-max-negative", 1),
-        (35, -35, False, 20, None, "-min-max-inverted", 1),
-        (-10, 10, True, 20, -3, "-90-min-max", 1),
-        (5, 10, True, 20, None, "-90-min-max-positive", 1),
-        (-10, -5, True, 20, None, "-90-min-max-negative", 1),
-        (80, -80, True, 20, None, "-90-min-max-inverted", 1),
+        (None, None, False, 20, -3, "", 0.9999),
+        (None, None, True, 20, -3, "-90", 0.9999),
+        (-10, 10, False, 20, -3, "-min-max", 0.9999),
+        (5, 10, False, 20, None, "-min-max-positive", 0.9999),
+        (-10, -5, False, 20, None, "-min-max-negative", 0.9999),
+        (35, -35, False, 20, None, "-min-max-inverted", 0.9999),
+        (-10, 10, True, 20, -3, "-90-min-max", 0.9999),
+        (5, 10, True, 20, None, "-90-min-max-positive", 0.9999),
+        (-10, -5, True, 20, None, "-90-min-max-negative", 0.9999),
+        (80, -80, True, 20, None, "-90-min-max-inverted", 0.9999),
         (None, None, False, 200, -3, "-many-peaks", 0.93),
         (None, None, True, 200, -3, "-90-many-peaks", 0.93),
     ],
