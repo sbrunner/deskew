@@ -1,3 +1,5 @@
+# Copyright (c) 2019-2026, Stéphane Brunner
+
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 

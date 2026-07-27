@@ -1,3 +1,5 @@
+# Copyright (c) 2019-2026, Stéphane Brunner
+
 import argparse
 import sys
 
