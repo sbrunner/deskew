@@ -1,10 +1,10 @@
 c2cciutils==1.7.5
 poetry==2.4.1
-pre-commit==4.6.0
+pre-commit==4.6.1
 poetry-plugin-export==1.10.0
 importlib-metadata<9.0.1
 certifi>=2024.7.4 # not directly required, pinned by Snyk to avoid a vulnerability
 zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
-tag-publish==1.1.1
+tag-publish==1.2.2
 requests>=2.32.4 # not directly required, pinned by Snyk to avoid a vulnerability
 urllib3>=2.5.0 # not directly required, pinned by Snyk to avoid a vulnerability

@@ -1457,14 +1457,14 @@ testing = ["coverage", "pytest", "pytest-benchmark"]
 
 [[package]]
 name = "prospector"
-version = "1.19.0"
+version = "1.19.1"
 description = "Prospector is a tool to analyse Python code by aggregating the result of other tools."
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "prospector-1.19.0-py3-none-any.whl", hash = "sha256:f097ee768024087ea7d118c31d8a9db5bc9e60f9c79b63c8b9596963dab0a7fe"},
-    {file = "prospector-1.19.0.tar.gz", hash = "sha256:c7e0b74daee9b4610b9dc993e07e97d506a7a8ede7d5417dbf4ddc7cee0167e9"},
+    {file = "prospector-1.19.1-py3-none-any.whl", hash = "sha256:2673a27d6876c40fa3c3401d3293b79a8b7da58d5203202d2e23408461d81546"},
+    {file = "prospector-1.19.1.tar.gz", hash = "sha256:b3c9855e82b6f450808c967a34d45653ba9920fb49a159ce005642d15d6968a2"},
 ]
 
 [package.dependencies]
@@ -2360,4 +2360,4 @@ debug-images = ["matplotlib", "opencv-python-headless"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.15"
-content-hash = "a0dd7efb0370ca6e21b59ddaa3506eefed4bab80b62f93b878249ce8c27df652"
+content-hash = "0b9d6f06c3954a76fe746b3eb3e85667d840b7139558b4bda259cce3fc3090a4"
