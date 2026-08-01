@@ -2232,15 +2232,15 @@ zarr = ["fsspec", "kerchunk", "zarr (>=3.1.5)"]
 
 [[package]]
 name = "tifffile"
-version = "2026.7.14"
+version = "2026.7.31"
 description = "Read and write TIFF files"
 optional = false
 python-versions = ">=3.12"
 groups = ["main"]
 markers = "python_version >= \"3.12\""
 files = [
-    {file = "tifffile-2026.7.14-py3-none-any.whl", hash = "sha256:4eb20372e76edf2c9fed922b1e3a0a0567be3560bd2008336115763bb1f3c034"},
-    {file = "tifffile-2026.7.14.tar.gz", hash = "sha256:ce2703e5ef22c868f1528d5f5b4ef75eefb019cf628a1c9ec0d17e0afeca8ef5"},
+    {file = "tifffile-2026.7.31-py3-none-any.whl", hash = "sha256:81adfa08012be1c478f99b83cda2f529eef8620cfbdf94fc41eef6f1d7b47dc5"},
+    {file = "tifffile-2026.7.31.tar.gz", hash = "sha256:79b1f4b1aba3ef3e6b6f1691a32abb62f5d7383faa52a12771c695232ba40bee"},
 ]
 
 [package.dependencies]
