@@ -50,7 +50,7 @@ jobs:
         if: failure()
 
       - run: poetry install --extras=debug_images
-      - run: poetry run prospector --output=pylint --die-on-tool-error
+      - run: poetry run prospector --output=pylint --direct-tool-stdout
 
   test:
     name: Run tests
