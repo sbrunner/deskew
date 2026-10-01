@@ -12,7 +12,7 @@ permissions:
 jobs:
   auto-merge:
     name: Auto reviews pull requests from bots
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 5
 
     permissions:
