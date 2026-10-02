@@ -52,11 +52,11 @@ from skimage.transform import rotate
 
 from deskew import determine_skew
 
-image = io.imread('input.png')
+image = io.imread("input.png")
 grayscale = rgb2gray(image)
 angle = determine_skew(grayscale)
 rotated = rotate(image, angle, resize=True) * 255
-io.imsave('output.png', rotated.astype(np.uint8))
+io.imsave("output.png", rotated.astype(np.uint8))
 ```
 
 With OpenCV:
@@ -71,9 +71,7 @@ import numpy as np
 from deskew import determine_skew
 
 
-def rotate(
-        image: np.ndarray, angle: float, background: Union[int, Tuple[int, int, int]]
-) -> np.ndarray:
+def rotate(image: np.ndarray, angle: float, background: Union[int, Tuple[int, int, int]]) -> np.ndarray:
     old_width, old_height = image.shape[:2]
     angle_radian = math.radians(angle)
     width = abs(np.sin(angle_radian) * old_height) + abs(np.cos(angle_radian) * old_width)
@@ -85,11 +83,12 @@ def rotate(
     rot_mat[0, 2] += (height - old_height) / 2
     return cv2.warpAffine(image, rot_mat, (int(round(height)), int(round(width))), borderValue=background)
 
-image = cv2.imread('input.png')
+
+image = cv2.imread("input.png")
 grayscale = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 angle = determine_skew(grayscale)
 rotated = rotate(image, angle, (0, 0, 0))
-cv2.imwrite('output.png', rotated)
+cv2.imwrite("output.png", rotated)
 ```
 
 ## Debug images
