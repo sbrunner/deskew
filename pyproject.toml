@@ -93,5 +93,5 @@ deskew = "deskew.cli:main"
 debug_images = ["opencv-python-headless", "matplotlib"]
 
 [build-system]
-requires = ["poetry-core==2.5.0", "poetry-dynamic-versioning[plugin]==1.10.0"]
+requires = ["poetry-core==2.5.0", "poetry-dynamic-versioning[plugin]==1.10.1"]
 build-backend = "poetry.core.masonry.api"
