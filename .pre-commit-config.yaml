@@ -39,7 +39,7 @@ repos:
         additional_dependencies:
           - prettier@3.9.9 # npm
           - prettier-plugin-sh@0.20.2 # npm
-          - prettier-plugin-toml@3.0.2 # npm
+          - prettier-plugin-toml@4.1.0 # npm
           - '@prettier/plugin-xml@0.12.0' # npm
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.11.0.1
