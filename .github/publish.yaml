@@ -1,7 +1,5 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/camptocamp/tag-publish/1.3.3/tag_publish/schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/camptocamp/tag-publish/1.3.5/tag_publish/schema.json
 
 pypi:
   packages:
     - {}
-dispatch:
-  - {}
