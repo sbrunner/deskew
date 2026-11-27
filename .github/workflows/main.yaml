@@ -13,6 +13,7 @@ permissions:
 
 env:
   POETRY_INSTALLER_ONLY_BINARY: 'true'
+  POETRY_INSTALLER_NO_BINARY: markdown-table,pylint-celery
   PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
 
 jobs:
