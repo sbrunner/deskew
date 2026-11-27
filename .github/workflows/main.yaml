@@ -9,11 +9,9 @@ on:
       - '*'
 
 permissions:
-  contents: write
-  id-token: write
+  contents: read
 
 env:
-  HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
   PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
 
 jobs:
@@ -119,41 +117,38 @@ jobs:
       - test
     if: always()
 
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
       - run: '[[ "${{ needs.test.outputs.success-3-11 }}" == "true" ]]'
       - run: '[[ "${{ needs.test.outputs.success-3-12 }}" == "true" ]]'
       - run: '[[ "${{ needs.test.outputs.success-3-13 }}" == "true" ]]'
 
+      # The full history is required to compute the version from the tags.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          token: ${{ secrets.TOKEN }}
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        if: env.HAS_SECRETS != 'HAS_SECRETS'
+          fetch-depth: 0
 
+      # Provides the pip, python3 and poetry that tag-publish calls to build the wheel.
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
-          python-version: '3.14'
-      - run: python3 -m pip install --requirement=ci/requirements.txt
+          python-version: '3.13'
+      - run: python3 -m pip install '--only-binary=:all:' --requirement=ci/requirements.txt
 
-      - name: Init Git
-        run: |
-          git config credential.helper 'cache --timeout=120'
-          git config user.email "<ci@ci.com>"
-          git config user.name "CI"
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
-      - name: Init pypi
-        run: |-
-          echo "[pypi]" > ~/.pypirc
-          echo "username = ${{ secrets.PYPI_USERNAME }}" >> ~/.pypirc
-          echo "password = ${{ secrets.PYPI_PASSWORD }}" >> ~/.pypirc
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: latest-known
+          cache-python: true
+          python-version: '3.13'
+
+      # tag-publish logs in to PyPI by itself with the OpenId Connect token, and only when the context publishes.
       - name: Publish
-        run: tag-publish
+        run: uv run --locked --isolated --no-build --project=.github/publish tag-publish
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
+
       - run: git diff --exit-code --patch > /tmp/dpkg-versions.patch; git diff --color; git reset --hard || true
         if: failure()
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
