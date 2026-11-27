@@ -12,6 +12,7 @@ permissions:
   contents: read
 
 env:
+  POETRY_INSTALLER_ONLY_BINARY: 'true'
   PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
 
 jobs:
@@ -25,7 +26,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
-      - run: python3 -m pip install --requirement=ci/requirements.txt
+      - run: python3 -m pip install '--only-binary=:all:' --requirement=ci/requirements.txt
 
       - name: Print environment information
         run: c2cciutils-env
@@ -84,7 +85,7 @@ jobs:
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - run: python3 -m pip install $(grep poetry ci/requirements.txt)
+      - run: python3 -m pip install '--only-binary=:all:' $(grep poetry ci/requirements.txt)
       - run: poetry install --extras=debug_images
       - name: Versions
         run: |
